@@ -52,3 +52,7 @@ summarize-group_by
 chaining-functions-in-a-pipe
 take-aways-3
 additional-tutorials-3
+using-r-is-easy-using-r-is-easy
+using-r-is-easy
+packages-packages
+using-R-is-easy
