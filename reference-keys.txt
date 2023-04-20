@@ -58,3 +58,4 @@ packages-packages
 using-R-is-easy
 what-is-r
 why-arent-we-using-a-gui-for-point-and-cklick-analyses
+why-arent-we-using-a-gui-for-point-and-click-analyses
