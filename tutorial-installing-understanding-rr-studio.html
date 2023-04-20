@@ -162,14 +162,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.8.3" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#environment-overview-of-objects"><i class="fa fa-check"></i><b>1.8.3</b> Environment: Overview of objects</a></li>
 <li class="chapter" data-level="1.8.4" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#plotshelppackages-do-everything-else"><i class="fa fa-check"></i><b>1.8.4</b> Plots/Help/Packages: Do everything else</a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#packages"><i class="fa fa-check"></i><b>1.9</b> Packages</a>
+<li class="chapter" data-level="1.9" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#why-arent-we-using-a-gui-for-point-and-cklick-analyses"><i class="fa fa-check"></i><b>1.9</b> Why aren’t we using a GUI for point-and-cklick analyses?</a></li>
+<li class="chapter" data-level="1.10" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#packages"><i class="fa fa-check"></i><b>1.10</b> Packages</a>
 <ul>
-<li class="chapter" data-level="1.9.1" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#installing-packages"><i class="fa fa-check"></i><b>1.9.1</b> Installing packages</a></li>
-<li class="chapter" data-level="1.9.2" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#activating-packages"><i class="fa fa-check"></i><b>1.9.2</b> Activating packages</a></li>
-<li class="chapter" data-level="1.9.3" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#getting-information-about-packages"><i class="fa fa-check"></i><b>1.9.3</b> Getting information about packages</a></li>
+<li class="chapter" data-level="1.10.1" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#installing-packages"><i class="fa fa-check"></i><b>1.10.1</b> Installing packages</a></li>
+<li class="chapter" data-level="1.10.2" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#activating-packages"><i class="fa fa-check"></i><b>1.10.2</b> Activating packages</a></li>
+<li class="chapter" data-level="1.10.3" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#getting-information-about-packages"><i class="fa fa-check"></i><b>1.10.3</b> Getting information about packages</a></li>
 </ul></li>
-<li class="chapter" data-level="1.10" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#take-aways"><i class="fa fa-check"></i><b>1.10</b> Take-Aways</a></li>
-<li class="chapter" data-level="1.11" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#additional-tutorials"><i class="fa fa-check"></i><b>1.11</b> Additional tutorials</a></li>
+<li class="chapter" data-level="1.11" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#take-aways"><i class="fa fa-check"></i><b>1.11</b> Take-Aways</a></li>
+<li class="chapter" data-level="1.12" data-path="tutorial-installing-understanding-rr-studio.html"><a href="tutorial-installing-understanding-rr-studio.html#additional-tutorials"><i class="fa fa-check"></i><b>1.12</b> Additional tutorials</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="tutorial-using-r-as-a-calculator.html"><a href="tutorial-using-r-as-a-calculator.html"><i class="fa fa-check"></i><b>2</b> Tutorial: Using R as a calculator</a>
 <ul>
@@ -648,8 +649,14 @@ soon as you start creating more objects, this environment will fill up.</p>
 </table>
 </div>
 </div>
-<div id="packages" class="section level2 hasAnchor" number="1.9">
-<h2><span class="header-section-number">1.9</span> Packages<a href="tutorial-installing-understanding-rr-studio.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="why-arent-we-using-a-gui-for-point-and-cklick-analyses" class="section level2 hasAnchor" number="1.9">
+<h2><span class="header-section-number">1.9</span> Why aren’t we using a GUI for point-and-cklick analyses?<a href="tutorial-installing-understanding-rr-studio.html#why-arent-we-using-a-gui-for-point-and-cklick-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>SPSS-trained colleagues, like myself, may miss having a graphical user interface (GUI) in RStudio for point-and-click analyses. For those who prefer such a GUI, they can install <code>jamovi</code>, which is a GUI for R. However, we have decided against introducing <code>jamovi</code> to our students and instead teach them coding directly.</p>
+<p>The reason for this is that coding skills allow for faster adaptation of the written syntax to fit individual needs. Those who first learn to handle a statistics program through point-and-click may have a weaker understanding of the resulting code. If adjustments to the code need to be made later on, students may not be able to do so, and analyses may need to be redone completely by clicking instead of quickly adapting them throughout the script (e.g., with<code>Search + Replace</code>).</p>
+<p>Thus, introducing coding to students promotes their statistical understanding and efficiency. That is why we have chosen this approach and recommend it to colleagues. However, feel free to use <code>jamovi</code>.</p>
+</div>
+<div id="packages" class="section level2 hasAnchor" number="1.10">
+<h2><span class="header-section-number">1.10</span> Packages<a href="tutorial-installing-understanding-rr-studio.html#packages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>While <code>Base R</code>, i.e., the standard version of R, already includes many
 helpful functions, you may at times need other, additional functions.
 For instance, if we want to perform text analysis in R we’ll need to use
@@ -664,8 +671,8 @@ code used to do so.</p>
 for instance use packages like
 <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a> for
 advanced data management.</p>
-<div id="installing-packages" class="section level3 hasAnchor" number="1.9.1">
-<h3><span class="header-section-number">1.9.1</span> Installing packages<a href="tutorial-installing-understanding-rr-studio.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="installing-packages" class="section level3 hasAnchor" number="1.10.1">
+<h3><span class="header-section-number">1.10.1</span> Installing packages<a href="tutorial-installing-understanding-rr-studio.html#installing-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To use a package, you have to install it first. Let’s say you’re
 interested in using the package
 <a href="https://cran.r-project.org/web/packages/dplyr/index.html">dplyr</a>. Using
@@ -675,8 +682,8 @@ are interested in installing.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="tutorial-installing-understanding-rr-studio.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <p>After the installation, the package is now available locally on your computer. It is important to note that the <code>install.packages()</code> command only needs to be executed <strong>once</strong> for each package. In subsequent R sessions (e.g., after closing RSTudio and reopening it the next day), you only need to activate the installed package, which we will learn in the following section.</p>
 </div>
-<div id="activating-packages" class="section level3 hasAnchor" number="1.9.2">
-<h3><span class="header-section-number">1.9.2</span> Activating packages<a href="tutorial-installing-understanding-rr-studio.html#activating-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="activating-packages" class="section level3 hasAnchor" number="1.10.2">
+<h3><span class="header-section-number">1.10.2</span> Activating packages<a href="tutorial-installing-understanding-rr-studio.html#activating-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Before we are able to use a package, we need to activate it <strong>in each
 session</strong>. Thus, you should not only define a working directory at the
 beginning of each session but also activate the packages you want to use
@@ -690,8 +697,8 @@ the <em>library()</em> function) to use the function <code>summarize()</code> if
 following code:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tutorial-installing-understanding-rr-studio.html#cb21-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">summarize</span>()</span></code></pre></div>
 </div>
-<div id="getting-information-about-packages" class="section level3 hasAnchor" number="1.9.3">
-<h3><span class="header-section-number">1.9.3</span> Getting information about packages<a href="tutorial-installing-understanding-rr-studio.html#getting-information-about-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="getting-information-about-packages" class="section level3 hasAnchor" number="1.10.3">
+<h3><span class="header-section-number">1.10.3</span> Getting information about packages<a href="tutorial-installing-understanding-rr-studio.html#getting-information-about-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The package is installed and activated - but how can we use it? To get
 an overview of functions included in a given package, you can consult
 its corresponding “reference manual” (overview document containing all
@@ -722,8 +729,8 @@ out the reference manual to get an idea of the many functions the
 <code>dplyr</code> package contains.</p>
 </div>
 </div>
-<div id="take-aways" class="section level2 hasAnchor" number="1.10">
-<h2><span class="header-section-number">1.10</span> Take-Aways<a href="tutorial-installing-understanding-rr-studio.html#take-aways" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="take-aways" class="section level2 hasAnchor" number="1.11">
+<h2><span class="header-section-number">1.11</span> Take-Aways<a href="tutorial-installing-understanding-rr-studio.html#take-aways" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><strong>Window “Source”</strong>: used to write/execute code in R</li>
 <li><strong>Window “Console”</strong>: used to return results of executed code</li>
@@ -734,8 +741,8 @@ functions, for instance visualizations/searching for help/activating
 or updating packages</li>
 </ul>
 </div>
-<div id="additional-tutorials" class="section level2 hasAnchor" number="1.11">
-<h2><span class="header-section-number">1.11</span> Additional tutorials<a href="tutorial-installing-understanding-rr-studio.html#additional-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="additional-tutorials" class="section level2 hasAnchor" number="1.12">
+<h2><span class="header-section-number">1.12</span> Additional tutorials<a href="tutorial-installing-understanding-rr-studio.html#additional-tutorials" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>You still have questions? The following tutorials &amp; papers can help you
 with that:</p>
 <ul>
