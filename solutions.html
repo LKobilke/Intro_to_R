@@ -294,14 +294,14 @@ vector. First, display all elements of the vector. Then print only the
 5th element. After that, display all elements except the 5th. Finally,
 display the elements at the positions 6 to 8.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="solutions.html#cb97-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>,<span class="dv">52</span>,<span class="dv">73</span>,<span class="dv">71</span>,<span class="dv">80</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">87</span>)</span>
-<span id="cb97-2"><a href="solutions.html#cb97-2" aria-hidden="true" tabindex="-1"></a>age</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="solutions.html#cb96-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>,<span class="dv">52</span>,<span class="dv">73</span>,<span class="dv">71</span>,<span class="dv">80</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">87</span>)</span>
+<span id="cb96-2"><a href="solutions.html#cb96-2" aria-hidden="true" tabindex="-1"></a>age</span></code></pre></div>
 <pre><code>## [1] 65 52 73 71 80 62 68 87</code></pre>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="solutions.html#cb99-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="solutions.html#cb98-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 80</code></pre>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="solutions.html#cb101-1" aria-hidden="true" tabindex="-1"></a>age[<span class="sc">-</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="solutions.html#cb100-1" aria-hidden="true" tabindex="-1"></a>age[<span class="sc">-</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 65 52 73 71 62 68 87</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="solutions.html#cb103-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="solutions.html#cb102-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
 <pre><code>## [1] 62 68 87</code></pre>
 </div>
 <div id="task-3-2" class="section level3 unnumbered hasAnchor">
@@ -312,21 +312,21 @@ vector to the console. Then have only the value in the 2nd element
 displayed, then all values except the 2nd element. At the end, display
 the elements at the positions 2 to 4.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="solutions.html#cb105-1" aria-hidden="true" tabindex="-1"></a>eye_color <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb105-2"><a href="solutions.html#cb105-2" aria-hidden="true" tabindex="-1"></a>eye_color</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="solutions.html#cb104-1" aria-hidden="true" tabindex="-1"></a>eye_color <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb104-2"><a href="solutions.html#cb104-2" aria-hidden="true" tabindex="-1"></a>eye_color</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;  &quot;green&quot; &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="solutions.html#cb107-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="solutions.html#cb106-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot;</code></pre>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="solutions.html#cb109-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="solutions.html#cb108-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;  &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="solutions.html#cb111-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="solutions.html#cb110-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot; &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="solutions.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, you could also use this approach:</span></span>
-<span id="cb113-2"><a href="solutions.html#cb113-2" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="solutions.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, you could also use this approach:</span></span>
+<span id="cb112-2"><a href="solutions.html#cb112-2" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot;</code></pre>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="solutions.html#cb115-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="solutions.html#cb114-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;  &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="solutions.html#cb117-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="solutions.html#cb116-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot; &quot;brown&quot; &quot;grey&quot;</code></pre>
 </div>
 </div>
@@ -339,91 +339,29 @@ and put it into the folder that you want to use as working directory.</p>
 <p>Set your working directory and load the data into R by saving it into a
 source object called <em>data</em>. <strong>Note:</strong> This time, it’s a csv that is separated by semicolons, not by commas.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="solutions.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/LaraK/Documents/IPR/&quot;</span>)</span>
-<span id="cb119-2"><a href="solutions.html#cb119-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;WoJ_names.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="solutions.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/LaraK/Documents/IPR/&quot;</span>)</span>
+<span id="cb118-2"><a href="solutions.html#cb118-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;WoJ_names.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="task-2-3" class="section level3 unnumbered hasAnchor">
 <h3>Task 2<a href="solutions.html#task-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, print only the column to the console that shows the <em>trust in government</em>. Use the <code>$</code> operator
 first. Then try to achieve the same result using the subsetting operators, i.e. <code>[]</code>.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="solutions.html#cb120-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government <span class="co"># first version</span></span></code></pre></div>
-<pre><code>##    [1] 3 4 4 4 2 4 1 3 1 3 2 3 2 2 2 2 3 3 4 3 3 2 3 4 3 3 3 2 3 3 3 3 4 2 3 2 2
-##   [38] 2 2 3 3 3 3 4 3 4 3 2 1 4 1 2 3 3 3 2 3 2 3 4 3 1 3 3 3 3 4 2 2 4 4 4 3 2
-##   [75] 3 4 2 3 3 4 3 2 2 3 2 2 3 3 3 2 2 4 2 3 3 3 2 2 2 3 3 2 3 2 2 1 3 4 4 3 3
-##  [112] 2 2 3 2 4 2 3 3 3 3 3 3 3 2 3 3 4 3 2 4 2 3 3 3 5 1 3 4 1 4 4 4 2 4 4 3 1
-##  [149] 3 2 3 3 3 4 3 3 3 2 2 3 4 4 1 1 4 1 2 3 3 2 4 3 4 2 3 2 2 1 2 3 3 2 2 2 3
-##  [186] 2 3 4 2 3 1 1 3 3 2 3 3 3 1 3 3 4 3 2 2 3 4 2 3 3 3 2 3 2 3 2 1 3 3 3 2 2
-##  [223] 2 4 3 3 3 1 1 3 2 3 2 4 3 2 2 3 3 1 3 3 2 3 2 3 2 4 2 2 2 3 4 4 3 2 2 4 3
-##  [260] 3 3 3 2 4 4 2 3 3 3 3 3 3 3 3 2 4 3 3 2 3 3 3 4 5 2 2 3 2 1 3 4 1 3 4 2 2
-##  [297] 3 3 1 4 3 3 2 1 4 2 1 3 3 3 4 3 3 4 2 2 4 1 3 2 3 3 3 3 4 3 4 5 1 3 2 3 3
-##  [334] 3 3 1 3 3 3 4 4 1 3 3 3 3 4 3 2 2 3 3 3 3 3 2 3 3 3 1 4 4 2 2 3 3 2 3 4 3
-##  [371] 3 1 2 4 3 2 1 4 3 5 2 3 1 4 4 1 4 2 4 3 1 4 2 3 4 3 4 3 4 3 2 4 3 2 3 4 3
-##  [408] 3 3 1 3 3 3 2 3 3 4 4 3 3 4 3 4 3 2 3 3 3 2 1 2 3 3 4 2 2 2 2 4 3 4 2 2 3
-##  [445] 3 3 1 3 3 2 3 2 3 4 2 2 3 3 3 4 1 4 5 4 3 4 3 3 3 2 3 2 3 2 4 3 4 3 3 1 3
-##  [482] 2 3 2 3 3 2 2 2 2 3 2 4 3 2 3 3 2 3 4 2 2 3 4 4 1 3 3 3 2 4 3 4 2 3 2 3 3
-##  [519] 2 4 1 2 3 4 3 2 3 2 2 2 3 3 4 3 4 2 2 2 3 3 2 3 3 2 4 3 2 3 3 4 3 3 2 3 2
-##  [556] 2 2 4 3 3 1 2 1 4 4 4 3 3 3 3 4 2 3 2 2 3 4 4 3 3 3 2 3 3 2 3 3 2 3 4 2 3
-##  [593] 3 2 4 3 3 1 2 3 3 1 3 4 1 3 4 4 3 2 3 3 3 4 2 2 3 3 2 1 4 1 3 3 2 4 3 3 1
-##  [630] 3 1 3 2 3 3 3 3 3 2 2 4 3 3 2 4 2 3 3 3 4 4 3 3 3 3 1 4 2 3 2 1 3 2 2 3 2
-##  [667] 4 3 2 3 3 4 3 3 2 2 2 3 2 4 4 2 4 4 2 2 3 3 4 3 4 2 3 3 2 4 3 3 3 3 2 2 3
-##  [704] 4 4 4 2 3 3 4 3 3 2 2 2 3 3 3 2 2 3 1 1 3 3 2 2 3 2 3 2 3 1 3 3 2 2 3 4 3
-##  [741] 3 2 4 2 3 3 3 3 2 4 3 5 3 4 3 2 2 3 3 2 3 3 3 3 2 3 4 4 3 4 3 4 4 3 3 2 3
-##  [778] 4 3 3 3 3 3 4 3 2 2 4 2 5 4 2 4 3 3 2 3 4 3 3 3 4 3 2 4 4 4 3 3 3 3 4 4 3
-##  [815] 3 2 3 3 1 4 2 3 2 4 4 3 1 3 4 4 4 3 4 3 3 1 3 3 3 3 2 4 4 3 2 3 2 3 3 2 3
-##  [852] 4 1 3 3 2 2 3 1 1 3 2 3 2 4 4 3 3 3 2 3 4 2 2 3 2 2 3 1 3 2 3 4 4 3 2 3 2
-##  [889] 4 3 2 3 3 2 3 1 3 3 3 1 1 4 2 2 2 3 2 3 4 2 3 3 3 2 3 4 2 2 3 4 3 3 4 2 3
-##  [926] 3 2 3 3 4 3 2 3 1 3 2 4 3 3 4 2 4 3 2 3 3 4 3 1 3 2 4 3 4 4 4 2 1 2 4 1 4
-##  [963] 4 5 4 3 3 3 3 2 3 4 2 2 2 3 3 2 4 4 2 3 5 1 3 2 3 3 2 2 2 4 1 1 3 3 3 3 1
-## [1000] 1 4 3 2 4 2 3 4 3 2 4 3 3 3 3 3 3 3 1 3 4 2 3 3 4 4 3 4 2 2 3 1 2 3 3 3 3
-## [1037] 2 4 4 3 4 4 2 3 3 3 4 3 4 2 3 3 3 3 3 3 2 4 3 3 2 5 2 3 4 4 3 2 3 2 3 3 4
-## [1074] 2 3 3 3 2 4 3 3 4 2 3 1 3 2 2 2 4 2 1 4 2 4 3 3 4 4 2 2 3 3 3 3 3 3 2 3 3
-## [1111] 2 1 2 2 2 4 3 3 2 4 2 2 3 3 2 3 3 3 3 2 3 4 3 2 4 3 3 4 4 3 1 4 3 3 4 4 3
-## [1148] 3 4 2 4 3 3 4 3 3 2 2 2 3 3 3 3 3 2 2 3 3 3 3 3 3 3 3 3 4 4 3 3 3 3 3 4 3
-## [1185] 2 2 3 2 3 3 3 3 4 3 4 4 3 1 3 4</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="solutions.html#cb122-1" aria-hidden="true" tabindex="-1"></a>data[,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
-<pre><code>##    [1] 3 4 4 4 2 4 1 3 1 3 2 3 2 2 2 2 3 3 4 3 3 2 3 4 3 3 3 2 3 3 3 3 4 2 3 2 2
-##   [38] 2 2 3 3 3 3 4 3 4 3 2 1 4 1 2 3 3 3 2 3 2 3 4 3 1 3 3 3 3 4 2 2 4 4 4 3 2
-##   [75] 3 4 2 3 3 4 3 2 2 3 2 2 3 3 3 2 2 4 2 3 3 3 2 2 2 3 3 2 3 2 2 1 3 4 4 3 3
-##  [112] 2 2 3 2 4 2 3 3 3 3 3 3 3 2 3 3 4 3 2 4 2 3 3 3 5 1 3 4 1 4 4 4 2 4 4 3 1
-##  [149] 3 2 3 3 3 4 3 3 3 2 2 3 4 4 1 1 4 1 2 3 3 2 4 3 4 2 3 2 2 1 2 3 3 2 2 2 3
-##  [186] 2 3 4 2 3 1 1 3 3 2 3 3 3 1 3 3 4 3 2 2 3 4 2 3 3 3 2 3 2 3 2 1 3 3 3 2 2
-##  [223] 2 4 3 3 3 1 1 3 2 3 2 4 3 2 2 3 3 1 3 3 2 3 2 3 2 4 2 2 2 3 4 4 3 2 2 4 3
-##  [260] 3 3 3 2 4 4 2 3 3 3 3 3 3 3 3 2 4 3 3 2 3 3 3 4 5 2 2 3 2 1 3 4 1 3 4 2 2
-##  [297] 3 3 1 4 3 3 2 1 4 2 1 3 3 3 4 3 3 4 2 2 4 1 3 2 3 3 3 3 4 3 4 5 1 3 2 3 3
-##  [334] 3 3 1 3 3 3 4 4 1 3 3 3 3 4 3 2 2 3 3 3 3 3 2 3 3 3 1 4 4 2 2 3 3 2 3 4 3
-##  [371] 3 1 2 4 3 2 1 4 3 5 2 3 1 4 4 1 4 2 4 3 1 4 2 3 4 3 4 3 4 3 2 4 3 2 3 4 3
-##  [408] 3 3 1 3 3 3 2 3 3 4 4 3 3 4 3 4 3 2 3 3 3 2 1 2 3 3 4 2 2 2 2 4 3 4 2 2 3
-##  [445] 3 3 1 3 3 2 3 2 3 4 2 2 3 3 3 4 1 4 5 4 3 4 3 3 3 2 3 2 3 2 4 3 4 3 3 1 3
-##  [482] 2 3 2 3 3 2 2 2 2 3 2 4 3 2 3 3 2 3 4 2 2 3 4 4 1 3 3 3 2 4 3 4 2 3 2 3 3
-##  [519] 2 4 1 2 3 4 3 2 3 2 2 2 3 3 4 3 4 2 2 2 3 3 2 3 3 2 4 3 2 3 3 4 3 3 2 3 2
-##  [556] 2 2 4 3 3 1 2 1 4 4 4 3 3 3 3 4 2 3 2 2 3 4 4 3 3 3 2 3 3 2 3 3 2 3 4 2 3
-##  [593] 3 2 4 3 3 1 2 3 3 1 3 4 1 3 4 4 3 2 3 3 3 4 2 2 3 3 2 1 4 1 3 3 2 4 3 3 1
-##  [630] 3 1 3 2 3 3 3 3 3 2 2 4 3 3 2 4 2 3 3 3 4 4 3 3 3 3 1 4 2 3 2 1 3 2 2 3 2
-##  [667] 4 3 2 3 3 4 3 3 2 2 2 3 2 4 4 2 4 4 2 2 3 3 4 3 4 2 3 3 2 4 3 3 3 3 2 2 3
-##  [704] 4 4 4 2 3 3 4 3 3 2 2 2 3 3 3 2 2 3 1 1 3 3 2 2 3 2 3 2 3 1 3 3 2 2 3 4 3
-##  [741] 3 2 4 2 3 3 3 3 2 4 3 5 3 4 3 2 2 3 3 2 3 3 3 3 2 3 4 4 3 4 3 4 4 3 3 2 3
-##  [778] 4 3 3 3 3 3 4 3 2 2 4 2 5 4 2 4 3 3 2 3 4 3 3 3 4 3 2 4 4 4 3 3 3 3 4 4 3
-##  [815] 3 2 3 3 1 4 2 3 2 4 4 3 1 3 4 4 4 3 4 3 3 1 3 3 3 3 2 4 4 3 2 3 2 3 3 2 3
-##  [852] 4 1 3 3 2 2 3 1 1 3 2 3 2 4 4 3 3 3 2 3 4 2 2 3 2 2 3 1 3 2 3 4 4 3 2 3 2
-##  [889] 4 3 2 3 3 2 3 1 3 3 3 1 1 4 2 2 2 3 2 3 4 2 3 3 3 2 3 4 2 2 3 4 3 3 4 2 3
-##  [926] 3 2 3 3 4 3 2 3 1 3 2 4 3 3 4 2 4 3 2 3 3 4 3 1 3 2 4 3 4 4 4 2 1 2 4 1 4
-##  [963] 4 5 4 3 3 3 3 2 3 4 2 2 2 3 3 2 4 4 2 3 5 1 3 2 3 3 2 2 2 4 1 1 3 3 3 3 1
-## [1000] 1 4 3 2 4 2 3 4 3 2 4 3 3 3 3 3 3 3 1 3 4 2 3 3 4 4 3 4 2 2 3 1 2 3 3 3 3
-## [1037] 2 4 4 3 4 4 2 3 3 3 4 3 4 2 3 3 3 3 3 3 2 4 3 3 2 5 2 3 4 4 3 2 3 2 3 3 4
-## [1074] 2 3 3 3 2 4 3 3 4 2 3 1 3 2 2 2 4 2 1 4 2 4 3 3 4 4 2 2 3 3 3 3 3 3 2 3 3
-## [1111] 2 1 2 2 2 4 3 3 2 4 2 2 3 3 2 3 3 3 3 2 3 4 3 2 4 3 3 4 4 3 1 4 3 3 4 4 3
-## [1148] 3 4 2 4 3 3 4 3 3 2 2 2 3 3 3 3 3 2 2 3 3 3 3 3 3 3 3 3 4 4 3 3 3 3 3 4 3
-## [1185] 2 2 3 2 3 3 3 3 4 3 4 4 3 1 3 4</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="solutions.html#cb119-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government <span class="co"># first version</span></span></code></pre></div>
+<pre><code>##  [1] 3 4 4 4 2 4 1 3 1 3 2 3 2 2 2 2 3 3 4 3 3 2 3 4 3 3 3 2 3 3 3 3 4 2 3 2 2 2
+## [39] 2 3</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="solutions.html#cb121-1" aria-hidden="true" tabindex="-1"></a>data[,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
+<pre><code>##  [1] 3 4 4 4 2 4 1 3 1 3 2 3 2 2 2 2 3 3 4 3 3 2 3 4 3 3 3 2 3 3 3 3 4 2 3 2 2 2
+## [39] 2 3</code></pre>
 </div>
 <div id="task-3-3" class="section level3 unnumbered hasAnchor">
 <h3>Task 3<a href="solutions.html#task-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Print only the first 6 <em>trust in government</em> numbers to the console. Use the <code>$</code> operator
 first. Then try to achieve the same result using the subsetting operators, i.e. <code>[]</code>.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="solutions.html#cb124-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># first version</span></span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="solutions.html#cb123-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># first version</span></span></code></pre></div>
 <pre><code>## [1] 3 4 4 4 2 4</code></pre>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="solutions.html#cb126-1" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="solutions.html#cb125-1" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
 <pre><code>## [1] 3 4 4 4 2 4</code></pre>
 
 </div>
