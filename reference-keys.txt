@@ -59,3 +59,7 @@ using-R-is-easy
 what-is-r
 why-arent-we-using-a-gui-for-point-and-cklick-analyses
 why-arent-we-using-a-gui-for-point-and-click-analyses
+import-data-from-various-file-formats
+importing-data-from-excel
+importing-data-from-spss
+importing-data-from-json
