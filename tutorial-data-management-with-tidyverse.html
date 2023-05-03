@@ -507,7 +507,7 @@ etc.), best combined with <code>group_by()</code></li>
 <div id="select" class="section level3 hasAnchor" number="4.5.1">
 <h3><span class="header-section-number">4.5.1</span> select()<a href="tutorial-data-management-with-tidyverse.html#select" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You will frequently encounter large data sets including
-hundreds of variables (often even more!). The first problem in this
+hundreds of variables. The first problem in this
 scenario is narrowing down the variables you are truly interested in.
 <code>select()</code> helps you to easily choose a suitable subset of variables. In
 this selection process, the name of the data frame is the source object,
@@ -1045,7 +1045,7 @@ do not reassign the source object to itself when you use <code>summarize()</code
 <p>We learn from the 6 droids in our data set that droids are small, 131cm
 on average. But Ewoks are even smaller (88cm on average). <em>Pro tip:</em> you
 can even group by two groups at the same time with the method
-<code>group_by(x1, x2, .add=TRUE)</code>.</p>
+<code>group_by(x1, x2, .add=TRUE)</code> or <code>group_by(x1, x2)</code>.</p>
 <p>Finally, we can also retrieve all relevant summary statistics of a
 classic <a href="https://www.simplypsychology.org/boxplots.html">box plot</a>:</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="tutorial-data-management-with-tidyverse.html#cb158-1" aria-hidden="true" tabindex="-1"></a>starwars_short <span class="sc">%&gt;%</span></span>
