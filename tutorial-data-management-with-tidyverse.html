@@ -341,18 +341,17 @@ lubridate for time data)</li>
 </ul>
 <p>The most frequently used packages of the <code>tidyverse</code> can be installed
 and activated in one go (less frequently used packages like <code>haven</code>
-still need to be installed and activated separately):</p>
+might still need to be installed and activated separately):</p>
 <div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="tutorial-data-management-with-tidyverse.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyverse&quot;</span>) <span class="co"># install the package (only on the first time)</span></span>
 <span id="cb96-2"><a href="tutorial-data-management-with-tidyverse.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># active the package</span></span></code></pre></div>
 </div>
 <div id="tidy-data" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Tidy data<a href="tutorial-data-management-with-tidyverse.html#tidy-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dataframes, which we learned about in [Types of objects], are tabular
-data. However, data can also have other formats, for example as nested,
+<p>Dataframes are tabular data. However, data can also have other formats, for example as nested,
 i.e. hierarchical, lists. In communication research, these other data
 formats are mainly used by social media and their respective APIs
-(perhaps you have heard of the “JSON” format before).</p>
-<p>In our course, however, we’ll focus on tabular data.The same data can be
+(e.g., “JSON” format).</p>
+<p>In our course, however, we’ll focus on tabular data. The same data can be
 represented differently in tables. We perceive some of these
 representations as tidy, others as messy. While tidy data principles
 establish a standard for organizing data values inside a data frame and
