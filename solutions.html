@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Solutions | Continuing education: R</title>
   <meta name="description" content="Continuing education for employees: R" />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Solutions | Continuing education: R" />
   <meta property="og:type" content="book" />
@@ -23,14 +23,14 @@
 <meta name="author" content="Lara Kobilke, IfKW, Ludwig-Maximilians-Universität München" />
 
 
-<meta name="date" content="2023-05-03" />
+<meta name="date" content="2023-05-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="exercise-3-test-your-knowledge.html"/>
+<link rel="prev" href="tutorial-advanced-data-management.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -119,6 +119,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -240,6 +244,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="exercise-3-test-your-knowledge.html"><a href="exercise-3-test-your-knowledge.html#task-6"><i class="fa fa-check"></i>Task 6</a></li>
 <li class="chapter" data-level="" data-path="exercise-3-test-your-knowledge.html"><a href="exercise-3-test-your-knowledge.html#task-7"><i class="fa fa-check"></i>Task 7</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html"><i class="fa fa-check"></i><b>5</b> Tutorial: Advanced data management</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#stop-hard-coding-your-working-directory"><i class="fa fa-check"></i><b>5.1</b> Stop hard-coding your working directory!</a></li>
+<li class="chapter" data-level="5.2" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#start-navigating-your-working-directory-like-a-pro"><i class="fa fa-check"></i><b>5.2</b> Start navigating your working directory like a pro!</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#the-concept-of-relative-paths"><i class="fa fa-check"></i><b>5.2.1</b> The concept of relative paths</a></li>
+<li class="chapter" data-level="5.2.2" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#moving-up-and-down-folders-by-using-relative-paths"><i class="fa fa-check"></i><b>5.2.2</b> Moving up and down folders by using relative paths</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#reading-multiple-files-into-r"><i class="fa fa-check"></i><b>5.3</b> Reading multiple files into R</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#reading-multiple-files-into-r-with-different-column-names"><i class="fa fa-check"></i><b>5.3.1</b> Reading multiple files into R with different column names</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#using-advanced-column-selectors"><i class="fa fa-check"></i><b>5.4</b> Using advanced column selectors</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#selecting-the-last-column"><i class="fa fa-check"></i><b>5.4.1</b> Selecting the last column</a></li>
+<li class="chapter" data-level="5.4.2" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#selecting-columns-that-start-with-end-with-or-contain-a-specific-string"><i class="fa fa-check"></i><b>5.4.2</b> Selecting columns that start with, end with or contain a specific string</a></li>
+<li class="chapter" data-level="5.4.3" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#selecting-columns-based-on-a-numeric-range"><i class="fa fa-check"></i><b>5.4.3</b> Selecting columns based on a numeric range</a></li>
+<li class="chapter" data-level="5.4.4" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#selecting-columns-based-on-their-type"><i class="fa fa-check"></i><b>5.4.4</b> Selecting columns based on their type</a></li>
+<li class="chapter" data-level="5.4.5" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#combine-selectors"><i class="fa fa-check"></i><b>5.4.5</b> Combine selectors</a></li>
+<li class="chapter" data-level="5.4.6" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#reorder-your-columns-with-everything"><i class="fa fa-check"></i><b>5.4.6</b> Reorder your columns with everything()</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="tutorial-advanced-data-management.html"><a href="tutorial-advanced-data-management.html#take-aways-4"><i class="fa fa-check"></i><b>5.5</b> Take-Aways</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i>Solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#solutions-for-exercise-1"><i class="fa fa-check"></i>Solutions for Exercise 1</a>
@@ -332,14 +359,14 @@ vector. First, display all elements of the vector. Then print only the
 5th element. After that, display all elements except the 5th. Finally,
 display the elements at the positions 6 to 8.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="solutions.html#cb167-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>,<span class="dv">52</span>,<span class="dv">73</span>,<span class="dv">71</span>,<span class="dv">80</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">87</span>)</span>
-<span id="cb167-2"><a href="solutions.html#cb167-2" aria-hidden="true" tabindex="-1"></a>age</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="solutions.html#cb206-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">65</span>,<span class="dv">52</span>,<span class="dv">73</span>,<span class="dv">71</span>,<span class="dv">80</span>,<span class="dv">62</span>,<span class="dv">68</span>,<span class="dv">87</span>)</span>
+<span id="cb206-2"><a href="solutions.html#cb206-2" aria-hidden="true" tabindex="-1"></a>age</span></code></pre></div>
 <pre><code>## [1] 65 52 73 71 80 62 68 87</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="solutions.html#cb169-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="solutions.html#cb208-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 80</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="solutions.html#cb171-1" aria-hidden="true" tabindex="-1"></a>age[<span class="sc">-</span><span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="solutions.html#cb210-1" aria-hidden="true" tabindex="-1"></a>age[<span class="sc">-</span><span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1] 65 52 73 71 62 68 87</code></pre>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="solutions.html#cb173-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="solutions.html#cb212-1" aria-hidden="true" tabindex="-1"></a>age[<span class="dv">6</span><span class="sc">:</span><span class="dv">8</span>]</span></code></pre></div>
 <pre><code>## [1] 62 68 87</code></pre>
 </div>
 <div id="task-3-3" class="section level3 unnumbered hasAnchor">
@@ -350,21 +377,21 @@ vector to the console. Then have only the value in the 2nd element
 displayed, then all values except the 2nd element. At the end, display
 the elements at the positions 2 to 4.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="solutions.html#cb175-1" aria-hidden="true" tabindex="-1"></a>eye_color <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;grey&quot;</span>)</span>
-<span id="cb175-2"><a href="solutions.html#cb175-2" aria-hidden="true" tabindex="-1"></a>eye_color</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="solutions.html#cb214-1" aria-hidden="true" tabindex="-1"></a>eye_color <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;brown&quot;</span>, <span class="st">&quot;grey&quot;</span>)</span>
+<span id="cb214-2"><a href="solutions.html#cb214-2" aria-hidden="true" tabindex="-1"></a>eye_color</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;  &quot;green&quot; &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="solutions.html#cb177-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="solutions.html#cb216-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot;</code></pre>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="solutions.html#cb179-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="solutions.html#cb218-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;  &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="solutions.html#cb181-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="solutions.html#cb220-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot; &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="solutions.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, you could also use this approach:</span></span>
-<span id="cb183-2"><a href="solutions.html#cb183-2" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="solutions.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Alternatively, you could also use this approach:</span></span>
+<span id="cb222-2"><a href="solutions.html#cb222-2" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot;</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="solutions.html#cb185-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="solutions.html#cb224-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;blue&quot;  &quot;brown&quot; &quot;grey&quot;</code></pre>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="solutions.html#cb187-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="solutions.html#cb226-1" aria-hidden="true" tabindex="-1"></a>eye_color[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)]</span></code></pre></div>
 <pre><code>## [1] &quot;green&quot; &quot;brown&quot; &quot;grey&quot;</code></pre>
 </div>
 </div>
@@ -377,18 +404,18 @@ and put it into the folder that you want to use as working directory.</p>
 <p>Set your working directory and load the data into R by saving it into a
 source object called <em>data</em>. <strong>Note:</strong> This time, it’s a csv that is separated by semicolons, not by commas.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="solutions.html#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/LaraK/Documents/IPR/&quot;</span>)</span>
-<span id="cb189-2"><a href="solutions.html#cb189-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;WoJ_names.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="solutions.html#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;C:/Users/LaraK/Documents/IPR/&quot;</span>)</span>
+<span id="cb228-2"><a href="solutions.html#cb228-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">&quot;WoJ_names.csv&quot;</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="task-2-4" class="section level3 unnumbered hasAnchor">
 <h3>Task 2<a href="solutions.html#task-2-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now, print only the column to the console that shows the <em>trust in government</em>. Use the <code>$</code> operator
 first. Then try to achieve the same result using the subsetting operators, i.e. <code>[]</code>.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="solutions.html#cb190-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government <span class="co"># first version</span></span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="solutions.html#cb229-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government <span class="co"># first version</span></span></code></pre></div>
 <pre><code>##  [1] 3 4 4 4 2 4 1 3 1 3 2 3 2 2 2 2 3 3 4 3 3 2 3 4 3 3 3 2 3 3 3 3 4 2 3 2 2 2
 ## [39] 2 3</code></pre>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="solutions.html#cb192-1" aria-hidden="true" tabindex="-1"></a>data[,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="solutions.html#cb231-1" aria-hidden="true" tabindex="-1"></a>data[,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
 <pre><code>##  [1] 3 4 4 4 2 4 1 3 1 3 2 3 2 2 2 2 3 3 4 3 3 2 3 4 3 3 3 2 3 3 3 3 4 2 3 2 2 2
 ## [39] 2 3</code></pre>
 </div>
@@ -397,9 +424,9 @@ first. Then try to achieve the same result using the subsetting operators, i.e.�
 <p>Print only the first 6 <em>trust in government</em> numbers to the console. Use the <code>$</code> operator
 first. Then try to achieve the same result using the subsetting operators, i.e. <code>[]</code>.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="solutions.html#cb194-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># first version</span></span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="solutions.html#cb233-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>trust_government[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>] <span class="co"># first version</span></span></code></pre></div>
 <pre><code>## [1] 3 4 4 4 2 4</code></pre>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="solutions.html#cb196-1" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="solutions.html#cb235-1" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="dv">8</span>] <span class="co"># second version</span></span></code></pre></div>
 <pre><code>## [1] 3 4 4 4 2 4</code></pre>
 </div>
 </div>
@@ -455,23 +482,23 @@ approach?</strong></p>
 <div id="task-2-5" class="section level3 unnumbered hasAnchor">
 <h3>Task 2<a href="solutions.html#task-2-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now it’s you turn. Load the starwars data like this:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="solutions.html#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)              <span class="co"># to activate the dplyr package</span></span>
-<span id="cb198-2"><a href="solutions.html#cb198-2" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="ot">&lt;-</span> starwars   <span class="co"># to assign the pre-installed starwars data set (dplyr) into a source object in our environment</span></span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="solutions.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)              <span class="co"># to activate the dplyr package</span></span>
+<span id="cb237-2"><a href="solutions.html#cb237-2" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="ot">&lt;-</span> starwars   <span class="co"># to assign the pre-installed starwars data set (dplyr) into a source object in our environment</span></span></code></pre></div>
 <p>How many humans are contained in the starwars data overall? (Hint: use
 <code>summarize(count = n())</code> or <code>count()</code>)?</p>
 <p><em>Solution:</em></p>
 <p>You can use <code>summarize(count = n())</code>:</p>
-<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="solutions.html#cb199-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb199-2"><a href="solutions.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb199-3"><a href="solutions.html#cb199-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="solutions.html#cb238-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb238-2"><a href="solutions.html#cb238-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb238-3"><a href="solutions.html#cb238-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   count
 ##   &lt;int&gt;
 ## 1    35</code></pre>
 <p>Alternatively, you can use the <code>count()</code> function:</p>
-<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="solutions.html#cb201-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb201-2"><a href="solutions.html#cb201-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb201-3"><a href="solutions.html#cb201-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species)</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="solutions.html#cb240-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb240-2"><a href="solutions.html#cb240-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb240-3"><a href="solutions.html#cb240-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   species     n
 ##   &lt;chr&gt;   &lt;int&gt;
@@ -482,10 +509,10 @@ approach?</strong></p>
 <p>How many humans are contained in starwars by gender?</p>
 <p><em>Solution:</em></p>
 <p>You can use <code>summarize(count = n())</code>:</p>
-<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="solutions.html#cb203-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb203-2"><a href="solutions.html#cb203-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb203-3"><a href="solutions.html#cb203-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, gender) <span class="sc">%&gt;%</span> </span>
-<span id="cb203-4"><a href="solutions.html#cb203-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="solutions.html#cb242-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb242-2"><a href="solutions.html#cb242-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb242-3"><a href="solutions.html#cb242-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb242-4"><a href="solutions.html#cb242-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ## # Groups:   species [1]
 ##   species gender    count
@@ -493,9 +520,9 @@ approach?</strong></p>
 ## 1 Human   feminine      9
 ## 2 Human   masculine    26</code></pre>
 <p>Alternatively, you can use the <code>count()</code> function:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="solutions.html#cb205-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb205-2"><a href="solutions.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb205-3"><a href="solutions.html#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, gender)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="solutions.html#cb244-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb244-2"><a href="solutions.html#cb244-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;Human&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb244-3"><a href="solutions.html#cb244-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(species, gender)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 3
 ##   species gender        n
 ##   &lt;chr&gt;   &lt;chr&gt;     &lt;int&gt;
@@ -507,10 +534,10 @@ approach?</strong></p>
 <p>What is the most common eye_color among Star Wars characters? (Hint: use
 <code>arrange()</code>)__</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="solutions.html#cb207-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb207-2"><a href="solutions.html#cb207-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(eye_color) <span class="sc">%&gt;%</span> </span>
-<span id="cb207-3"><a href="solutions.html#cb207-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb207-4"><a href="solutions.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="solutions.html#cb246-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb246-2"><a href="solutions.html#cb246-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(eye_color) <span class="sc">%&gt;%</span> </span>
+<span id="cb246-3"><a href="solutions.html#cb246-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb246-4"><a href="solutions.html#cb246-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code></pre></div>
 <pre><code>## # A tibble: 15 × 2
 ##    eye_color     count
 ##    &lt;chr&gt;         &lt;int&gt;
@@ -535,9 +562,9 @@ approach?</strong></p>
 <p>What is the average mass of Star Wars characters that are not human and
 have yellow eyes? (Hint: remove all <code>NAs</code>)__</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="solutions.html#cb209-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb209-2"><a href="solutions.html#cb209-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">&quot;Human&quot;</span> <span class="sc">&amp;</span> eye_color<span class="sc">==</span><span class="st">&quot;yellow&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb209-3"><a href="solutions.html#cb209-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_mass =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="solutions.html#cb248-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb248-2"><a href="solutions.html#cb248-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">!=</span> <span class="st">&quot;Human&quot;</span> <span class="sc">&amp;</span> eye_color<span class="sc">==</span><span class="st">&quot;yellow&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb248-3"><a href="solutions.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_mass =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   mean_mass
 ##       &lt;dbl&gt;
@@ -548,13 +575,13 @@ have yellow eyes? (Hint: remove all <code>NAs</code>)__</p>
 <p>Compare the mean, median, and standard deviation of mass for all humans
 and droids. (Hint: remove all <code>NAs</code>)__</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="solutions.html#cb211-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb211-2"><a href="solutions.html#cb211-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">&quot;Human&quot;</span> <span class="sc">|</span> species<span class="sc">==</span><span class="st">&quot;Droid&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb211-3"><a href="solutions.html#cb211-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span>                                </span>
-<span id="cb211-4"><a href="solutions.html#cb211-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">M =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb211-5"><a href="solutions.html#cb211-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Med =</span> <span class="fu">median</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb211-6"><a href="solutions.html#cb211-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">sd</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb211-7"><a href="solutions.html#cb211-7" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="solutions.html#cb250-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb250-2"><a href="solutions.html#cb250-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">&quot;Human&quot;</span> <span class="sc">|</span> species<span class="sc">==</span><span class="st">&quot;Droid&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb250-3"><a href="solutions.html#cb250-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span>                                </span>
+<span id="cb250-4"><a href="solutions.html#cb250-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">M =</span> <span class="fu">mean</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb250-5"><a href="solutions.html#cb250-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">Med =</span> <span class="fu">median</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb250-6"><a href="solutions.html#cb250-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">SD =</span> <span class="fu">sd</span>(mass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb250-7"><a href="solutions.html#cb250-7" aria-hidden="true" tabindex="-1"></a>            )</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   species     M   Med    SD
 ##   &lt;chr&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -566,11 +593,11 @@ and droids. (Hint: remove all <code>NAs</code>)__</p>
 <p>Create a new variable in which you store the mass in gram. Add it to the
 data frame.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="solutions.html#cb213-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="ot">&lt;-</span> starwars_data <span class="sc">%&gt;%</span></span>
-<span id="cb213-2"><a href="solutions.html#cb213-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gr_mass =</span> mass<span class="sc">*</span><span class="dv">1000</span>)</span>
-<span id="cb213-3"><a href="solutions.html#cb213-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb213-4"><a href="solutions.html#cb213-4" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span> </span>
-<span id="cb213-5"><a href="solutions.html#cb213-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, species, mass, gr_mass)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="solutions.html#cb252-1" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="ot">&lt;-</span> starwars_data <span class="sc">%&gt;%</span></span>
+<span id="cb252-2"><a href="solutions.html#cb252-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gr_mass =</span> mass<span class="sc">*</span><span class="dv">1000</span>)</span>
+<span id="cb252-3"><a href="solutions.html#cb252-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb252-4"><a href="solutions.html#cb252-4" aria-hidden="true" tabindex="-1"></a>starwars_data <span class="sc">%&gt;%</span> </span>
+<span id="cb252-5"><a href="solutions.html#cb252-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, species, mass, gr_mass)</span></code></pre></div>
 <pre><code>## # A tibble: 87 × 4
 ##    name               species  mass gr_mass
 ##    &lt;chr&gt;              &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -606,7 +633,7 @@ data frame.</p>
           </div>
         </div>
       </div>
-<a href="exercise-3-test-your-knowledge.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tutorial-advanced-data-management.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
