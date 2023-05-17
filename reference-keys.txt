@@ -78,3 +78,4 @@ selecting-columns-based-on-their-type
 combine-selectors
 reorder-your-columns-with-everything
 take-aways-4
+advanced-selection-of-rows
