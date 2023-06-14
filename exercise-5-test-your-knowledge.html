@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exercise 1 | Continuing education: R</title>
+  <title>Exercise 5: Test your knowledge | Continuing education: R</title>
   <meta name="description" content="Continuing education for employees: R" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exercise 1 | Continuing education: R" />
+  <meta property="og:title" content="Exercise 5: Test your knowledge | Continuing education: R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Continuing education for employees: R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exercise 1 | Continuing education: R" />
+  <meta name="twitter:title" content="Exercise 5: Test your knowledge | Continuing education: R" />
   
   <meta name="twitter:description" content="Continuing education for employees: R" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tutorial-using-r-as-a-calculator.html"/>
-<link rel="next" href="tutorial-working-with-data-files.html"/>
+<link rel="prev" href="exercise-4-test-your-knowledge.html"/>
+<link rel="next" href="solutions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -375,73 +375,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-1" class="section level1 unnumbered hasAnchor">
-<h1>Exercise 1<a href="exercise-1.html#exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>After working through Exercise 1, you’ll…</strong></p>
+<div id="exercise-5-test-your-knowledge" class="section level1 unnumbered hasAnchor">
+<h1>Exercise 5: Test your knowledge<a href="exercise-5-test-your-knowledge.html#exercise-5-test-your-knowledge" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>After working through Exercise 5, you’ll…</strong></p>
 <ul>
-<li>have assessed how well you know R and RStudio</li>
-<li>know what chapters and concepts you might want to repeat again</li>
-<li>have managed to apply the basic concepts of R to data</li>
+<li>have repeated the most important functions of <code>dplyr</code> and <code>ggplot2</code></li>
 </ul>
-<div id="task-1" class="section level2 unnumbered hasAnchor">
-<h2>Task 1<a href="exercise-1.html#task-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Below you will see multiple choice questions. Please try to identify the
-correct answers. 1, 2, 3 and 4 correct answers are possible for each
-question.</p>
-<p><strong>1. What panels are part of RStudio?</strong></p>
-<ul>
-<li>source</li>
-<li>console</li>
-<li>input</li>
-<li>packages, files &amp; plots</li>
-</ul>
-<p><strong>2. How do you activate R packages after you have installed them?</strong></p>
-<ul>
-<li>import.packages()</li>
-<li>install.packages()</li>
-<li>package()</li>
-<li>library()</li>
-</ul>
-<p><strong>3. How do you create a vector in R with elements 1, 2, 3?</strong></p>
-<ul>
-<li>cbind(1,2,3)</li>
-<li>cb(1,2,3)</li>
-<li>c(1,2,3)</li>
-<li>cmb(1,2,3)</li>
-</ul>
-<p><strong>4. Imagine you have a vector called ‘vector’ with 10 numeric elements.
-How do you retrieve the 8th element?</strong></p>
-<ul>
-<li>vector[-2]</li>
-<li>vector[„-2”]</li>
-<li>vector[8]</li>
-<li>vector[„8”]</li>
-</ul>
-<p><strong>5. Imagine you have a vector called ‘hair’ with 5 elements: brown,
-black, red, blond, other. How do you retrieve the color ‘blond’?</strong></p>
-<ul>
-<li>hair[4]</li>
-<li>hair[„4”]</li>
-<li>hair[blond]</li>
-<li>hair[„blond”]</li>
-</ul>
+<p>In this exercise, we will work with the <code>mtcars</code> data that comes pre-installed with <code>dplyr</code>.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="exercise-5-test-your-knowledge.html#cb242-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb242-2"><a href="exercise-5-test-your-knowledge.html#cb242-2" tabindex="-1"></a></span>
+<span id="cb242-3"><a href="exercise-5-test-your-knowledge.html#cb242-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb242-4"><a href="exercise-5-test-your-knowledge.html#cb242-4" tabindex="-1"></a></span>
+<span id="cb242-5"><a href="exercise-5-test-your-knowledge.html#cb242-5" tabindex="-1"></a><span class="co"># To make the data somewhat more interesting, let&#39;s set a few values to missing values (you don&#39;t need to know this code):</span></span>
+<span id="cb242-6"><a href="exercise-5-test-your-knowledge.html#cb242-6" tabindex="-1"></a>data<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>wt, <span class="fl">4.070</span>)</span>
+<span id="cb242-7"><a href="exercise-5-test-your-knowledge.html#cb242-7" tabindex="-1"></a>data<span class="sc">$</span>mpg <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>mpg, <span class="fl">22.8</span>)</span></code></pre></div>
+<p>Let’s first get to know this data. We can get some information about the
+variables that are included in the dataset by using <code>R</code>s <code>help()</code>
+function:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="exercise-5-test-your-knowledge.html#cb243-1" tabindex="-1"></a><span class="fu">help</span>(mtcars)</span></code></pre></div>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><em>Image: Output of the help(mtcars) function:</em></td>
+</tr>
+<tr class="even">
+<td align="left"><img src="images/mtcars.JPG" style="width:30.0%" /></td>
+</tr>
+</tbody>
+</table>
+<p>We get to know that this is a data set was created from the <em>1974 Motor Trend US magazine</em>, and that it comprises fuel consumption (<em>mpg</em>) and 10 other aspects (<em>cyl</em>, <em>wt</em>) of automobile design and performance for 32 different cars.</p>
+<div id="task-1-4" class="section level2 unnumbered hasAnchor">
+<h2>Task 1<a href="exercise-5-test-your-knowledge.html#task-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Check the data set for missing values (<em>NA</em>s) and delete all observations that have missing values.</p>
 </div>
-<div id="task-2" class="section level2 unnumbered hasAnchor">
-<h2>Task 2<a href="exercise-1.html#task-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Create a numeric vector with 8 values and assign the name <em>age</em> to the
-vector. First, display all elements of the vector. Then print only the
-5th element. After that, display all elements except the 5th. Finally,
-display the elements at the positions 6 to 8.</p>
+<div id="task-2-4" class="section level2 unnumbered hasAnchor">
+<h2>Task 2<a href="exercise-5-test-your-knowledge.html#task-2-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Let’s transform the weight <em>wt</em> of the cars. Currently, it’s given as
+<em>Weight in 1000 lbs</em>. I guess you are not used to lbs, so try to mutate
+<em>wt</em> to represent <em>Weight in 1000 kg</em>. 1000 lbs = 453.59 kg, so we will
+need to divide by 2.20.</p>
+<p>Similarly, I think that you are not very familiar with the unit <em>Miles
+per gallon</em> of the <em>mpg</em> variable. Let’s transform it into <em>Kilometer
+per liter</em>. 1 m/g = 0.425144 km/l, so again divide by 2.20.</p>
 </div>
-<div id="task-3" class="section level2 unnumbered hasAnchor">
-<h2>Task 3<a href="exercise-1.html#task-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Create a non-numeric, i.e. character, vector with 4 elements and assign
-the name <em>eye_color</em> to the vector. First, print all elements of this
-vector to the console. Then have only the value in the 2nd element
-displayed, then all values except the 2nd element. At the end, display
-the elements at the positions 2 to 4.</p>
-<p>When you’re ready to look at the solutions, you can find them
-here:<a href="solutions.html#solutions-for-exercise-1">Solutions for Exercise 1</a>.</p>
+<div id="task-3-4" class="section level2 unnumbered hasAnchor">
+<h2>Task 3<a href="exercise-5-test-your-knowledge.html#task-3-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we want to group the weight of the cars in three categories: light,
+medium, heavy. But how to define light, medium, and heavy cars, i.e., at
+what kg should you put the threshold? A reasonable approach is to use
+quantiles (see Tutorial: <a href="tutorial-data-management-with-tidyverse.html#summarize-group_by">summarize() [+
+group_by()]</a>). Quantiles divide data. For example,
+the 75% quantile states that exactly 75% of the data values are equal or
+below the quantile value. The rest of the values are equal or above it.</p>
+<p>Use the lower quantile (0.25) and the upper quantile (0.75) to estimate
+two values that divide the weight of the cars in three groups. What are
+these values?</p>
+</div>
+<div id="task-4-2" class="section level2 unnumbered hasAnchor">
+<h2>Task 4<a href="exercise-5-test-your-knowledge.html#task-4-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Use the values from Task 3 to create a new variable <em>wt_cat</em> that
+divides the cars in three groups: light, medium, and heavy cars.</p>
+</div>
+<div id="task-5-2" class="section level2 unnumbered hasAnchor">
+<h2>Task 5<a href="exercise-5-test-your-knowledge.html#task-5-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>How many light, medium, and heavy cars are part of the data?</p>
+</div>
+<div id="task-6-1" class="section level2 unnumbered hasAnchor">
+<h2>Task 6<a href="exercise-5-test-your-knowledge.html#task-6-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now sort this count of the car weight classes from highest to lowest.</p>
+</div>
+<div id="task-7-1" class="section level2 unnumbered hasAnchor">
+<h2>Task 7<a href="exercise-5-test-your-knowledge.html#task-7-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Make a scatter plot to indicate how many km per liter (<em>mpg</em>) a car can
+drive depending on its weight (<em>wt</em>). Facet the plot by weight class
+(<em>wt_cat</em>). Try to hide the plot legend (you have learned that in Exercise 3, Task 1).</p>
+</div>
+<div id="task-8" class="section level2 unnumbered hasAnchor">
+<h2>Task 8<a href="exercise-5-test-your-knowledge.html#task-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Recreate the diagram from Task 7, but exclude all cars that weigh
+between 1.4613636 and 1.5636364 *1000kg from it.</p>
+<p>When you’re ready to look at the solutions, you can find them here:
+<a href="solutions.html#solutions-for-exercise-5">Solutions for Exercise 5</a>.</p>
+<p>We have officially finished our chapters on data management and
+visualization!</p>
 </div>
 </div>
             </section>
@@ -449,8 +468,8 @@ here:<a href="solutions.html#solutions-for-exercise-1">Solutions for Exercise 1<
           </div>
         </div>
       </div>
-<a href="tutorial-using-r-as-a-calculator.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tutorial-working-with-data-files.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exercise-4-test-your-knowledge.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="solutions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
