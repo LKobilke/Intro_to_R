@@ -708,7 +708,7 @@ data frame.</p>
 <div id="task-1-8" class="section level3 unnumbered hasAnchor">
 <h3>Task 1<a href="solutions.html#task-1-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="solutions.html#cb294-1" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>country, <span class="at">y=</span>work_experience)) <span class="sc">+</span></span>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="solutions.html#cb294-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>country, <span class="at">y=</span>work_experience)) <span class="sc">+</span></span>
 <span id="cb294-2"><a href="solutions.html#cb294-2" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
 <span id="cb294-3"><a href="solutions.html#cb294-3" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb294-4"><a href="solutions.html#cb294-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Work Experience (Years)&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Distribution of Work Experience by Country&quot;</span>)</span></code></pre></div>
@@ -717,73 +717,101 @@ data frame.</p>
 <div id="task-2-8" class="section level3 unnumbered hasAnchor">
 <h3>Task 2<a href="solutions.html#task-2-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="solutions.html#cb295-1" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>work_experience, <span class="at">y=</span>trust_government, <span class="at">color=</span>country)) <span class="sc">+</span></span>
-<span id="cb295-2"><a href="solutions.html#cb295-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb295-3"><a href="solutions.html#cb295-3" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb295-4"><a href="solutions.html#cb295-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Work Experience (Years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trust in Government&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Trust in Government by Work Experience and Country&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="solutions.html#cb295-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb295-2"><a href="solutions.html#cb295-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>work_experience, <span class="at">y=</span>trust_government, <span class="at">color=</span>country)) <span class="sc">+</span></span>
+<span id="cb295-3"><a href="solutions.html#cb295-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb295-4"><a href="solutions.html#cb295-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb295-5"><a href="solutions.html#cb295-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Work Experience (Years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trust in Government&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Trust in Government by Work Experience and Country&quot;</span>)</span></code></pre></div>
 <p><img src="Learning-R_files/figure-html/unnamed-chunk-173-1.png" width="672" /></p>
 </div>
 <div id="task-3-8" class="section level3 unnumbered hasAnchor">
 <h3>Task 3<a href="solutions.html#task-3-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="solutions.html#cb296-1" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>work_experience, <span class="at">y=</span>trust_government, <span class="at">color=</span>country)) <span class="sc">+</span></span>
-<span id="cb296-2"><a href="solutions.html#cb296-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb296-3"><a href="solutions.html#cb296-3" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>name), <span class="at">check_overlap =</span> <span class="cn">TRUE</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
-<span id="cb296-4"><a href="solutions.html#cb296-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb296-5"><a href="solutions.html#cb296-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Work Experience (Years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trust in Government&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Trust in Government by Work Experience and Country&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="solutions.html#cb296-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb296-2"><a href="solutions.html#cb296-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>work_experience, <span class="at">y=</span>trust_government, <span class="at">color=</span>country)) <span class="sc">+</span></span>
+<span id="cb296-3"><a href="solutions.html#cb296-3" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb296-4"><a href="solutions.html#cb296-4" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>name), <span class="at">check_overlap =</span> <span class="cn">TRUE</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb296-5"><a href="solutions.html#cb296-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb296-6"><a href="solutions.html#cb296-6" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Work Experience (Years)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Trust in Government&quot;</span>, <span class="at">color =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Trust in Government by Work Experience and Country&quot;</span>)</span></code></pre></div>
 <p><img src="Learning-R_files/figure-html/unnamed-chunk-174-1.png" width="672" /></p>
 </div>
 <div id="task-4-4" class="section level3 unnumbered hasAnchor">
 <h3>Task 4<a href="solutions.html#task-4-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="solutions.html#cb297-1" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>country, <span class="at">fill=</span>employment)) <span class="sc">+</span></span>
-<span id="cb297-2"><a href="solutions.html#cb297-2" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb297-3"><a href="solutions.html#cb297-3" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb297-4"><a href="solutions.html#cb297-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Employment Type&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Employment Types by Country&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="solutions.html#cb297-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb297-2"><a href="solutions.html#cb297-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>country, <span class="at">fill=</span>employment)) <span class="sc">+</span></span>
+<span id="cb297-3"><a href="solutions.html#cb297-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb297-4"><a href="solutions.html#cb297-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb297-5"><a href="solutions.html#cb297-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Employment Type&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Employment Types by Country&quot;</span>)</span></code></pre></div>
 <p><img src="Learning-R_files/figure-html/unnamed-chunk-175-1.png" width="672" /></p>
+<p><em>Alternative Solution:</em>
+Those who prefer the width of the bars to be aligned can use this code:</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="solutions.html#cb298-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb298-2"><a href="solutions.html#cb298-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> country, <span class="at">fill =</span> employment)) <span class="sc">+</span></span>
+<span id="cb298-3"><a href="solutions.html#cb298-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">preserve =</span> <span class="st">&quot;single&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb298-4"><a href="solutions.html#cb298-4" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb298-5"><a href="solutions.html#cb298-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Employment Type&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Employment Types by Country&quot;</span>)</span></code></pre></div>
+<p><img src="Learning-R_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
 </div>
 <div id="task-5-4" class="section level3 unnumbered hasAnchor">
 <h3>Task 5<a href="solutions.html#task-5-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can solve this exercise using two approaches. The first approach is to create a new variable called <code>experience_level</code> and save it in your original data set to be used for data visualization in the next, separate step:</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="solutions.html#cb298-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb298-2"><a href="solutions.html#cb298-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">experience_level =</span> <span class="fu">case_when</span>(</span>
-<span id="cb298-3"><a href="solutions.html#cb298-3" tabindex="-1"></a>    work_experience <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;Junior&quot;</span>,</span>
-<span id="cb298-4"><a href="solutions.html#cb298-4" tabindex="-1"></a>    work_experience <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> work_experience <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;Mid-Level&quot;</span>,</span>
-<span id="cb298-5"><a href="solutions.html#cb298-5" tabindex="-1"></a>    work_experience <span class="sc">&gt;</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;Senior&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb298-6"><a href="solutions.html#cb298-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>country, <span class="at">fill=</span>employment)) <span class="sc">+</span></span>
-<span id="cb298-7"><a href="solutions.html#cb298-7" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
-<span id="cb298-8"><a href="solutions.html#cb298-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb298-9"><a href="solutions.html#cb298-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Employment Type&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Employment Types by Country and Level of Experience&quot;</span>) <span class="sc">+</span></span>
-<span id="cb298-10"><a href="solutions.html#cb298-10" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>experience_level) <span class="sc">+</span></span>
-<span id="cb298-11"><a href="solutions.html#cb298-11" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="Learning-R_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="solutions.html#cb299-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb299-2"><a href="solutions.html#cb299-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">experience_level =</span> <span class="fu">case_when</span>(</span>
+<span id="cb299-3"><a href="solutions.html#cb299-3" tabindex="-1"></a>    work_experience <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;Junior&quot;</span>,</span>
+<span id="cb299-4"><a href="solutions.html#cb299-4" tabindex="-1"></a>    work_experience <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> work_experience <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;Mid-Level&quot;</span>,</span>
+<span id="cb299-5"><a href="solutions.html#cb299-5" tabindex="-1"></a>    work_experience <span class="sc">&gt;</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;Senior&quot;</span>))</span>
+<span id="cb299-6"><a href="solutions.html#cb299-6" tabindex="-1"></a></span>
+<span id="cb299-7"><a href="solutions.html#cb299-7" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb299-8"><a href="solutions.html#cb299-8" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>country, <span class="at">fill=</span>employment)) <span class="sc">+</span></span>
+<span id="cb299-9"><a href="solutions.html#cb299-9" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb299-10"><a href="solutions.html#cb299-10" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb299-11"><a href="solutions.html#cb299-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Employment Type&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Employment Types by Country and Level of Experience&quot;</span>) <span class="sc">+</span></span>
+<span id="cb299-12"><a href="solutions.html#cb299-12" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>experience_level) <span class="sc">+</span></span>
+<span id="cb299-13"><a href="solutions.html#cb299-13" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<p><img src="Learning-R_files/figure-html/unnamed-chunk-177-1.png" width="672" /></p>
+<p>The more elegant solution is to perform your data management in one go without saving the variable experience_level back into your original data set. Using this approach will help declutter your data because you won’t need to create and save a new variable that is only required for a single visualization:</p>
+<p><em>Preferred Solution:</em></p>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="solutions.html#cb300-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb300-2"><a href="solutions.html#cb300-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">experience_level =</span> <span class="fu">case_when</span>(</span>
+<span id="cb300-3"><a href="solutions.html#cb300-3" tabindex="-1"></a>    work_experience <span class="sc">&lt;=</span> <span class="dv">10</span> <span class="sc">~</span> <span class="st">&quot;Junior&quot;</span>,</span>
+<span id="cb300-4"><a href="solutions.html#cb300-4" tabindex="-1"></a>    work_experience <span class="sc">&gt;</span> <span class="dv">10</span> <span class="sc">&amp;</span> work_experience <span class="sc">&lt;=</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;Mid-Level&quot;</span>,</span>
+<span id="cb300-5"><a href="solutions.html#cb300-5" tabindex="-1"></a>    work_experience <span class="sc">&gt;</span> <span class="dv">20</span> <span class="sc">~</span> <span class="st">&quot;Senior&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb300-6"><a href="solutions.html#cb300-6" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>country, <span class="at">fill=</span>employment)) <span class="sc">+</span></span>
+<span id="cb300-7"><a href="solutions.html#cb300-7" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position=</span><span class="st">&quot;dodge&quot;</span>) <span class="sc">+</span></span>
+<span id="cb300-8"><a href="solutions.html#cb300-8" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb300-9"><a href="solutions.html#cb300-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Country&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Employment Type&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Employment Types by Country and Level of Experience&quot;</span>) <span class="sc">+</span></span>
+<span id="cb300-10"><a href="solutions.html#cb300-10" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>experience_level) <span class="sc">+</span></span>
+<span id="cb300-11"><a href="solutions.html#cb300-11" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<p><img src="Learning-R_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
 </div>
 </div>
 <div id="solutions-for-exercise-5" class="section level2 unnumbered hasAnchor">
 <h2>Solutions for Exercise 5<a href="solutions.html#solutions-for-exercise-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this exercise, we will work with the
 <code>mtcars</code> data that comes pre-installed with <code>dplyr</code>.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="solutions.html#cb299-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb299-2"><a href="solutions.html#cb299-2" tabindex="-1"></a></span>
-<span id="cb299-3"><a href="solutions.html#cb299-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb299-4"><a href="solutions.html#cb299-4" tabindex="-1"></a></span>
-<span id="cb299-5"><a href="solutions.html#cb299-5" tabindex="-1"></a><span class="co"># To make the data somewhat more interesting, let&#39;s set a few values to missing values:</span></span>
-<span id="cb299-6"><a href="solutions.html#cb299-6" tabindex="-1"></a>data<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>wt, <span class="fl">4.070</span>)</span>
-<span id="cb299-7"><a href="solutions.html#cb299-7" tabindex="-1"></a>data<span class="sc">$</span>mpg <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>mpg, <span class="fl">22.8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="solutions.html#cb301-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb301-2"><a href="solutions.html#cb301-2" tabindex="-1"></a></span>
+<span id="cb301-3"><a href="solutions.html#cb301-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb301-4"><a href="solutions.html#cb301-4" tabindex="-1"></a></span>
+<span id="cb301-5"><a href="solutions.html#cb301-5" tabindex="-1"></a><span class="co"># To make the data somewhat more interesting, let&#39;s set a few values to missing values:</span></span>
+<span id="cb301-6"><a href="solutions.html#cb301-6" tabindex="-1"></a>data<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>wt, <span class="fl">4.070</span>)</span>
+<span id="cb301-7"><a href="solutions.html#cb301-7" tabindex="-1"></a>data<span class="sc">$</span>mpg <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>mpg, <span class="fl">22.8</span>)</span></code></pre></div>
 <div id="task-1-9" class="section level3 unnumbered hasAnchor">
 <h3>Task 1<a href="solutions.html#task-1-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Check the data set for missing values (<em>NA</em>s) and delete all
 observations that have missing values.</p>
 <p><em>Solution:</em></p>
 <p>You can solve this by excluding NAs in every single column:</p>
-<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="solutions.html#cb300-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb300-2"><a href="solutions.html#cb300-2" tabindex="-1"></a>  <span class="co"># we&#39;ll now only keep observations that are NOT NAs in the following variables (remember that &amp; = AND):</span></span>
-<span id="cb300-3"><a href="solutions.html#cb300-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(mpg) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(cyl) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(disp) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(hp) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(drat) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(wt) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(qsec)</span>
-<span id="cb300-4"><a href="solutions.html#cb300-4" tabindex="-1"></a>         <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(vs) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(am) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(gear) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(carb))</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="solutions.html#cb302-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb302-2"><a href="solutions.html#cb302-2" tabindex="-1"></a>  <span class="co"># we&#39;ll now only keep observations that are NOT NAs in the following variables (remember that &amp; = AND):</span></span>
+<span id="cb302-3"><a href="solutions.html#cb302-3" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(mpg) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(cyl) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(disp) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(hp) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(drat) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(wt) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(qsec)</span>
+<span id="cb302-4"><a href="solutions.html#cb302-4" tabindex="-1"></a>         <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(vs) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(am) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(gear) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(carb))</span></code></pre></div>
 <p>Alternatively, excluding NAs from the entire data set works, too, but
 you have not learned the <code>na_omit()</code>function in the tutorials:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="solutions.html#cb301-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb301-2"><a href="solutions.html#cb301-2" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="solutions.html#cb303-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb303-2"><a href="solutions.html#cb303-2" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code></pre></div>
 </div>
 <div id="task-2-9" class="section level3 unnumbered hasAnchor">
 <h3>Task 2<a href="solutions.html#task-2-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -795,10 +823,10 @@ need to divide by 2.20.</p>
 per gallon</em> of the <em>mpg</em> variable. Let’s transform it into <em>Kilometer
 per liter</em>. 1 m/g = 0.425144 km/l, so again divide by 2.20.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="solutions.html#cb302-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb302-2"><a href="solutions.html#cb302-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt =</span> wt<span class="sc">/</span><span class="fl">2.20</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="solutions.html#cb303-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb303-2"><a href="solutions.html#cb303-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg =</span> mpg<span class="sc">/</span><span class="fl">2.20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="solutions.html#cb304-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb304-2"><a href="solutions.html#cb304-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt =</span> wt<span class="sc">/</span><span class="fl">2.20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="solutions.html#cb305-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb305-2"><a href="solutions.html#cb305-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mpg =</span> mpg<span class="sc">/</span><span class="fl">2.20</span>)</span></code></pre></div>
 </div>
 <div id="task-3-9" class="section level3 unnumbered hasAnchor">
 <h3>Task 3<a href="solutions.html#task-3-9" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -813,9 +841,9 @@ below the quantile value. The rest of the values are equal or above it.</p>
 two values that divide the weight of the cars in three groups. What are
 these values?</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="solutions.html#cb304-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb304-2"><a href="solutions.html#cb304-2" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">UQ_wt=</span> <span class="fu">quantile</span>(wt, <span class="fl">0.75</span>),</span>
-<span id="cb304-3"><a href="solutions.html#cb304-3" tabindex="-1"></a>            <span class="at">LQ_wt=</span> <span class="fu">quantile</span>(wt, <span class="fl">0.25</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="solutions.html#cb306-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb306-2"><a href="solutions.html#cb306-2" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">UQ_wt=</span> <span class="fu">quantile</span>(wt, <span class="fl">0.75</span>),</span>
+<span id="cb306-3"><a href="solutions.html#cb306-3" tabindex="-1"></a>            <span class="at">LQ_wt=</span> <span class="fu">quantile</span>(wt, <span class="fl">0.25</span>))</span></code></pre></div>
 <pre><code>##      UQ_wt    LQ_wt
 ## 1 1.622727 1.190909</code></pre>
 <p>75% of all cars weigh 1.622727* 1000kg or less and 25% of all cars
@@ -826,20 +854,20 @@ weigh 1.190909* 1000kg or less.</p>
 <p>Use the values from Task 3 to create a new variable <em>wt_cat</em> that
 divides the cars in three groups: light, medium, and heavy cars.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="solutions.html#cb306-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
-<span id="cb306-2"><a href="solutions.html#cb306-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_cat =</span> <span class="fu">case_when</span>(</span>
-<span id="cb306-3"><a href="solutions.html#cb306-3" tabindex="-1"></a>    wt <span class="sc">&lt;=</span> <span class="fl">1.190909</span> <span class="sc">~</span> <span class="st">&quot;light car&quot;</span>,</span>
-<span id="cb306-4"><a href="solutions.html#cb306-4" tabindex="-1"></a>    wt <span class="sc">&lt;</span> <span class="fl">1.622727</span> <span class="sc">~</span> <span class="st">&quot;medium car&quot;</span>,</span>
-<span id="cb306-5"><a href="solutions.html#cb306-5" tabindex="-1"></a>    wt <span class="sc">&gt;=</span> <span class="fl">1.622727</span> <span class="sc">~</span> <span class="st">&quot;heavy car&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="solutions.html#cb308-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb308-2"><a href="solutions.html#cb308-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_cat =</span> <span class="fu">case_when</span>(</span>
+<span id="cb308-3"><a href="solutions.html#cb308-3" tabindex="-1"></a>    wt <span class="sc">&lt;=</span> <span class="fl">1.190909</span> <span class="sc">~</span> <span class="st">&quot;light car&quot;</span>,</span>
+<span id="cb308-4"><a href="solutions.html#cb308-4" tabindex="-1"></a>    wt <span class="sc">&lt;</span> <span class="fl">1.622727</span> <span class="sc">~</span> <span class="st">&quot;medium car&quot;</span>,</span>
+<span id="cb308-5"><a href="solutions.html#cb308-5" tabindex="-1"></a>    wt <span class="sc">&gt;=</span> <span class="fl">1.622727</span> <span class="sc">~</span> <span class="st">&quot;heavy car&quot;</span>))</span></code></pre></div>
 </div>
 <div id="task-5-5" class="section level3 unnumbered hasAnchor">
 <h3>Task 5<a href="solutions.html#task-5-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>How many light, medium, and heavy cars are part of the data?</p>
 <p><em>Solution:</em></p>
 <p>You can solve this with the <code>summarize(count = n()</code> function:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="solutions.html#cb307-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb307-2"><a href="solutions.html#cb307-2" tabindex="-1"></a>  <span class="fu">group_by</span>(wt_cat) <span class="sc">%&gt;%</span> </span>
-<span id="cb307-3"><a href="solutions.html#cb307-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="solutions.html#cb309-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb309-2"><a href="solutions.html#cb309-2" tabindex="-1"></a>  <span class="fu">group_by</span>(wt_cat) <span class="sc">%&gt;%</span> </span>
+<span id="cb309-3"><a href="solutions.html#cb309-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   wt_cat     count
 ##   &lt;chr&gt;      &lt;int&gt;
@@ -848,8 +876,8 @@ divides the cars in three groups: light, medium, and heavy cars.</p>
 ## 3 medium car    13</code></pre>
 <p>9 heavy cars, 13 medium cars, and 7 light cars.</p>
 <p>Alternatively, you can also use the <code>count()</code> function:</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="solutions.html#cb309-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb309-2"><a href="solutions.html#cb309-2" tabindex="-1"></a>  <span class="fu">count</span>(wt_cat)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="solutions.html#cb311-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb311-2"><a href="solutions.html#cb311-2" tabindex="-1"></a>  <span class="fu">count</span>(wt_cat)</span></code></pre></div>
 <pre><code>##       wt_cat  n
 ## 1  heavy car  9
 ## 2  light car  7
@@ -859,10 +887,10 @@ divides the cars in three groups: light, medium, and heavy cars.</p>
 <h3>Task 6<a href="solutions.html#task-6-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Now sort this count of the car weight classes from highest to lowest.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="solutions.html#cb311-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb311-2"><a href="solutions.html#cb311-2" tabindex="-1"></a>  <span class="fu">group_by</span>(wt_cat) <span class="sc">%&gt;%</span> </span>
-<span id="cb311-3"><a href="solutions.html#cb311-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb311-4"><a href="solutions.html#cb311-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="solutions.html#cb313-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb313-2"><a href="solutions.html#cb313-2" tabindex="-1"></a>  <span class="fu">group_by</span>(wt_cat) <span class="sc">%&gt;%</span> </span>
+<span id="cb313-3"><a href="solutions.html#cb313-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb313-4"><a href="solutions.html#cb313-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 2
 ##   wt_cat     count
 ##   &lt;chr&gt;      &lt;int&gt;
@@ -876,40 +904,40 @@ divides the cars in three groups: light, medium, and heavy cars.</p>
 drive depending on its weight (<em>wt</em>). Facet the plot by weight class
 (<em>wt_cat</em>). Try to hide the plot legend (you have learned that in
 another exercise).</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="solutions.html#cb313-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
-<span id="cb313-2"><a href="solutions.html#cb313-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_cat =</span> <span class="fu">factor</span>(wt_cat, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;light car&quot;</span>, <span class="st">&quot;medium car&quot;</span>, <span class="st">&quot;heavy car&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb313-3"><a href="solutions.html#cb313-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg, <span class="at">color=</span>wt_cat)) <span class="sc">+</span></span>
-<span id="cb313-4"><a href="solutions.html#cb313-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb313-5"><a href="solutions.html#cb313-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb313-6"><a href="solutions.html#cb313-6" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#7b3294&quot;</span>, <span class="st">&quot;#84798a&quot;</span>, <span class="st">&quot;#008837&quot;</span>)) <span class="sc">+</span>  <span class="co"># optional command, choose your own beautiful colors for the graph</span></span>
-<span id="cb313-7"><a href="solutions.html#cb313-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb313-8"><a href="solutions.html#cb313-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between car weight and achieved kilometers per liter&quot;</span>, <span class="at">x=</span><span class="st">&quot;Weight in 1000kg&quot;</span>, <span class="at">y=</span><span class="st">&quot;km/l&quot;</span>) <span class="sc">+</span></span>
-<span id="cb313-9"><a href="solutions.html#cb313-9" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>wt_cat)</span></code></pre></div>
-<p><img src="Learning-R_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="solutions.html#cb315-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> </span>
+<span id="cb315-2"><a href="solutions.html#cb315-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_cat =</span> <span class="fu">factor</span>(wt_cat, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;light car&quot;</span>, <span class="st">&quot;medium car&quot;</span>, <span class="st">&quot;heavy car&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb315-3"><a href="solutions.html#cb315-3" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg, <span class="at">color=</span>wt_cat)) <span class="sc">+</span></span>
+<span id="cb315-4"><a href="solutions.html#cb315-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb315-5"><a href="solutions.html#cb315-5" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb315-6"><a href="solutions.html#cb315-6" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#7b3294&quot;</span>, <span class="st">&quot;#84798a&quot;</span>, <span class="st">&quot;#008837&quot;</span>)) <span class="sc">+</span>  <span class="co"># optional command, choose your own beautiful colors for the graph</span></span>
+<span id="cb315-7"><a href="solutions.html#cb315-7" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb315-8"><a href="solutions.html#cb315-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between car weight and achieved kilometers per liter&quot;</span>, <span class="at">x=</span><span class="st">&quot;Weight in 1000kg&quot;</span>, <span class="at">y=</span><span class="st">&quot;km/l&quot;</span>) <span class="sc">+</span></span>
+<span id="cb315-9"><a href="solutions.html#cb315-9" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>wt_cat)</span></code></pre></div>
+<p><img src="Learning-R_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
 </div>
 <div id="task-8-1" class="section level3 unnumbered hasAnchor">
 <h3>Task 8<a href="solutions.html#task-8-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Recreate the diagram from Task 7, but exclude all cars that weigh
 between 1.4613636 and 1.5636364 *1000kg from it.</p>
 <p><em>Solution:</em></p>
-<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="solutions.html#cb314-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb314-2"><a href="solutions.html#cb314-2" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&lt;</span> <span class="fl">1.4613636</span> <span class="sc">|</span> wt <span class="sc">&gt;</span> <span class="fl">1.5636364</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb314-3"><a href="solutions.html#cb314-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_cat =</span> <span class="fu">factor</span>(wt_cat, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;light car&quot;</span>, <span class="st">&quot;medium car&quot;</span>, <span class="st">&quot;heavy car&quot;</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb314-4"><a href="solutions.html#cb314-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg, <span class="at">color=</span>wt_cat)) <span class="sc">+</span></span>
-<span id="cb314-5"><a href="solutions.html#cb314-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb314-6"><a href="solutions.html#cb314-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb314-7"><a href="solutions.html#cb314-7" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#7b3294&quot;</span>, <span class="st">&quot;#84798a&quot;</span>, <span class="st">&quot;#008837&quot;</span>)) <span class="sc">+</span> <span class="co"># optional command, choose your own beautiful colors for the graph</span></span>
-<span id="cb314-8"><a href="solutions.html#cb314-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
-<span id="cb314-9"><a href="solutions.html#cb314-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between car weight and achieved kilometers per liter&quot;</span>, <span class="at">x=</span><span class="st">&quot;Weight in 1000kg&quot;</span>, <span class="at">y=</span><span class="st">&quot;km/l&quot;</span>) <span class="sc">+</span></span>
-<span id="cb314-10"><a href="solutions.html#cb314-10" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>wt_cat)</span></code></pre></div>
-<p><img src="Learning-R_files/figure-html/unnamed-chunk-188-1.png" width="672" /></p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="solutions.html#cb316-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb316-2"><a href="solutions.html#cb316-2" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&lt;</span> <span class="fl">1.4613636</span> <span class="sc">|</span> wt <span class="sc">&gt;</span> <span class="fl">1.5636364</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb316-3"><a href="solutions.html#cb316-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">wt_cat =</span> <span class="fu">factor</span>(wt_cat, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;light car&quot;</span>, <span class="st">&quot;medium car&quot;</span>, <span class="st">&quot;heavy car&quot;</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb316-4"><a href="solutions.html#cb316-4" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>wt, <span class="at">y=</span>mpg, <span class="at">color=</span>wt_cat)) <span class="sc">+</span></span>
+<span id="cb316-5"><a href="solutions.html#cb316-5" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb316-6"><a href="solutions.html#cb316-6" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb316-7"><a href="solutions.html#cb316-7" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#7b3294&quot;</span>, <span class="st">&quot;#84798a&quot;</span>, <span class="st">&quot;#008837&quot;</span>)) <span class="sc">+</span> <span class="co"># optional command, choose your own beautiful colors for the graph</span></span>
+<span id="cb316-8"><a href="solutions.html#cb316-8" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb316-9"><a href="solutions.html#cb316-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Relationship between car weight and achieved kilometers per liter&quot;</span>, <span class="at">x=</span><span class="st">&quot;Weight in 1000kg&quot;</span>, <span class="at">y=</span><span class="st">&quot;km/l&quot;</span>) <span class="sc">+</span></span>
+<span id="cb316-10"><a href="solutions.html#cb316-10" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>wt_cat)</span></code></pre></div>
+<p><img src="Learning-R_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
 <p><strong>Why would we use <code>data %&gt;% filter(wt &lt; 1.4613636 | wt &gt; 1.5636364)</code>
 instead of <code>data %&gt;% filter(wt &gt; 1.4613636 | wt &lt; 1.5636364)</code>?</strong></p>
 <p>Let’s look at the resulting data sets when you apply those filters to
 compare them:</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="solutions.html#cb315-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb315-2"><a href="solutions.html#cb315-2" tabindex="-1"></a>  <span class="fu">select</span>(wt) <span class="sc">%&gt;%</span> </span>
-<span id="cb315-3"><a href="solutions.html#cb315-3" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&lt;</span> <span class="fl">1.4613636</span> <span class="sc">|</span> wt <span class="sc">&gt;</span> <span class="fl">1.5636364</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="solutions.html#cb317-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb317-2"><a href="solutions.html#cb317-2" tabindex="-1"></a>  <span class="fu">select</span>(wt) <span class="sc">%&gt;%</span> </span>
+<span id="cb317-3"><a href="solutions.html#cb317-3" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&lt;</span> <span class="fl">1.4613636</span> <span class="sc">|</span> wt <span class="sc">&gt;</span> <span class="fl">1.5636364</span>)</span></code></pre></div>
 <pre><code>##                            wt
 ## Mazda RX4           1.1909091
 ## Mazda RX4 Wag       1.3068182
@@ -938,9 +966,9 @@ compare them:</p>
 <p>The resulting table does not include any cars that weigh between
 1.4613636 and 1.5636364. But if you use
 <code>data %&gt;% filter(wt &gt; 1.4613636 | wt &lt; 1.5636364)</code>…</p>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="solutions.html#cb317-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
-<span id="cb317-2"><a href="solutions.html#cb317-2" tabindex="-1"></a>  <span class="fu">select</span>(wt) <span class="sc">%&gt;%</span> </span>
-<span id="cb317-3"><a href="solutions.html#cb317-3" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&gt;</span> <span class="fl">1.4613636</span> <span class="sc">|</span> wt <span class="sc">&lt;</span> <span class="fl">1.5636364</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="solutions.html#cb319-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb319-2"><a href="solutions.html#cb319-2" tabindex="-1"></a>  <span class="fu">select</span>(wt) <span class="sc">%&gt;%</span> </span>
+<span id="cb319-3"><a href="solutions.html#cb319-3" tabindex="-1"></a>  <span class="fu">filter</span>(wt <span class="sc">&gt;</span> <span class="fl">1.4613636</span> <span class="sc">|</span> wt <span class="sc">&lt;</span> <span class="fl">1.5636364</span>)</span></code></pre></div>
 <pre><code>##                            wt
 ## Mazda RX4           1.1909091
 ## Mazda RX4 Wag       1.3068182
