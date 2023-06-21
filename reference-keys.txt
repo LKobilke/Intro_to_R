@@ -105,3 +105,8 @@ tutorial-significance-testing-with-tidycomm
 unianova
 correlate
 regress
+tutorial-data-analysis-with-tidycomm
+how-to-run-significance-tests
+how-to-run-descriptive-analyses
+how-to-visualize-analyses
+how-to-run-descriptive-snalyses

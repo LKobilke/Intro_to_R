@@ -425,8 +425,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## * &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 autonom…        3.91        0.755        3.70        0.932   0.212  1.96   998
 ## # ℹ 2 more variables: p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
-<p>If you specify no dependent variable, all suitable variables in your data set will be used:</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb246-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract)</span></code></pre></div>
+<p>Remember that you can always save your analysis into an R object and inspect it with <code>View()</code>. This is very helpful if the resulting output is larger than your screen:</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb246-1" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection)</span>
+<span id="cb246-2"><a href="tutorial-significance-testing-with-tidycomm.html#cb246-2" tabindex="-1"></a><span class="fu">View</span>(model1)</span></code></pre></div>
+<p>You can specifiy more than one dependent variable:</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb247-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection, ethics_1)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 10
+##   Variable M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M     t    df
+## * &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 autonom…        3.91        0.755        3.70        0.932   0.212  1.96   998
+## 2 ethics_1        1.57        0.850        1.98        0.990  -0.414 -3.41   999
+## # ℹ 2 more variables: p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
+<p>If you specify no dependent variable at all, all suitable variables in your data set will be used:</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb249-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract)</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 10
 ##    Variable     M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
 ##  * &lt;chr&gt;              &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
@@ -443,7 +454,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 11 trust_polit…        2.53        0.707        2.40        0.689  0.136   1.37 
 ## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
 <p>If you have an independent (group) variable with more than two levels, you can also specifiy the levels that you want to use for your <code>t_test()</code>:</p>
-<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb248-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(employment, autonomy_selection, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Full-time&quot;</span>, <span class="st">&quot;Freelancer&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb251-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(employment, autonomy_selection, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Full-time&quot;</span>, <span class="st">&quot;Freelancer&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 10
 ##   Variable `M_Full-time` `SD_Full-time` M_Freelancer SD_Freelancer Delta_M     t
 ## * &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
@@ -451,39 +462,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
 <p>Finally, t_test() comes with additional arguments. For example, the
 <code>var.equal</code> parameter indicates whether to treat the two variances as being equal. If TRUE then the pooled variance is used to estimate the variance otherwise the Welch (or Satterthwaite) approximation to the degrees of freedom is used. It defaults to TRUE.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb250-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb253-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 10
 ##   Variable M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M     t    df
 ## * &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 autonom…        3.91        0.755        3.70        0.932   0.212  1.96   998
 ## # ℹ 2 more variables: p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
 <p>vs.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb252-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb255-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 10
 ##   Variable M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M     t    df
 ## * &lt;chr&gt;          &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 autonom…        3.91        0.755        3.70        0.932   0.212  1.63  55.9
 ## # ℹ 2 more variables: p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
 <p>You can also run a one-sample-ttest or location test by providing a variable and checking whether the mean of this variable is equal to a provided population mean <code>mu</code>:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb254-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(autonomy_selection, <span class="at">mu =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb257-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(autonomy_selection, <span class="at">mu =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 9
 ##   Variable               M    SD CI_95_LL CI_95_UL    Mu     t    df         p
 ## * &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 autonomy_selection  3.88 0.803     3.83     3.92     3  37.7  1196 6.32e-206</code></pre>
 <p>Please remember that you can access the full documentation of this function using:</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb256-1" tabindex="-1"></a>?<span class="fu">t_test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb259-1" tabindex="-1"></a>?<span class="fu">t_test</span>()</span></code></pre></div>
 </div>
 <div id="unianova" class="section level3 hasAnchor" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> unianova()<a href="tutorial-significance-testing-with-tidycomm.html#unianova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>unianova()</code> function is used to compute one-way ANOVAs for one group variable and specified test variables. If no variables are specified, all numeric (integer or double) variables are used.</p>
 <p><code>unianova</code> works pretty similar to t_test():</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb257-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb260-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 6
 ##   Var                    F df_num df_denom      p eta_squared
 ## * &lt;chr&gt;              &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;
 ## 1 autonomy_selection  2.42      2     1194 0.0896     0.00403</code></pre>
-<p>Provide only an independent variable to use all suitable avriables in your data set as dependent variables:</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb259-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment)</span></code></pre></div>
+<p>Provide only an independent variable to use all suitable variables in your data set as dependent variables:</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb262-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment)</span></code></pre></div>
 <pre><code>## # A tibble: 11 × 6
 ##    Var                     F df_num df_denom          p eta_squared
 ##  * &lt;chr&gt;               &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;
@@ -499,7 +510,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 trust_parties       0.842      2     1197 0.431         0.00141 
 ## 11 trust_politicians   0.328      2     1197 0.721         0.000547</code></pre>
 <p>And get all descriptives and post hoc tests:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb261-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">descriptives =</span> <span class="cn">TRUE</span>, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb264-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">descriptives =</span> <span class="cn">TRUE</span>, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 13
 ##   Var          F df_num df_denom      p eta_squared `M_Full-time` `SD_Full-time`
 ## * &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
@@ -507,18 +518,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 5 more variables: `M_Part-time` &lt;dbl&gt;, `SD_Part-time` &lt;dbl&gt;,
 ## #   M_Freelancer &lt;dbl&gt;, SD_Freelancer &lt;dbl&gt;, post_hoc &lt;list&gt;</code></pre>
 <p>Get the full documentation:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb263-1" tabindex="-1"></a>?<span class="fu">unianova</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb266-1" tabindex="-1"></a>?<span class="fu">unianova</span>()</span></code></pre></div>
 </div>
 <div id="correlate" class="section level3 hasAnchor" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> correlate()<a href="tutorial-significance-testing-with-tidycomm.html#correlate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>correlate()</code>function computes correlation coefficients for all combinations of the specified variables. If no variables are specified, all numeric (integer or double) variables are used.</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb264-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection)</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb267-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   x        y                        r    df       p
 ## * &lt;chr&gt;    &lt;chr&gt;                &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
 ## 1 ethics_1 autonomy_selection -0.0766  1195 0.00798</code></pre>
 <p>Specify more than two variables:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb266-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb269-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 5
 ##   x                  y                        r    df            p
 ## * &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt;
@@ -526,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 ethics_1           work_experience    -0.103   1185 0.000387    
 ## 3 autonomy_selection work_experience     0.161   1182 0.0000000271</code></pre>
 <p>Or calculate the partial correlation for three specified variables:</p>
-<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb268-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience, <span class="at">partial =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb271-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience, <span class="at">partial =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 6
 ##   x               y                  z                        r    df          p
 ## * &lt;chr&gt;           &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -534,7 +545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 2 ethics_1        work_experience    autonomy_selection -0.0924  1181    1.46e-3
 ## 3 work_experience autonomy_selection ethics_1            0.154   1181    1.03e-7</code></pre>
 <p>Get the correlation for all suitable variables in your data set:</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb270-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb273-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 55 × 5
 ##    x                  y                        r    df         p
 ##  * &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt;
@@ -550,20 +561,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 10 autonomy_selection trust_politicians  0.0109   1195 7.07e-  1
 ## # ℹ 45 more rows</code></pre>
 <p>Again, you can always get help:</p>
-<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb272-1" tabindex="-1"></a>?<span class="fu">correlate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb275-1" tabindex="-1"></a>?<span class="fu">correlate</span>()</span></code></pre></div>
 </div>
 <div id="regress" class="section level3 hasAnchor" number="7.2.4">
 <h3><span class="header-section-number">7.2.4</span> regress()<a href="tutorial-significance-testing-with-tidycomm.html#regress" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Of course, you can also run linear regressions with the <code>regress()</code> function:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb273-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb276-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 6
 ##   Variable                 B StdErr    beta     t        p
 ## * &lt;chr&gt;                &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)         1.96   0.127  NA      15.4  4.57e-49
 ## 2 autonomy_selection -0.0852 0.0321 -0.0766 -2.66 7.98e- 3
 ## # F(1, 1195) = 7.061023, p = 0.007983, R-square = 0.005874</code></pre>
-<p>Use two dependent variables:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb275-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
+<p>Use two independent variables:</p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb278-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 6
 ##   Variable                  B  StdErr    beta     t        p
 ## * &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -572,7 +583,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 3 work_experience    -0.00762 0.00239 -0.0934 -3.19 1.46e- 3
 ## # F(2, 1181) = 8.677001, p = 0.000182, R-square = 0.014482</code></pre>
 <p>Again, you can always get help:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb277-1" tabindex="-1"></a>?<span class="fu">regress</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="tutorial-significance-testing-with-tidycomm.html#cb280-1" tabindex="-1"></a>?<span class="fu">regress</span>()</span></code></pre></div>
 </div>
 </div>
 </div>
