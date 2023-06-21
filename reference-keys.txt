@@ -97,3 +97,11 @@ bar-plots
 box-plots
 take-aways-5
 additional-tutorials-4
+tutorial-data-visualization-with-ggplot-1
+installing-a-package-from-github
+how-to-run-significance-tests-with-tidycomm
+t_test
+tutorial-significance-testing-with-tidycomm
+unianova
+correlate
+regress

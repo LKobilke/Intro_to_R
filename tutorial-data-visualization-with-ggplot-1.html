@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exercise 2 | Continuing education: R</title>
+  <title> 7 Tutorial: Data visualization with ggplot | Continuing education: R</title>
   <meta name="description" content="Continuing education for employees: R" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exercise 2 | Continuing education: R" />
+  <meta property="og:title" content=" 7 Tutorial: Data visualization with ggplot | Continuing education: R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Continuing education for employees: R" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exercise 2 | Continuing education: R" />
+  <meta name="twitter:title" content=" 7 Tutorial: Data visualization with ggplot | Continuing education: R" />
   
   <meta name="twitter:description" content="Continuing education for employees: R" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tutorial-working-with-data-files.html"/>
-<link rel="next" href="tutorial-data-management-with-tidyverse.html"/>
+<link rel="prev" href="tutorial-data-visualization-with-ggplot.html"/>
+<link rel="next" href="exercise-4-test-your-knowledge.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -292,15 +292,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="tutorial-data-visualization-with-ggplot.html"><a href="tutorial-data-visualization-with-ggplot.html#take-aways-5"><i class="fa fa-check"></i><b>6.6</b> Take Aways</a></li>
 <li class="chapter" data-level="6.7" data-path="tutorial-data-visualization-with-ggplot.html"><a href="tutorial-data-visualization-with-ggplot.html#additional-tutorials-4"><i class="fa fa-check"></i><b>6.7</b> Additional tutorials</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html"><i class="fa fa-check"></i><b>7</b> Tutorial: Significance testing with tidycomm</a>
+<li class="chapter" data-level="7" data-path="tutorial-data-visualization-with-ggplot-1.html"><a href="tutorial-data-visualization-with-ggplot-1.html"><i class="fa fa-check"></i><b>7</b> Tutorial: Data visualization with ggplot</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#installing-a-package-from-github"><i class="fa fa-check"></i><b>7.1</b> Installing a package from GitHub</a></li>
-<li class="chapter" data-level="7.2" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#how-to-run-significance-tests-with-tidycomm"><i class="fa fa-check"></i><b>7.2</b> How to run significance tests with tidycomm</a>
+<li class="chapter" data-level="7.1" data-path="tutorial-data-visualization-with-ggplot-1.html"><a href="tutorial-data-visualization-with-ggplot-1.html#installing-a-package-from-github"><i class="fa fa-check"></i><b>7.1</b> Installing a package from GitHub</a></li>
+<li class="chapter" data-level="7.2" data-path="tutorial-data-visualization-with-ggplot-1.html"><a href="tutorial-data-visualization-with-ggplot-1.html#how-to-run-significance-tests-with-tidycomm"><i class="fa fa-check"></i><b>7.2</b> How to run significance tests with tidycomm</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#t_test"><i class="fa fa-check"></i><b>7.2.1</b> t_test()</a></li>
-<li class="chapter" data-level="7.2.2" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#unianova"><i class="fa fa-check"></i><b>7.2.2</b> unianova()</a></li>
-<li class="chapter" data-level="7.2.3" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#correlate"><i class="fa fa-check"></i><b>7.2.3</b> correlate()</a></li>
-<li class="chapter" data-level="7.2.4" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#regress"><i class="fa fa-check"></i><b>7.2.4</b> regress()</a></li>
+<li class="chapter" data-level="7.2.1" data-path="tutorial-data-visualization-with-ggplot-1.html"><a href="tutorial-data-visualization-with-ggplot-1.html#t_test"><i class="fa fa-check"></i><b>7.2.1</b> t_test()</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="exercise-4-test-your-knowledge.html"><a href="exercise-4-test-your-knowledge.html"><i class="fa fa-check"></i>Exercise 4: Test your knowledge</a>
@@ -386,37 +383,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-2" class="section level1 unnumbered hasAnchor">
-<h1>Exercise 2<a href="exercise-2.html#exercise-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>After working through Exercise 2, you’ll…</strong></p>
+<div id="tutorial-data-visualization-with-ggplot-1" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number"> 7</span> Tutorial: Data visualization with ggplot<a href="tutorial-data-visualization-with-ggplot-1.html#tutorial-data-visualization-with-ggplot-1" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>After working through Tutorial 7, you’ll…</p>
 <ul>
-<li>have double-checked whether you understand how to import data</li>
-<li>have learned to subset variables in data frames</li>
-<li>have learned to subset observations and values in data frames</li>
+<li>know how to install a package from <code>GitHub</code> instead of <code>CRAN</code></li>
+<li>know how to use the <code>tidycomm</code> package to run significance tests</li>
+<li>get a first glimpse into quick visualizations of your significance tests using <code>tidycomm</code></li>
 </ul>
-<div id="task-1-1" class="section level2 unnumbered hasAnchor">
-<h2>Task 1<a href="exercise-2.html#task-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Download the <em>“WoJ_names.csv”</em> from LRZ Sync &amp; Share (<a href="https://syncandshare.lrz.de/getlink/fiVXUkKnZzQLJZJwiznMVF/">click
-here</a>) and
-put it into the folder that you want to use as working directory.</p>
-<p>Set your working directory and load the data into R by saving it into a
-source object called <em>data</em>.</p>
-<p><strong>Note:</strong> This time, it’s a csv that is separated by semicolons, not by
-commas.</p>
+<div id="installing-a-package-from-github" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Installing a package from GitHub<a href="tutorial-data-visualization-with-ggplot-1.html#installing-a-package-from-github" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this part of the tutorial, we’re going to be learning how to install R packages directly from GitHub, specifically from a development branch named <code>devel</code> (short for: development).</p>
+<p><strong>Why might we want to do this?</strong> There are several reasons. Often, the most recent and innovative features of a package are found in these development branches. Developers use these branches to try out new features and fix bugs before merging them into the main branch that will be deployed via CRAN. By installing from the <code>devel</code> branch, you can access the latest features and updates ahead of their official release. It’s like a sneak peek into the future of the package!</p>
+<p>However, it’s important to note that because these branches are under development, they might be unstable or have unaddressed issues. Hence, these versions are recommended for users who want to try the latest features or for those who are involved in the development of the package.</p>
+<p>Now, let’s dive in and learn how to install the <code>tidycomm</code> package from the <code>devel</code> branch on GitHub!</p>
+<p>First, you will need to install and load the <code>devtools</code> package, a package that support R package development. In addition, install and load the `remotes`` package to install from Github.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb240-1" tabindex="-1"></a><span class="co"># install.packages(&quot;devtools&quot;) run only the first time</span></span>
+<span id="cb240-2"><a href="tutorial-data-visualization-with-ggplot-1.html#cb240-2" tabindex="-1"></a><span class="co"># install.packages(&quot;remotes&quot;) run only the first time</span></span>
+<span id="cb240-3"><a href="tutorial-data-visualization-with-ggplot-1.html#cb240-3" tabindex="-1"></a><span class="fu">library</span>(devtools)</span>
+<span id="cb240-4"><a href="tutorial-data-visualization-with-ggplot-1.html#cb240-4" tabindex="-1"></a><span class="fu">library</span>(remotes)</span></code></pre></div>
+<p>Next, we’ll need to check our internet browser and navigate to <a href="https://github.com/joon-e/tidycomm">Julian Unkel’s Github repository that stores tidycomm</a>. Here you can see that Julian has several branches in this repository, one of which is called <code>devel</code>.</p>
+<p>Let’s install the <code>tidycomm</code> package from this <code>devel</code> branch by using the <code>install.github</code> function and providing it with the GitHub user name, the repository name and the branch_name:</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb241-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;joon-e/tidycomm@devel&quot;</span>)</span></code></pre></div>
+<p>After that, just load the package:</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb242-1" tabindex="-1"></a><span class="fu">library</span>(tidycomm)</span></code></pre></div>
 </div>
-<div id="task-2-1" class="section level2 unnumbered hasAnchor">
-<h2>Task 2<a href="exercise-2.html#task-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now, print only the column to the console that shows the <em>trust in the
-government</em>. Use the <code>$</code> operator first. Then try to achieve the same
-result using the subsetting operators, i.e. <code>[]</code>.</p>
+<div id="how-to-run-significance-tests-with-tidycomm" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> How to run significance tests with tidycomm<a href="tutorial-data-visualization-with-ggplot-1.html#how-to-run-significance-tests-with-tidycomm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="t_test" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> t_test()<a href="tutorial-data-visualization-with-ggplot-1.html#t_test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>t_test()</code> function is used to compute t-tests for one group variable and specified test variables. If no variables are specified, all numeric (integer or double) variables are used.</p>
+<p>You can provide an independent (group) variable and a dependent variable:</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb243-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 10
+##   Variable      M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
+## * &lt;chr&gt;               &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 autonomy_sel…        4.04        0.826        4.14        0.690  -0.106 -0.334
+## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
+<p>You can also provide more than one dependent variable:</p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb245-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 10
+##   Variable      M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
+## * &lt;chr&gt;               &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 autonomy_sel…        4.04        0.826        4.14        0.690  -0.106 -0.334
+## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
+<p>If you specifiy no dependent variable, all suitable variables in your data set will be used:</p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb247-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract)</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 10
+##   Variable      M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
+## * &lt;chr&gt;               &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 autonomy_sel…        4.04        0.826        4.14        0.690  -0.106 -0.334
+## 2 work_experie…       21.1        10.7         13.7        14.4     7.34   1.75 
+## 3 trust_parlia…        3.31        0.855        3.71        0.951  -0.400 -1.20 
+## 4 trust_govern…        3.08        0.875        3.57        0.787  -0.491 -1.45 
+## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
+<p>If you have an independent (group) variable with more than two levels, you can also specifiy the levels that you want to use for your <code>t_test()</code>:</p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb249-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(employment, autonomy_selection, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Full-time&quot;</span>, <span class="st">&quot;Freelancer&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 10
+##   Variable `M_Full-time` `SD_Full-time` M_Freelancer SD_Freelancer Delta_M     t
+## * &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 autonom…          4.07          0.804         3.61          1.10   0.465  2.61
+## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
+<p>Finally, t_test() comes with additional arguments. For example, the
+<code>var.equal</code> parameter indicates whether to treat the two variances as being equal. If TRUE then the pooled variance is used to estimate the variance otherwise the Welch (or Satterthwaite) approximation to the degrees of freedom is used. It defaults to TRUE.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb251-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 10
+##   Variable      M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
+## * &lt;chr&gt;               &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 autonomy_sel…        4.04        0.826        4.14        0.690  -0.106 -0.334
+## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
+<p>vs.</p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb253-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 10
+##   Variable      M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
+## * &lt;chr&gt;               &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
+## 1 autonomy_sel…        4.04        0.826        4.14        0.690  -0.106 -0.394
+## # ℹ 3 more variables: df &lt;dbl&gt;, p &lt;dbl&gt;, d &lt;dbl&gt;</code></pre>
+<p>You can also run a one-sample-ttest or location test by providing a variable and checking whether the mean of this variable is equal to a provided population mean <code>mu</code>:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb255-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(autonomy_selection, <span class="at">mu =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 9
+##   Variable               M    SD CI_95_LL CI_95_UL    Mu     t    df        p
+## * &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
+## 1 autonomy_selection  3.97 0.881     3.84     4.10     3  14.4   171 1.96e-31</code></pre>
+<p>Please remember that you can access the full documentation of this function using:</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="tutorial-data-visualization-with-ggplot-1.html#cb257-1" tabindex="-1"></a>?<span class="fu">t_test</span>()</span></code></pre></div>
 </div>
-<div id="task-3-1" class="section level2 unnumbered hasAnchor">
-<h2>Task 3<a href="exercise-2.html#task-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Print only the first 6 <em>trust in the government</em> numbers to the console.
-Use the <code>$</code> operator first. Then try to achieve the same result using
-the subsetting operators, i.e. <code>[]</code>.</p>
-<p>When you’re ready to look at the solutions, you can find them
-here:<a href="solutions.html#solutions-for-exercise-2">Solutions for Exercise 2</a>.</p>
 </div>
 </div>
             </section>
@@ -424,8 +475,8 @@ here:<a href="solutions.html#solutions-for-exercise-2">Solutions for Exercise 2<
           </div>
         </div>
       </div>
-<a href="tutorial-working-with-data-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tutorial-data-management-with-tidyverse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tutorial-data-visualization-with-ggplot.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercise-4-test-your-knowledge.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

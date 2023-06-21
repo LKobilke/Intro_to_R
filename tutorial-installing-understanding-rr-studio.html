@@ -23,7 +23,7 @@
 <meta name="author" content="Lara Kobilke, IfKW, Ludwig-Maximilians-Universität München" />
 
 
-<meta name="date" content="2023-06-14" />
+<meta name="date" content="2023-06-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -292,6 +292,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="tutorial-data-visualization-with-ggplot.html"><a href="tutorial-data-visualization-with-ggplot.html#take-aways-5"><i class="fa fa-check"></i><b>6.6</b> Take Aways</a></li>
 <li class="chapter" data-level="6.7" data-path="tutorial-data-visualization-with-ggplot.html"><a href="tutorial-data-visualization-with-ggplot.html#additional-tutorials-4"><i class="fa fa-check"></i><b>6.7</b> Additional tutorials</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html"><i class="fa fa-check"></i><b>7</b> Tutorial: Significance testing with tidycomm</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#installing-a-package-from-github"><i class="fa fa-check"></i><b>7.1</b> Installing a package from GitHub</a></li>
+<li class="chapter" data-level="7.2" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#how-to-run-significance-tests-with-tidycomm"><i class="fa fa-check"></i><b>7.2</b> How to run significance tests with tidycomm</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#t_test"><i class="fa fa-check"></i><b>7.2.1</b> t_test()</a></li>
+<li class="chapter" data-level="7.2.2" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#unianova"><i class="fa fa-check"></i><b>7.2.2</b> unianova()</a></li>
+<li class="chapter" data-level="7.2.3" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#correlate"><i class="fa fa-check"></i><b>7.2.3</b> correlate()</a></li>
+<li class="chapter" data-level="7.2.4" data-path="tutorial-significance-testing-with-tidycomm.html"><a href="tutorial-significance-testing-with-tidycomm.html#regress"><i class="fa fa-check"></i><b>7.2.4</b> regress()</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="exercise-4-test-your-knowledge.html"><a href="exercise-4-test-your-knowledge.html"><i class="fa fa-check"></i>Exercise 4: Test your knowledge</a>
 <ul>
 <li class="chapter" data-level="" data-path="exercise-4-test-your-knowledge.html"><a href="exercise-4-test-your-knowledge.html#task-1-3"><i class="fa fa-check"></i>Task 1</a></li>
@@ -507,7 +518,7 @@ regional or national outlets.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tutorial-installing-understanding-rr-studio.html#cb5-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe_cat</span>(reach)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 6
 ##   Variable     N Missing Unique Mode     Mode_N
-##   &lt;chr&gt;    &lt;int&gt;   &lt;int&gt;  &lt;int&gt; &lt;chr&gt;     &lt;int&gt;
+## * &lt;chr&gt;    &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt;
 ## 1 reach      173       0      3 Regional     80</code></pre>
 <p>Repeat this for the variable “autonomy_selection,” which refers to the
 level of autonomy that journalists feel they have in their daily work
@@ -515,7 +526,7 @@ life.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tutorial-installing-understanding-rr-studio.html#cb7-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe</span>(autonomy_selection)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 15
 ##   Variable             N Missing     M    SD   Min   Q25   Mdn   Q75   Max Range
-##   &lt;chr&gt;            &lt;int&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## * &lt;chr&gt;            &lt;int&gt;   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 autonomy_select…   172       1  3.97 0.881     1     3     4     5     5     4
 ## # ℹ 4 more variables: CI_95_LL &lt;dbl&gt;, CI_95_UL &lt;dbl&gt;, Skewness &lt;dbl&gt;,
 ## #   Kurtosis &lt;dbl&gt;</code></pre>
@@ -524,7 +535,7 @@ autonomy_selection.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tutorial-installing-understanding-rr-studio.html#cb9-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(reach, autonomy_selection, <span class="at">descriptives =</span> <span class="cn">TRUE</span>, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 13
 ##   Var          F df_num df_denom       p eta_squared M_Local SD_Local M_Regional
-##   &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+## * &lt;chr&gt;    &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;       &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
 ## 1 autonom…  9.45      2      169 1.29e-4       0.101    4.28    0.743       4.04
 ## # ℹ 4 more variables: SD_Regional &lt;dbl&gt;, M_National &lt;dbl&gt;, SD_National &lt;dbl&gt;,
 ## #   post_hoc &lt;list&gt;</code></pre>
