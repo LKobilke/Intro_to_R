@@ -111,3 +111,12 @@ how-to-run-descriptive-analyses
 how-to-visualize-analyses
 how-to-run-descriptive-snalyses
 crosstab
+advanced-column-selectors
+index-generation
+univariate-analysis
+describe-continuous-variables
+describe-categorical-variables
+bivariate-analysis
+compute-intercoder-reliability
+add_index
+get_reliability
