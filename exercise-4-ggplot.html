@@ -441,47 +441,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>Exercise 4: ggplot<a href="exercise-4-ggplot.html#exercise-4-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>After working through Exercise 4, you’ll…</strong></p>
 <ul>
-<li>be able to see a problem and customize a scatter plot with <code>dplyr</code> &amp; <code>ggplot2</code> to solve it</li>
+<li>be able to see a problem and customize a scatter plot with <code>dplyr</code> &amp;
+<code>ggplot2</code> to solve it</li>
 </ul>
-<p>First, load the WoJ (World of Journalism) dataset from the <code>tidycomm</code> package. Install <code>tidycomm</code> if you haven’t already and then assign the WoJ dataset in its own R object:</p>
+<p>First, load the WoJ (World of Journalism) dataset from the <code>tidycomm</code>
+package. Install <code>tidycomm</code> if you haven’t already and then assign the
+WoJ dataset in its own R object:</p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="exercise-4-ggplot.html#cb239-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidycomm&quot;</span>) <span class="co"># run only the first time</span></span></code></pre></div>
 <div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="exercise-4-ggplot.html#cb240-1" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>WoJ</span></code></pre></div>
-<p>If you want help to solve this exercise, here’s a step-by-step tutorial that I’ve created for you:</p>
+<p>If you want help to solve this exercise, here’s a step-by-step tutorial
+that I’ve created for you:</p>
 <iframe src="https://www.youtube.com/embed/VgNimnC4syE" width="672" height="400px" data-external="1">
 </iframe>
 <div id="task-1-3" class="section level2 unnumbered hasAnchor">
 <h2>Task 1<a href="exercise-4-ggplot.html#task-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Try creating your own scatter plot. First, load <code>tidyverse</code> to access <code>ggplot2</code> for data visualization:</p>
+<p>Try creating your own scatter plot. First, load <code>tidyverse</code> to access
+<code>ggplot2</code> for data visualization:</p>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="exercise-4-ggplot.html#cb241-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
-<p>Show how journalists’ work experience (<code>work_experience</code>) is associated with their trust in politicians (<code>trust_politicians</code>). To do this, create a very basic scatter plot using <code>ggplot2</code> and the respective <code>ggplot()</code> function. Use the <code>aes()</code> function inside <code>ggplot()</code> to map variables to the visual properties. Use <code>geom_point()</code> to add points to the plot.</p>
+<p>Show how journalists’ work experience (<code>work_experience</code>) is associated
+with their trust in politicians (<code>trust_politicians</code>). To do this,
+create a very basic scatter plot using <code>ggplot2</code> and the respective
+<code>ggplot()</code> function. Use the <code>aes()</code> function inside <code>ggplot()</code> to map
+variables to the visual properties. Use <code>geom_point()</code> to add points to
+the plot.</p>
 </div>
 <div id="task-2-3" class="section level2 unnumbered hasAnchor">
 <h2>Task 2<a href="exercise-4-ggplot.html#task-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Do more experienced journalists become less trusting in politicians? Add this code to your plot to create a regression line:
+<p>Do more experienced journalists become less trusting in politicians? Add
+this code to your plot to create a regression line:
 <code>+ geom_smooth(method = lm, se = FALSE)</code>.</p>
 <p>What can you conclude from the regression line?</p>
 </div>
 <div id="task-3-3" class="section level2 unnumbered hasAnchor">
 <h2>Task 3<a href="exercise-4-ggplot.html#task-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Does the relationship between work experience and trust in politicians remain stable across different countries? Alternatively, does work experience influence trust in politicians differently depending on the specific country context?</p>
-<p>Try to create a visualization to answer this question using <code>facet_wrap()</code>.</p>
+<p>Does the relationship between work experience and trust in politicians
+remain stable across different countries? Alternatively, does work
+experience influence trust in politicians differently depending on the
+specific country context?</p>
+<p>Try to create a visualization to answer this question using
+<code>facet_wrap()</code>.</p>
 </div>
 <div id="task-4-1" class="section level2 unnumbered hasAnchor">
 <h2>Task 4<a href="exercise-4-ggplot.html#task-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In your current visualization, it may be challenging to discern cross-country differences. Let’s aim to create a visualization that illustrates these differences across countries more distinctly.</p>
-<p>Remove the <code>facet_wrap()</code> and the <code>geom_point()</code> code line. This leaves you with this graph:</p>
+<p>In your current visualization, it may be challenging to discern
+cross-country differences. Let’s aim to create a visualization that
+illustrates these differences across countries more distinctly.</p>
+<p>Remove the <code>facet_wrap()</code> and the <code>geom_point()</code> code line. This leaves
+you with this graph:</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="exercise-4-ggplot.html#cb242-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>work_experience, <span class="at">y=</span>trust_politicians)) <span class="sc">+</span></span>
 <span id="cb242-2"><a href="exercise-4-ggplot.html#cb242-2" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-154-1.png" width="672" /></p>
-<p>Now, display every country in a separate color by using the <code>color</code> argument inside the <code>aes()</code> function.</p>
+<p>Now, display every country in a separate color by using the <code>color</code>
+argument inside the <code>aes()</code> function.</p>
 </div>
 <div id="task-5-1" class="section level2 unnumbered hasAnchor">
 <h2>Task 5<a href="exercise-4-ggplot.html#task-5-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Add fitting labels to your plot. For example, set the main title to display: “Impact of Work Experience on Trust in Politicians”. The x-axis label should read “Years of Work Experience in Journalism”, and the y-axis label should read “Trust in Politicians on a 5-point Likert Scale”. The label for the color legend should be “Country”.</p>
+<p>Add fitting labels to your plot. For example, set the main title to
+display: “Impact of Work Experience on Trust in Politicians”. The x-axis
+label should read “Years of Work Experience in Journalism”, and the
+y-axis label should read “Trust in Politicians on a 5-point Likert
+Scale”. The label for the color legend should be “Country”.</p>
 </div>
 <div id="task-6-1" class="section level2 unnumbered hasAnchor">
 <h2>Task 6<a href="exercise-4-ggplot.html#task-6-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Add a nice theme that you like, e.g. <code>theme_minimal()</code>, <code>theme_classic()</code> or <code>theme_bw()</code>.</p>
+<p>Add a nice theme that you like, e.g. <code>theme_minimal()</code>,
+<code>theme_classic()</code> or <code>theme_bw()</code>.</p>
 </div>
 </div>
             </section>

@@ -439,22 +439,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="tutorial-tell-me-your-preferences" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number"> 9</span> Tutorial: Tell me your preferences!<a href="tutorial-tell-me-your-preferences.html#tutorial-tell-me-your-preferences" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>In this tutorial, I’ll cover all the topics that you’d wished for. We’ll start with advanced merging of datasets, the cover reformatting data (e.g. for panel analysis) and then finish with <code>R Markdown</code>.</p>
+<p>In this tutorial, I’ll cover all the topics that you’d wished for. We’ll
+start with advanced merging of datasets, the cover reformatting data
+(e.g. for panel analysis) and then finish with <code>R Markdown</code>.</p>
 <div id="joining-two-datasets" class="section level2 hasAnchor" number="9.1">
 <h2><span class="header-section-number">9.1</span> Joining two datasets<a href="tutorial-tell-me-your-preferences.html#joining-two-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>We’ve already covered how to join multiple datasets while loading the data into R. This approach joins datasets <strong>after</strong> they’ve been loaded into R. It’s the more common approach.</p>
+<p>We’ve already covered how to join multiple datasets while loading the
+data into R. This approach joins datasets <strong>after</strong> they’ve been loaded
+into R. It’s the more common approach.</p>
 <p>First things first, let’s load the libraries and data we’ll need:</p>
 <div class="sourceCode" id="cb363"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb363-1"><a href="tutorial-tell-me-your-preferences.html#cb363-1" tabindex="-1"></a><span class="fu">library</span>(tidycomm)</span>
 <span id="cb363-2"><a href="tutorial-tell-me-your-preferences.html#cb363-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb363-3"><a href="tutorial-tell-me-your-preferences.html#cb363-3" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>WoJ <span class="sc">%&gt;%</span> </span>
 <span id="cb363-4"><a href="tutorial-tell-me-your-preferences.html#cb363-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">case_id =</span> <span class="fu">row_number</span>())</span></code></pre></div>
-<p>Next, we’ll split the WoJ dataset into two groups based on work experience: rookies and veterans. We’ll also reduce the numbers of rookies and veterans based on an arbitrary third variable to make the cases included in the datasets somewhat different from each other.</p>
+<p>Next, we’ll split the WoJ dataset into two groups based on work
+experience: rookies and veterans. We’ll also reduce the numbers of
+rookies and veterans based on an arbitrary third variable to make the
+cases included in the datasets somewhat different from each other.</p>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="tutorial-tell-me-your-preferences.html#cb364-1" tabindex="-1"></a>rookies <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">filter</span>(work_experience <span class="sc">&lt;=</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(autonomy_selection <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
 <span id="cb364-2"><a href="tutorial-tell-me-your-preferences.html#cb364-2" tabindex="-1"></a>veterans <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">filter</span>(work_experience <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ethics_1 <span class="sc">&lt;</span> <span class="dv">5</span>)</span></code></pre></div>
-<p>Now, let’s say you want to merge these datasets back together for some comparative analysis. The <code>tidyr</code> package (part of the <code>tidyverse</code>!) offers you different types of joins for this exact purpose. Let’s explore them!</p>
+<p>Now, let’s say you want to merge these datasets back together for some
+comparative analysis. The <code>tidyr</code> package (part of the <code>tidyverse</code>!)
+offers you different types of joins for this exact purpose. Let’s
+explore them!</p>
 <div id="inner_join" class="section level3 hasAnchor" number="9.1.1">
 <h3><span class="header-section-number">9.1.1</span> inner_join<a href="tutorial-tell-me-your-preferences.html#inner_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>This is like an overly correct librarian.</strong> It only takes rows that have matching keys <strong>in both</strong> datasets, otherwise it will drop the rows.</p>
+<p><strong>This is like an overly correct librarian.</strong> It only takes rows that
+have matching keys <strong>in both</strong> datasets, otherwise it will drop the
+rows.</p>
 <div class="sourceCode" id="cb365"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb365-1"><a href="tutorial-tell-me-your-preferences.html#cb365-1" tabindex="-1"></a>inner_joined <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(rookies, veterans, <span class="at">by =</span> <span class="st">&quot;case_id&quot;</span>)</span>
 <span id="cb365-2"><a href="tutorial-tell-me-your-preferences.html#cb365-2" tabindex="-1"></a></span>
 <span id="cb365-3"><a href="tutorial-tell-me-your-preferences.html#cb365-3" tabindex="-1"></a>inner_joined</span></code></pre></div>
@@ -481,7 +493,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="left_join" class="section level3 hasAnchor" number="9.1.2">
 <h3><span class="header-section-number">9.1.2</span> left_join<a href="tutorial-tell-me-your-preferences.html#left_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>This is like a fan of the first dataset.</strong> It takes all rows from the first dataset and the matched rows from the second dataset.</p>
+<p><strong>This is like a fan of the first dataset.</strong> It takes all rows from the
+first dataset and the matched rows from the second dataset.</p>
 <div class="sourceCode" id="cb367"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb367-1"><a href="tutorial-tell-me-your-preferences.html#cb367-1" tabindex="-1"></a>left_joined <span class="ot">&lt;-</span> <span class="fu">left_join</span>(rookies, veterans, <span class="at">by =</span> <span class="st">&quot;case_id&quot;</span>)</span>
 <span id="cb367-2"><a href="tutorial-tell-me-your-preferences.html#cb367-2" tabindex="-1"></a></span>
 <span id="cb367-3"><a href="tutorial-tell-me-your-preferences.html#cb367-3" tabindex="-1"></a>left_joined</span></code></pre></div>
@@ -508,7 +521,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="right_join" class="section level3 hasAnchor" number="9.1.3">
 <h3><span class="header-section-number">9.1.3</span> right_join<a href="tutorial-tell-me-your-preferences.html#right_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>This is like a fan of the second dataset.</strong> It takes all rows from the second dataset and the matched rows from the first dataset.</p>
+<p><strong>This is like a fan of the second dataset.</strong> It takes all rows from the
+second dataset and the matched rows from the first dataset.</p>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="tutorial-tell-me-your-preferences.html#cb369-1" tabindex="-1"></a>right_joined <span class="ot">&lt;-</span> <span class="fu">right_join</span>(rookies, veterans, <span class="at">by =</span> <span class="st">&quot;case_id&quot;</span>)</span>
 <span id="cb369-2"><a href="tutorial-tell-me-your-preferences.html#cb369-2" tabindex="-1"></a><span class="co"># Pro tip: you can use the argument `by = your_column_here` to match the two datsets based on a specific column, e.g. case id</span></span>
 <span id="cb369-3"><a href="tutorial-tell-me-your-preferences.html#cb369-3" tabindex="-1"></a></span>
@@ -536,7 +550,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="full_join" class="section level3 hasAnchor" number="9.1.4">
 <h3><span class="header-section-number">9.1.4</span> full_join<a href="tutorial-tell-me-your-preferences.html#full_join" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>This is like a hoarder.</strong> It takes all rows and throws in missings for variables that are not part of both datasets.</p>
+<p><strong>This is like a hoarder.</strong> It takes all rows and throws in missings for
+variables that are not part of both datasets.</p>
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="tutorial-tell-me-your-preferences.html#cb371-1" tabindex="-1"></a>full_joined <span class="ot">&lt;-</span> <span class="fu">full_join</span>(rookies, veterans, <span class="at">by =</span> <span class="st">&quot;case_id&quot;</span>)</span>
 <span id="cb371-2"><a href="tutorial-tell-me-your-preferences.html#cb371-2" tabindex="-1"></a><span class="co"># Pro tip: you can use the argument `by = your_column_here` to match the two datsets based on a specific column, e.g. case id</span></span>
 <span id="cb371-3"><a href="tutorial-tell-me-your-preferences.html#cb371-3" tabindex="-1"></a></span>
@@ -565,7 +580,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="reformatting-datasets" class="section level2 hasAnchor" number="9.2">
 <h2><span class="header-section-number">9.2</span> Reformatting datasets<a href="tutorial-tell-me-your-preferences.html#reformatting-datasets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this subtutorial, we will learn how to use <code>pivot_longer()</code> and <code>pivot_wider()</code> functions from the <code>tidyr</code> package. We will create a fictional dataset based on the Worlds of Journalism (WoJ) dataset, with a twist - it will have several panel waves. Imagine that the WoJ dataset has been expanded to include data from different years:</p>
+<p>In this subtutorial, we will learn how to use <code>pivot_longer()</code> and
+<code>pivot_wider()</code> functions from the <code>tidyr</code> package. We will create a
+fictional dataset based on the Worlds of Journalism (WoJ) dataset, with
+a twist - it will have several panel waves. Imagine that the WoJ dataset
+has been expanded to include data from different years:</p>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb373-1"><a href="tutorial-tell-me-your-preferences.html#cb373-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb373-2"><a href="tutorial-tell-me-your-preferences.html#cb373-2" tabindex="-1"></a>WoJ_panel <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span></span>
 <span id="cb373-3"><a href="tutorial-tell-me-your-preferences.html#cb373-3" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
@@ -595,7 +614,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # ℹ 1 more variable: autonomy_selection_w2019 &lt;dbl&gt;</code></pre>
 <div id="pivot_longer" class="section level3 hasAnchor" number="9.2.1">
 <h3><span class="header-section-number">9.2.1</span> pivot_longer()<a href="tutorial-tell-me-your-preferences.html#pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Let’s say you want to analyze how work experience and autonomy selection change over time. For this, you need to reshape the dataset into a longer format.</p>
+<p>Let’s say you want to analyze how work experience and autonomy selection
+change over time. For this, you need to reshape the dataset into a
+longer format.</p>
 <div class="sourceCode" id="cb375"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb375-1"><a href="tutorial-tell-me-your-preferences.html#cb375-1" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> WoJ_panel <span class="sc">%&gt;%</span></span>
 <span id="cb375-2"><a href="tutorial-tell-me-your-preferences.html#cb375-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
 <span id="cb375-3"><a href="tutorial-tell-me-your-preferences.html#cb375-3" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">contains</span>(<span class="st">&quot;_w&quot;</span>),</span>
@@ -619,11 +640,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  9     179 work_experience    w2018    25
 ## 10     179 work_experience    w2019    23
 ## # ℹ 30 more rows</code></pre>
-<p>This code transforms the dataset into a longer format where each row represents a single observation for a variable at a specific wave.</p>
+<p>This code transforms the dataset into a longer format where each row
+represents a single observation for a variable at a specific wave.</p>
 </div>
 <div id="pivot_wider" class="section level3 hasAnchor" number="9.2.2">
 <h3><span class="header-section-number">9.2.2</span> pivot_wider()<a href="tutorial-tell-me-your-preferences.html#pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Now, let’s say you want to do the opposite. You have a long dataset and you want to reshape it into a wider format.</p>
+<p>Now, let’s say you want to do the opposite. You have a long dataset and
+you want to reshape it into a wider format.</p>
 <div class="sourceCode" id="cb377"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb377-1"><a href="tutorial-tell-me-your-preferences.html#cb377-1" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> long_data <span class="sc">%&gt;%</span></span>
 <span id="cb377-2"><a href="tutorial-tell-me-your-preferences.html#cb377-2" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
 <span id="cb377-3"><a href="tutorial-tell-me-your-preferences.html#cb377-3" tabindex="-1"></a>    <span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">&quot;variable&quot;</span>, <span class="st">&quot;wave&quot;</span>),</span>
@@ -650,65 +673,130 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="introduction-to-r-markdown" class="section level2 hasAnchor" number="9.3">
 <h2><span class="header-section-number">9.3</span> Introduction to R Markdown<a href="tutorial-tell-me-your-preferences.html#introduction-to-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R Markdown is a powerful tool for scientists that allows you to intermingle code and text in a single document. It’s a versatile R package that combines the core syntax of markdown (an easy-to-write plain text format) with embedded R code chunks, enabling the creation of dynamic documents, presentations, dashboards, and even entire books (R Markdown supports a variety of output formats, including HTML, PDF, Microsoft Word and MANY more!).</p>
-<p>Developed by Yihui Xie in 2012, and actively maintained by the RStudio team, R Markdown was designed to provide a seamless workflow for both data analysis and reporting. One of the key features of R Markdown is its ability to execute R code chunks in the document and automatically capture the output and include it in the final document. This can include results of computations, tables, and even graphics generated by the R code. R Markdown documents are completely reproducible and can be automatically regenerated whenever the underlying data or analysis code changes.</p>
-<p>Creating an R Markdown document is an interactive process that combines elements of coding, data analysis, and scientific writing. Let’s get started.</p>
+<p>R Markdown is a powerful tool for scientists that allows you to
+intermingle code and text in a single document. It’s a versatile R
+package that combines the core syntax of markdown (an easy-to-write
+plain text format) with embedded R code chunks, enabling the creation of
+dynamic documents, presentations, dashboards, and even entire books (R
+Markdown supports a variety of output formats, including HTML, PDF,
+Microsoft Word and MANY more!).</p>
+<p>Developed by Yihui Xie in 2012, and actively maintained by the RStudio
+team, R Markdown was designed to provide a seamless workflow for both
+data analysis and reporting. One of the key features of R Markdown is
+its ability to execute R code chunks in the document and automatically
+capture the output and include it in the final document. This can
+include results of computations, tables, and even graphics generated by
+the R code. R Markdown documents are completely reproducible and can be
+automatically regenerated whenever the underlying data or analysis code
+changes.</p>
+<p>Creating an R Markdown document is an interactive process that combines
+elements of coding, data analysis, and scientific writing. Let’s get
+started.</p>
 <div id="packages-1" class="section level3 hasAnchor" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Packages<a href="tutorial-tell-me-your-preferences.html#packages-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Firstly, you’ll need to install the <code>rmarkdown</code> package and its dependencies, including <code>knitr</code> for executing code chunks. You can do this from within R or RStudio:</p>
+<p>Firstly, you’ll need to install the <code>rmarkdown</code> package and its
+dependencies, including <code>knitr</code> for executing code chunks. You can do
+this from within R or RStudio:</p>
 <div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="tutorial-tell-me-your-preferences.html#cb379-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="tutorial-tell-me-your-preferences.html#cb380-1" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span></code></pre></div>
 </div>
 <div id="creating-a-new-r-markdown-file" class="section level3 hasAnchor" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Creating a New R Markdown File<a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can create a new R Markdown file in RStudio by clicking on <code>File &gt; New File &gt; R Markdown...</code> This will open a dialog box where you can give the document a title and author, and choose the output format (HTML, PDF, or Word).</p>
+<p>You can create a new R Markdown file in RStudio by clicking on
+<code>File &gt; New File &gt; R Markdown...</code> This will open a dialog box where you
+can give the document a title and author, and choose the output format
+(HTML, PDF, or Word).</p>
 </div>
 <div id="structure-of-r-markdown-documents" class="section level3 hasAnchor" number="9.3.3">
 <h3><span class="header-section-number">9.3.3</span> Structure of R Markdown Documents<a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>An R Markdown document consists of YAML metadata, markdown text, and R code chunks.</p>
+<p>An R Markdown document consists of YAML metadata, markdown text, and R
+code chunks.</p>
 <ul>
-<li><p><strong>YAML Metadata:</strong> This is the section at the top of the document, enclosed in —. It contains information like the title, author, date, and output format of the document.</p></li>
-<li><p><strong>Markdown Text:</strong> Markdown is a simple formatting syntax that allows you to include things like headers, links, italics, bullet lists, images, etc., in plain text.</p></li>
-<li><p><strong>R Code Chunks:</strong> You can insert R code into your document by enclosing it in <code>{r} and</code>.</p></li>
+<li><p><strong>YAML Metadata:</strong> This is the section at the top of the document,
+enclosed in —. It contains information like the title, author,
+date, and output format of the document.</p></li>
+<li><p><strong>Markdown Text:</strong> Markdown is a simple formatting syntax that
+allows you to include things like headers, links, italics, bullet
+lists, images, etc., in plain text.</p></li>
+<li><p><strong>R Code Chunks:</strong> You can insert R code into your document by
+enclosing it in <code>{r} and</code>.</p></li>
 </ul>
-<p>This code chunk would be executed when the document is rendered, and the description of the WoJ dataset would be included in the final document.</p>
+<p>This code chunk would be executed when the document is rendered, and the
+description of the WoJ dataset would be included in the final document.</p>
 </div>
 <div id="rendering-the-document" class="section level3 hasAnchor" number="9.3.4">
 <h3><span class="header-section-number">9.3.4</span> Rendering the Document:<a href="tutorial-tell-me-your-preferences.html#rendering-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To convert your R Markdown document into a final, shareable format, you need to ‘render’ it. You can do this in RStudio by clicking the ‘Knit’ button. You can also use the <code>render()</code> function from the rmarkdown package:</p>
+<p>To convert your R Markdown document into a final, shareable format, you
+need to ‘render’ it. You can do this in RStudio by clicking the ‘Knit’
+button. You can also use the <code>render()</code> function from the rmarkdown
+package:</p>
 <div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="tutorial-tell-me-your-preferences.html#cb381-1" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">render</span>(<span class="st">&quot;my_document.Rmd&quot;</span>)</span></code></pre></div>
-<p>This will execute all of the R code chunks, convert the markdown text to formatted text, and combine everything into a final document.</p>
+<p>This will execute all of the R code chunks, convert the markdown text to
+formatted text, and combine everything into a final document.</p>
 </div>
 <div id="formatting-the-document" class="section level3 hasAnchor" number="9.3.5">
 <h3><span class="header-section-number">9.3.5</span> Formatting the Document<a href="tutorial-tell-me-your-preferences.html#formatting-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can format your R Markdown document by using Markdown as a simple formatting syntax. This is the basic syntax:</p>
+<p>You can format your R Markdown document by using Markdown as a simple
+formatting syntax. This is the basic syntax:</p>
 <ul>
-<li><p>Headers: Use # for a top-level header (H1), ## for H2, up to ###### for H6. The more #s, the smaller the header.</p></li>
-<li><p>Emphasis: For italic text, wrap words in * or _ , like * italic * or _ italic _ . For bold, use double ** or __ , like ** bold ** or __ bold __.</p></li>
-<li><p>Lists: Use *, -, or + followed by a space for bullet points. For numbered items, start the line with the number, a period, and a space.</p></li>
-<li><p>Links: Wrap the clickable text in square brackets [] and the URL in parentheses (), like this but without the space: [Lara Kobike] (homepage_url).</p></li>
-<li><p>Images: Similar to links, but prefix the square bracket with an exclamation point !, like this but without the space: [Alt text] (image_url).</p></li>
-<li><p>Code: Use backticks ` around inline code snippets. For larger blocks of code, use triple backticks.</p></li>
+<li><p>Headers: Use # for a top-level header (H1), ## for H2, up to
+###### for H6. The more #s, the smaller the header.</p></li>
+<li><p>Emphasis: For italic text, wrap words in * or _ , like * italic
+* or _ italic _ . For bold, use double ** or __ , like **
+bold ** or __ bold __.</p></li>
+<li><p>Lists: Use *, -, or + followed by a space for bullet points. For
+numbered items, start the line with the number, a period, and a
+space.</p></li>
+<li><p>Links: Wrap the clickable text in square brackets [] and the URL in
+parentheses (), like this but without the space: [Lara Kobike]
+(homepage_url).</p></li>
+<li><p>Images: Similar to links, but prefix the square bracket with an
+exclamation point !, like this but without the space: [Alt text]
+(image_url).</p></li>
+<li><p>Code: Use backticks ` around inline code snippets. For larger
+blocks of code, use triple backticks.</p></li>
 <li><p>Blockquotes: Start the line with a &gt; to create a blockquote.</p></li>
 </ul>
-<p>Finally, you can use this <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown cheat sheet</a> to quickly learn more.</p>
-<p><strong>Advanced tip:</strong> The <code>bookdown</code> package extends the functionality of the <code>rmarkdown</code> package. It can be used to create long and more complicated documents. Here is an introduction to <code>bookdown</code> by Benjamin Fretwurst, which he created for his students in Zurich (including videos): <a href="https://www.ikmz.uzh.ch/static/methoden/R_Introduction/forschungsbericht-mit-bookdown.html">Link</a>.”</p>
+<p>Finally, you can use this <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown cheat
+sheet</a>
+to quickly learn more.</p>
+<p><strong>Advanced tip:</strong> The <code>bookdown</code> package extends the functionality of
+the <code>rmarkdown</code> package. It can be used to create long and more
+complicated documents. Here is an introduction to <code>bookdown</code> by Benjamin
+Fretwurst, which he created for his students in Zurich (including
+videos):
+<a href="https://www.ikmz.uzh.ch/static/methoden/R_Introduction/forschungsbericht-mit-bookdown.html">Link</a>.”</p>
 </div>
 <div id="citing-papers-with-zotero" class="section level3 hasAnchor" number="9.3.6">
 <h3><span class="header-section-number">9.3.6</span> Citing Papers with Zotero<a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can integrate Zotero to cite your sources within an R Markdown document. First, you <a href="https://www.zotero.org/">need to download and install Zotero</a>. It’s a free, open-source tool that helps you collect, organize, cite, and share your research sources. After you have Zotero installed, you also need to install an extension called <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX for Zotero</a>, which simplifies the process of exporting your Zotero libraries in a format that is easy to use with R Markdown.</p>
-<p>After installing Better BibTeX, go to Zotero and choose the library or collection you want to use in R Markdown. Right-click (or control-click on macOS) on the library or collection, choose “Export Collection”, and then make sure to select “Better BibTeX”. You will get a .bib file that contains your references in a format that BibTeX can process.</p>
-<p>Now, go to your R Markdown document. You need to tell R Markdown to use the .bib file you just created. You do this by adding a line to the YAML header, like this:</p>
-<pre><code>---
-title: &quot;Your Document Title&quot;
-output: html_document
-bibliography: your_bib_file.bib
----</code></pre>
-<p>Just replace “your_bib_file.bib” with the actual name of your .bib file. Make sure the .bib file is in the same directory as your R Markdown document, or provide the correct relative or absolute path to the .bib file.</p>
-<p>Finally, you can cite papers anywhere in your document by using the @ sign followed by the citation key of the paper. The citation key for each paper is found in your .bib file, and is usually composed of the author’s last name, followed by the year of publication, and possibly some additional characters to avoid duplication. Here is an example of how you might cite a paper:</p>
-<pre><code>In a recent study [@Smith2023]...</code></pre>
-<p>In the actual output, <code>[@Smith2023]</code> will be replaced by a properly formatted citation, and a reference list will be automatically generated at the end of your document.</p>
-<p>For more details on how to use Zotero with R Markdown, including how to specify citation style and how to cite page numbers, see the <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">official guide on using Zotero with R Markdown</a>.</p>
+<p>You can integrate Zotero to cite your sources within an R Markdown
+document. First, you <a href="https://www.zotero.org/">need to download and install
+Zotero</a>. It’s a free, open-source tool that
+helps you collect, organize, cite, and share your research sources.
+After you have Zotero installed, you also need to install an extension
+called <a href="https://retorque.re/zotero-better-bibtex/">Better BibTeX for
+Zotero</a>, which simplifies the
+process of exporting your Zotero libraries in a format that is easy to
+use with R Markdown.</p>
+<p>To install Better BibTeX, open Zotero and follow this path:
+<code>Tools &gt; Add-Ons &gt; Gear Icon &gt; Install Add-On From File…</code>. Then go to
+the folder you downloaded the Better Bibtex file to. Select the <code>BetterBibtex.xpi</code> file, click “Install Now” in the Zotero pop-up, and follow the system setup.</p>
+<p><strong>Pro tip:</strong> Better BibTeX will create dynamic citation keys from the Zotero paper information, and this key may change when you edit the paper in Zotero. You can generate a pinned (i.e., fixed) citation key by selecting one or more items, right-clicking, and selecting <code>Pin BibTeX key</code>, which will add the current citation key to the “extra” field, thereby pinning it. If you want to update your citation key default style, go to <code>Tools &gt; Better BibTex &gt; Open Better BibTex Preferences</code> and enter your desired citation key style, e.g. “auth.fold.lower + year”.</p>
+<p>Next, you need to connect Zotero with R Markdown. The easiest way that
+I’ve found is through using the <code>rbbt</code> package <a href="https://dewey.dunnington.ca/post/2020/getting-started-zotero-better-bibtex-rmarkdown/">(see the author’s blog here)</a>. However, it’s not hosted
+on <code>CRAN</code>, so be careful. This package might not run stable in the
+future.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="tutorial-tell-me-your-preferences.html#cb382-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;paleolimbot/rbbt&quot;</span>)</span></code></pre></div>
+<p>After installing <code>rbbt</code> and restarting RStudio, go to
+<code>Tools &gt; Modify Keyboard Shortcuts</code>. Search for <code>zotero</code> and click on the ‘Shortcut’ field for the ‘Insert Zotero Bibliography from Zotero Selection’ line and type in your desired shortcut keys, e.g. <code>CNTRL + B</code>.</p>
+<p>Alright, now it’s time to open a new R script. Go to <code>File &gt; New File &gt; R Script</code> and open an empty document. Save this document via <code>File &gt; Save As</code> and call it “references.bib”. You will see a warning that this is changing the R script to be a bib file. This warning is great news because that’s exactly what we want. Make sure that your <code>references.bib</code> is placed in the same directory as your R Markdown <code>.Rmd</code> file.</p>
+<p>Next, switch to Zotero and select all references that you want to cite. For example, use the shortcut <code>CNTRL + A</code> in your Zotero project to select all papers in that project at the same time. Move back to R Markdown and into your “references.bib” file. Go in there and hit your ‘Insert Zotero Bibliography from Zotero Selection’ shortcut (i.e. <code>CNTRL + B</code>). Voilá, you got yourself a bibliography to cite from that you can always easily update using <code>CNTRL + B</code>. Save that updated .bib file.</p>
+<p>Now, whenever you are in your R Markdown file, you can just type an “@” smybol and RStudio will automatically prompt you with the options from your .bib file. Choose your reference and hit Enter. This will insert the citation key in your R Markdown document, e.g. <code>@smith2023</code>. In the actual output, <code>@smith2023</code> will be replaced by a properly formatted
+citation, and a reference list will be automatically generated at the end of your document.</p>
+<p>For more details on how to use Zotero with R Markdown, including how to
+specify citation style and how to cite page numbers, see the <a href="https://rstudio.github.io/visual-markdown-editing/citations.html">official
+guide on using Zotero with R
+Markdown</a>.</p>
 </div>
 </div>
 </div>

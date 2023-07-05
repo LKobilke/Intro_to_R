@@ -504,10 +504,11 @@ graphs that are this complicated, but with basic scatter or bar plots.</p>
 <span id="cb213-14"><a href="tutorial-data-visualization-with-ggplot.html#cb213-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Mass vs. height of humans and droids in Star Wars&quot;</span>,</span>
 <span id="cb213-15"><a href="tutorial-data-visualization-with-ggplot.html#cb213-15" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Height (cm)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Weight (kg)&quot;</span>) <span class="sc">+</span></span>
 <span id="cb213-16"><a href="tutorial-data-visualization-with-ggplot.html#cb213-16" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>species)</span></code></pre></div>
-<p>To visit the official documentation of <code>ggplot2</code>:
-1. type <code>?ggplot2</code> in your console
-2. visit the <a href="https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5">ggplot documentation</a>
-3. visit the <a href="https://ggplot2.tidyverse.org/">ggplot homepage of the tidyverse</a></p>
+<p>To visit the official documentation of <code>ggplot2</code>: 1. type <code>?ggplot2</code> in
+your console 2. visit the <a href="https://www.rdocumentation.org/packages/ggplot2/versions/3.3.5">ggplot
+documentation</a>
+3. visit the <a href="https://ggplot2.tidyverse.org/">ggplot homepage of the
+tidyverse</a></p>
 </div>
 <div id="components-of-a-ggplot-graph" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Components of a ggplot graph<a href="tutorial-data-visualization-with-ggplot.html#components-of-a-ggplot-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -933,7 +934,13 @@ height of each group:</p>
 <span id="cb234-2"><a href="tutorial-data-visualization-with-ggplot.html#cb234-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y=</span>height)) <span class="sc">+</span>           <span class="co"># Now we need to specify the variable that we want to summarize with mean statistics   </span></span>
 <span id="cb234-3"><a href="tutorial-data-visualization-with-ggplot.html#cb234-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;summary&quot;</span>, <span class="at">fun.y =</span> <span class="st">&quot;mean&quot;</span>) <span class="co"># apply the summary statistic of y (mean) to the geom_bars</span></span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-145-1.png" width="60%" /></p>
-<p>There is an alternative writing style for those bar plots that show mean values. In this writing style, you don’t apply the summary statistics to the <em>geom_bar</em>, but you apply the <em>geom_bar</em> to the summary statistics (You might remember the optional <em>stat_</em> component of graphs from chapter <a href="tutorial-data-visualization-with-ggplot.html#components-of-a-ggplot-graph">Components of a ggplot graph</a>). While this writing style is a bit awkward, it is more flexible. So I’d recommend this code for mean bar plots:</p>
+<p>There is an alternative writing style for those bar plots that show mean
+values. In this writing style, you don’t apply the summary statistics to
+the <em>geom_bar</em>, but you apply the <em>geom_bar</em> to the summary statistics
+(You might remember the optional <em>stat_</em> component of graphs from
+chapter <a href="tutorial-data-visualization-with-ggplot.html#components-of-a-ggplot-graph">Components of a ggplot graph</a>). While this writing style is a
+bit awkward, it is more flexible. So I’d recommend this code for mean
+bar plots:</p>
 <div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="tutorial-data-visualization-with-ggplot.html#cb235-1" tabindex="-1"></a>human_droid_data <span class="sc">%&gt;%</span></span>
 <span id="cb235-2"><a href="tutorial-data-visualization-with-ggplot.html#cb235-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y=</span>height)) <span class="sc">+</span></span>
 <span id="cb235-3"><a href="tutorial-data-visualization-with-ggplot.html#cb235-3" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">geom =</span> <span class="st">&quot;bar&quot;</span>, <span class="at">fun =</span> <span class="st">&quot;mean&quot;</span>)</span></code></pre></div>
@@ -971,7 +978,9 @@ characters who are male, female, or do not have a sex.</p>
 <span id="cb238-2"><a href="tutorial-data-visualization-with-ggplot.html#cb238-2" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y=</span>height)) <span class="sc">+</span></span>
 <span id="cb238-3"><a href="tutorial-data-visualization-with-ggplot.html#cb238-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-149-1.png" width="60%" /></p>
-<p>While box plots are a very powerful tool of data visualization, they are not understood by statistical laymen. Please don’t use them in non-scientific contexts.</p>
+<p>While box plots are a very powerful tool of data visualization, they are
+not understood by statistical laymen. Please don’t use them in
+non-scientific contexts.</p>
 </div>
 </div>
 <div id="take-aways-5" class="section level2 hasAnchor" number="7.6">
@@ -1009,7 +1018,8 @@ Advances in Methods and Practices in Psychological Science</em>. DOI:
 <li><a href="https://rc2e.com/graphics">R Codebook by J.D. Long and P. Teetor, Tutorial
 10</a></li>
 </ul>
-<p>Now let’s see what you’ve learned so far: [Exercise 4: Test your knowledge].</p>
+<p>Now let’s see what you’ve learned so far: [Exercise 4: Test your
+knowledge].</p>
 </div>
 </div>
             </section>

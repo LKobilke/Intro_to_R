@@ -441,41 +441,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number"> 6</span> 5 Tutorial: Advanced data management<a href="tutorial-advanced-data-management.html#tutorial-advanced-data-management" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><strong>After working through Tutorial 5, you’ll…</strong></p>
 <ul>
-<li>have learned some neat tricks that took me several years to figure out… :)</li>
+<li>have learned some neat tricks that took me several years to figure
+out… :)</li>
 <li>… for example, soft-coding your working directory</li>
 <li>… using relative paths to navigate your folders</li>
 <li>… using advanced column selectors</li>
 </ul>
-<p>Some parts of this tutorial are heavily inspired by Christian Burkhart’s book
-Going from Beginner to Advanced in the Tidyverse. This book is the next step
-in your journey to tidyverse mastery!</p>
+<p>Some parts of this tutorial are heavily inspired by Christian Burkhart’s
+book Going from Beginner to Advanced in the Tidyverse. This book is the
+next step in your journey to tidyverse mastery!</p>
 <div id="stop-hard-coding-your-working-directory" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> Stop hard-coding your working directory!<a href="tutorial-advanced-data-management.html#stop-hard-coding-your-working-directory" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Hard-coding your working directory with
-<code>setwd("C:/Users/LaraK/Documents/IPR/")</code> comes with a significant drawback: it
-is not reproducible on your colleagues’ machines! Your colleagues may have
-different user names, run the script from different source file paths, or have
-different folder structures.</p>
-<p>To avoid these problems, you can use the <code>rstudioapi</code> package. It provides a
-set of functions that allow you to interact with RStudio’s IDE (Integrated
-Development Environment) programmatically. First, install and load the
-package:</p>
+<code>setwd("C:/Users/LaraK/Documents/IPR/")</code> comes with a significant
+drawback: it is not reproducible on your colleagues’ machines! Your
+colleagues may have different user names, run the script from different
+source file paths, or have different folder structures.</p>
+<p>To avoid these problems, you can use the <code>rstudioapi</code> package. It
+provides a set of functions that allow you to interact with RStudio’s
+IDE (Integrated Development Environment) programmatically. First,
+install and load the package:</p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="tutorial-advanced-data-management.html#cb166-1" tabindex="-1"></a><span class="co"># install.packages(&quot;rstudioapi&quot;) # run only the first time</span></span>
 <span id="cb166-2"><a href="tutorial-advanced-data-management.html#cb166-2" tabindex="-1"></a><span class="fu">library</span>(rstudioapi)</span></code></pre></div>
-<p>Now you should open or create an R script file in RStudio that is located in
-the desired folder that you want to become your working directory. I will
-create a script in a folder called <code>IPR</code> that rests under the folder path:
-<code>"C:/Users/LaraK/Documents/IPR/"</code>. Save that script in your folder!</p>
+<p>Now you should open or create an R script file in RStudio that is
+located in the desired folder that you want to become your working
+directory. I will create a script in a folder called <code>IPR</code> that rests
+under the folder path: <code>"C:/Users/LaraK/Documents/IPR/"</code>. Save that
+script in your folder!</p>
 <p>Now copy the following line of code in your R script and execute it:</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="tutorial-advanced-data-management.html#cb167-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="fu">dirname</span>(rstudioapi<span class="sc">::</span><span class="fu">getSourceEditorContext</span>()<span class="sc">$</span>path))</span></code></pre></div>
 <p>By using the <code>dirname()</code> function on
-<code>rstudioapi::getSourceEditorContext()$path</code>, we extract the directory <strong>path
-of the currently active R script</strong> and pass it to <code>setwd()</code> to set it as the
-working directory. This approach also ensures that the working directory is
-set to the correct folder, even if you rename or move the R script within
-RStudio. <strong>Note</strong> : Remember to save the R script in the desired folder
-<em>before</em> executing the <code>setwd()</code> function to ensure that it sets the correct
-working directory.</p>
+<code>rstudioapi::getSourceEditorContext()$path</code>, we extract the directory
+<strong>path of the currently active R script</strong> and pass it to <code>setwd()</code> to
+set it as the working directory. This approach also ensures that the
+working directory is set to the correct folder, even if you rename or
+move the R script within RStudio. <strong>Note</strong> : Remember to save the R
+script in the desired folder <em>before</em> executing the <code>setwd()</code> function
+to ensure that it sets the correct working directory.</p>
 <p>That’s really handy, isn’t it?</p>
 </div>
 <div id="start-navigating-your-working-directory-like-a-pro" class="section level2 hasAnchor" number="6.2">
@@ -483,20 +485,21 @@ working directory.</p>
 <div id="the-concept-of-relative-paths" class="section level3 hasAnchor" number="6.2.1">
 <h3><span class="header-section-number">6.2.1</span> The concept of relative paths<a href="tutorial-advanced-data-management.html#the-concept-of-relative-paths" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you have subfolders in your working directory or when your working
-directory itself is a subfolder of a more high-level folder, you can start
-navigating in it by using relative paths. A relative path is like giving
-directions from your current location (e.g.: “When you leave the IfKW, you
-turn right on the Oettingenstraße. Walk down the road until you see a
-crossroad. Turn left and then you can see the Bayrische Eismanufaktur!”). It’s
-the contrary of providing an absolute path, which means providing the full
-address of a place (e.g.: “You can find the Bayrische Eismanufaktur at
-Oettingenstr. 42a – 80538 München, longitude: 48.14646612168593, latitude:
-11.593379619133687”).</p>
-<p>In R, a relative path specifies the path to a folder or file <strong>relative to
-your current working directory</strong> in RStudio. It doesn’t include the complete
-path from the root of your file system. Instead, it describes how to navigate
-through the folders and subfolders starting from your current location.
-Relative paths are flexible and can adapt to different working directories.</p>
+directory itself is a subfolder of a more high-level folder, you can
+start navigating in it by using relative paths. A relative path is like
+giving directions from your current location (e.g.: “When you leave the
+IfKW, you turn right on the Oettingenstraße. Walk down the road until
+you see a crossroad. Turn left and then you can see the Bayrische
+Eismanufaktur!”). It’s the contrary of providing an absolute path, which
+means providing the full address of a place (e.g.: “You can find the
+Bayrische Eismanufaktur at Oettingenstr. 42a – 80538 München,
+longitude: 48.14646612168593, latitude: 11.593379619133687”).</p>
+<p>In R, a relative path specifies the path to a folder or file <strong>relative
+to your current working directory</strong> in RStudio. It doesn’t include the
+complete path from the root of your file system. Instead, it describes
+how to navigate through the folders and subfolders starting from your
+current location. Relative paths are flexible and can adapt to different
+working directories.</p>
 <p>For example, if your current working directory is
 <code>"C:/Users/LaraK/Documents/IPR/"</code>, a relative path to a file named
 <code>WoJ_names_1.csv</code> in a subfolder named <code>mutiple_files</code> would be
@@ -505,57 +508,61 @@ Relative paths are flexible and can adapt to different working directories.</p>
 <div id="moving-up-and-down-folders-by-using-relative-paths" class="section level3 hasAnchor" number="6.2.2">
 <h3><span class="header-section-number">6.2.2</span> Moving up and down folders by using relative paths<a href="tutorial-advanced-data-management.html#moving-up-and-down-folders-by-using-relative-paths" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Please download the .csv files that are contained in the folder
-<code>multiple_files</code> on LRZ Sync &amp; Share and store them in a subfolder called
-<code>mutiple_files</code> in your working directory.</p>
-<p>To move down a folder, you can use the <code>./</code> notation. The <code>./</code> represents the
-child directory of the current working directory that you want to navigate to.
-For example, if you’re in the folder <code>"C:/Users/LaraK/Documents/IPR/"</code> and you
-want to move your working directory down to the <code>"mutiple_files"</code> subfolder,
-you can use the following code:</p>
+<code>multiple_files</code> on LRZ Sync &amp; Share and store them in a subfolder
+called <code>mutiple_files</code> in your working directory.</p>
+<p>To move down a folder, you can use the <code>./</code> notation. The <code>./</code>
+represents the child directory of the current working directory that you
+want to navigate to. For example, if you’re in the folder
+<code>"C:/Users/LaraK/Documents/IPR/"</code> and you want to move your working
+directory down to the <code>"mutiple_files"</code> subfolder, you can use the
+following code:</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="tutorial-advanced-data-management.html#cb168-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="st">&quot;./mutiple_files&quot;</span>)</span></code></pre></div>
-<p>To move up one level in the folder hierarchy again, you can use the <code>../</code>
-notation. The <code>../</code> represents the parent directory of the current working
-directory. You can use this notation with the <code>setwd()</code> function to navigate
-up the folder again:</p>
+<p>To move up one level in the folder hierarchy again, you can use the
+<code>../</code> notation. The <code>../</code> represents the parent directory of the current
+working directory. You can use this notation with the <code>setwd()</code> function
+to navigate up the folder again:</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="tutorial-advanced-data-management.html#cb169-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="st">&quot;../&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="reading-multiple-files-into-r" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> Reading multiple files into R<a href="tutorial-advanced-data-management.html#reading-multiple-files-into-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>There are several common challenges when reading multiple files into R, such
-as inconsistent column names and file paths, as well as selecting only the
-necessary files. In this tutorial, I’ll teach you a convenient solution by
-creating a character vector of file paths and reading them into R using the
-<code>read_*</code> functions.</p>
-<p>First, you will need to set the folder <code>"multiple_files"</code> as your working
-directory.</p>
+<p>There are several common challenges when reading multiple files into R,
+such as inconsistent column names and file paths, as well as selecting
+only the necessary files. In this tutorial, I’ll teach you a convenient
+solution by creating a character vector of file paths and reading them
+into R using the <code>read_*</code> functions.</p>
+<p>First, you will need to set the folder <code>"multiple_files"</code> as your
+working directory.</p>
 <div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="tutorial-advanced-data-management.html#cb170-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="st">&quot;./mutiple_files&quot;</span>)</span></code></pre></div>
-<p>Now you need to save the folder path of your working directory as a character
-string. You can use <code>getwd()</code> and save the result in an R object called
-<code>path</code>:</p>
+<p>Now you need to save the folder path of your working directory as a
+character string. You can use <code>getwd()</code> and save the result in an R
+object called <code>path</code>:</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="tutorial-advanced-data-management.html#cb171-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
 <span id="cb171-2"><a href="tutorial-advanced-data-management.html#cb171-2" tabindex="-1"></a>path</span></code></pre></div>
-<p>Next, create a character vector that contains the file names of all files
-contained in your subfolder <code>"multiple_files"</code>. You can look at the file names
-of a folder by using the function <code>list.files()</code>:</p>
+<p>Next, create a character vector that contains the file names of all
+files contained in your subfolder <code>"multiple_files"</code>. You can look at
+the file names of a folder by using the function <code>list.files()</code>:</p>
 <div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="tutorial-advanced-data-management.html#cb172-1" tabindex="-1"></a>file_names <span class="ot">&lt;-</span> <span class="fu">list.files</span>(path)</span>
 <span id="cb172-2"><a href="tutorial-advanced-data-management.html#cb172-2" tabindex="-1"></a>file_names</span></code></pre></div>
-<p>Now turn these names into a proper character vector of all the file paths by
-adding additional arguments to the function <code>list.files()</code>:</p>
+<p>Now turn these names into a proper character vector of all the file
+paths by adding additional arguments to the function <code>list.files()</code>:</p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="tutorial-advanced-data-management.html#cb173-1" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path,       <span class="co"># takes the path to the working directory / folder</span></span>
 <span id="cb173-2"><a href="tutorial-advanced-data-management.html#cb173-2" tabindex="-1"></a>                         <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>,   <span class="co"># file should contain the string &#39;csv&#39;, but you could also opt for &quot;WoJ_names&quot;</span></span>
 <span id="cb173-3"><a href="tutorial-advanced-data-management.html#cb173-3" tabindex="-1"></a>                         <span class="at">full.names =</span> <span class="cn">TRUE</span>) <span class="co"># store the full file paths, not just the file names</span></span>
 <span id="cb173-4"><a href="tutorial-advanced-data-management.html#cb173-4" tabindex="-1"></a>file_paths</span></code></pre></div>
-<p>Finally, read the files using <code>map()</code>: Use <code>map()</code> from the <code>purrr</code> package
-(part of the <code>tidyverse</code> metapackage) to iterate over the file paths and read
-each file using a function like <code>read.csv()</code> (or <code>read_excel()</code>, etc.). The
-result will be a list of data frames.</p>
+<p>Finally, read the files using <code>map()</code>: Use <code>map()</code> from the <code>purrr</code>
+package (part of the <code>tidyverse</code> metapackage) to iterate over the file
+paths and read each file using a function like <code>read.csv()</code> (or
+<code>read_excel()</code>, etc.). The result will be a list of data frames.</p>
 <div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="tutorial-advanced-data-management.html#cb174-1" tabindex="-1"></a>data_list <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span> </span>
 <span id="cb174-2"><a href="tutorial-advanced-data-management.html#cb174-2" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span><span class="fu">read.csv2</span>(<span class="at">file =</span> .x))  <span class="co"># use map to apply read.csv2 (semicolon-separated) to each individual file path, .x stands for each individual file path</span></span>
 <span id="cb174-3"><a href="tutorial-advanced-data-management.html#cb174-3" tabindex="-1"></a>data_list</span></code></pre></div>
-<p>However, we don’t want our data to be read in as separate files. We want to combine them in one single file. We can use <code>bind_rows()</code> from the <code>dpylr</code> package for that:</p>
+<p>However, we don’t want our data to be read in as separate files. We want
+to combine them in one single file. We can use <code>bind_rows()</code> from the
+<code>dpylr</code> package for that:</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="tutorial-advanced-data-management.html#cb175-1" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> data_list <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()  <span class="co"># bind all of your rows in your data list into one dataframe</span></span></code></pre></div>
-<p>That involved a great number of individual steps. Let’s now consolidate everything into a simpler pipeline and execute it:</p>
+<p>That involved a great number of individual steps. Let’s now consolidate
+everything into a simpler pipeline and execute it:</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="tutorial-advanced-data-management.html#cb176-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
 <span id="cb176-2"><a href="tutorial-advanced-data-management.html#cb176-2" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path,</span>
 <span id="cb176-3"><a href="tutorial-advanced-data-management.html#cb176-3" tabindex="-1"></a>                         <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>,</span>
@@ -564,11 +571,23 @@ result will be a list of data frames.</p>
 <span id="cb176-6"><a href="tutorial-advanced-data-management.html#cb176-6" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span> </span>
 <span id="cb176-7"><a href="tutorial-advanced-data-management.html#cb176-7" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span><span class="fu">read.csv2</span>(<span class="at">file =</span> .x)) <span class="sc">%&gt;%</span></span>
 <span id="cb176-8"><a href="tutorial-advanced-data-management.html#cb176-8" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
-<p><strong>Note:</strong> If the files have different column names or structures, you may encounter issues when binding them together with this approach. Make sure the files have compatible structures or consider preprocessing the data, as shown in the next chapter.</p>
+<p><strong>Note:</strong> If the files have different column names or structures, you
+may encounter issues when binding them together with this approach. Make
+sure the files have compatible structures or consider preprocessing the
+data, as shown in the next chapter.</p>
 <div id="reading-multiple-files-into-r-with-different-column-names" class="section level3 hasAnchor" number="6.3.1">
 <h3><span class="header-section-number">6.3.1</span> Reading multiple files into R with different column names<a href="tutorial-advanced-data-management.html#reading-multiple-files-into-r-with-different-column-names" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Things can sometimes get messy. Please download the .csv files that are contained in the folder <code>multiple_files_messy</code> on <a href="https://syncandshare.lrz.de/getlink/fiBrHj9PZXRE8BcAAgrZkj/multiple_files_messy">LRZ Sync &amp; Share</a> and store them in a folder called <code>mutiple_files_messy</code>in your working directory.</p>
-<p>In this messy folder, the <code>WoJ_names_1.csv</code> file has been altered. The column name <code>country</code> has been capitalized (i.e., changed to <code>COUNTRY</code>) , and the column containing names has been accidentally deleted. Let’s attempt to reload the .csv files once more and set the column names to lowercase dynamically. To handle the missing column, we will use <code>bind_rows</code> function:</p>
+<p>Things can sometimes get messy. Please download the .csv files that are
+contained in the folder <code>multiple_files_messy</code> on <a href="https://syncandshare.lrz.de/getlink/fiBrHj9PZXRE8BcAAgrZkj/multiple_files_messy">LRZ Sync &amp;
+Share</a>
+and store them in a folder called <code>mutiple_files_messy</code>in your working
+directory.</p>
+<p>In this messy folder, the <code>WoJ_names_1.csv</code> file has been altered. The
+column name <code>country</code> has been capitalized (i.e., changed to <code>COUNTRY</code>)
+, and the column containing names has been accidentally deleted. Let’s
+attempt to reload the .csv files once more and set the column names to
+lowercase dynamically. To handle the missing column, we will use
+<code>bind_rows</code> function:</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="tutorial-advanced-data-management.html#cb177-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./mutiple_files_messy&quot;</span>)</span>
 <span id="cb177-2"><a href="tutorial-advanced-data-management.html#cb177-2" tabindex="-1"></a></span>
 <span id="cb177-3"><a href="tutorial-advanced-data-management.html#cb177-3" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
@@ -580,24 +599,32 @@ result will be a list of data frames.</p>
 <span id="cb177-9"><a href="tutorial-advanced-data-management.html#cb177-9" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span><span class="fu">read.csv2</span>(<span class="at">file =</span> .x) <span class="sc">%&gt;%</span></span>
 <span id="cb177-10"><a href="tutorial-advanced-data-management.html#cb177-10" tabindex="-1"></a>        <span class="fu">setNames</span>(<span class="fu">tolower</span>(<span class="fu">names</span>(.)))) <span class="sc">%&gt;%</span></span>
 <span id="cb177-11"><a href="tutorial-advanced-data-management.html#cb177-11" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
-<p>Neat! Note that you can always exchange the string in the <code>pattern</code> argument of <code>list.files</code> include a regular expression. I can’t cover regular expressions and the <code>stringr</code> package in this tutorial, but if you are interested in mastering regular expressions, you can have look at my tutorial for our <a href="https://lkobilke.github.io/data-journalism/tutorial-text-manipulation-with-stringr.html#tutorial-text-manipulation-with-stringr">MA journalism students</a></p>
+<p>Neat! Note that you can always exchange the string in the <code>pattern</code>
+argument of <code>list.files</code> include a regular expression. I can’t cover
+regular expressions and the <code>stringr</code> package in this tutorial, but if
+you are interested in mastering regular expressions, you can have look
+at my tutorial for our <a href="https://lkobilke.github.io/data-journalism/tutorial-text-manipulation-with-stringr.html#tutorial-text-manipulation-with-stringr">MA journalism
+students</a></p>
 </div>
 </div>
 <div id="advanced-column-selectors" class="section level2 hasAnchor" number="6.4">
 <h2><span class="header-section-number">6.4</span> Advanced column selectors<a href="tutorial-advanced-data-management.html#advanced-column-selectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><code>Tidyselect</code>is a package within the <code>tidyverse</code> that provides a set of functions for selecting and manipulating columns in a data frame. It is mainly used internally by other tidyverse packages, such as <code>dplyr</code> and <code>tidyr</code>, to handle column selections. Tidyselect functions, such as <code>starts_with()</code>, <code>ends_with()</code>, and <code>contains()</code>, allow you to specify column selections based on various patterns, such as prefixes, suffixes, and substrings. In this tutorial, we will look at the following <code>tidyselect</code> functions:
-1. last_col()
-2. starts_with()
-3. ends_with()
-4. contains()
-5. matches()
-6. num_range()
-7. where()</p>
-<p>Let’s first import the full <code>Worlds of Journalism</code> dataset from the <code>tidycomm</code> package:</p>
+<p><code>Tidyselect</code>is a package within the <code>tidyverse</code> that provides a set of
+functions for selecting and manipulating columns in a data frame. It is
+mainly used internally by other tidyverse packages, such as <code>dplyr</code> and
+<code>tidyr</code>, to handle column selections. Tidyselect functions, such as
+<code>starts_with()</code>, <code>ends_with()</code>, and <code>contains()</code>, allow you to specify
+column selections based on various patterns, such as prefixes, suffixes,
+and substrings. In this tutorial, we will look at the following
+<code>tidyselect</code> functions: 1. last_col() 2. starts_with() 3. ends_with() 4.
+contains() 5. matches() 6. num_range() 7. where()</p>
+<p>Let’s first import the full <code>Worlds of Journalism</code> dataset from the
+<code>tidycomm</code> package:</p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="tutorial-advanced-data-management.html#cb178-1" tabindex="-1"></a>data <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>WoJ</span></code></pre></div>
 <div id="selecting-the-last-column" class="section level3 hasAnchor" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> Selecting the last column<a href="tutorial-advanced-data-management.html#selecting-the-last-column" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Use <code>last_col()</code> when you want to select the last column of a data frame regardless of its name.</p>
+<p>Use <code>last_col()</code> when you want to select the last column of a data frame
+regardless of its name.</p>
 <div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="tutorial-advanced-data-management.html#cb179-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">last_col</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 1
 ##    trust_politicians
@@ -651,7 +678,8 @@ result will be a list of data frames.</p>
 ##  9        1        2        1        3
 ## 10        1        4        4        4
 ## # ℹ 1,190 more rows</code></pre>
-<p><code>ends_with()</code> selects columns that end with onre or more specific suffixes:</p>
+<p><code>ends_with()</code> selects columns that end with onre or more specific
+suffixes:</p>
 <div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="tutorial-advanced-data-management.html#cb185-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="fu">c</span>(<span class="st">&quot;_1&quot;</span>, <span class="st">&quot;_2&quot;</span>))) <span class="co"># ends with _1 OR _2</span></span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 2
 ##    ethics_1 ethics_2
@@ -717,7 +745,10 @@ result will be a list of data frames.</p>
 ##  9        1        2        1        3
 ## 10        1        4        4        4
 ## # ℹ 1,190 more rows</code></pre>
-<p><strong>Note</strong>: All of the above functions, except <code>matches()</code> are not case-sensetive. This means that they will match both upper- and lowercase letters. If you want to make them case-sensetive, use the <code>ignore.case</code> argument and set it to FALSE.</p>
+<p><strong>Note</strong>: All of the above functions, except <code>matches()</code> are not
+case-sensetive. This means that they will match both upper- and
+lowercase letters. If you want to make them case-sensetive, use the
+<code>ignore.case</code> argument and set it to FALSE.</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="tutorial-advanced-data-management.html#cb193-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;Ethics&quot;</span>, <span class="at">ignore.case =</span> <span class="cn">FALSE</span>)) <span class="co"># but there is not capitalized Ethics in the data</span></span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 0</code></pre>
 </div>
@@ -742,7 +773,8 @@ result will be a list of data frames.</p>
 </div>
 <div id="selecting-columns-based-on-their-type" class="section level3 hasAnchor" number="6.4.4">
 <h3><span class="header-section-number">6.4.4</span> Selecting columns based on their type<a href="tutorial-advanced-data-management.html#selecting-columns-based-on-their-type" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can selects columns based on their type with <code>where()</code>, e.g., all character columns:</p>
+<p>You can selects columns based on their type with <code>where()</code>, e.g., all
+character columns:</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="tutorial-advanced-data-management.html#cb197-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.character))</span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 1
 ##    employment
@@ -776,11 +808,14 @@ result will be a list of data frames.</p>
 ## # ℹ 1,190 more rows
 ## # ℹ 5 more variables: work_experience &lt;dbl&gt;, trust_parliament &lt;dbl&gt;,
 ## #   trust_government &lt;dbl&gt;, trust_parties &lt;dbl&gt;, trust_politicians &lt;dbl&gt;</code></pre>
-<p>You could also use: 1) is.integer (whole numbers, e.g., 7) 2) is.double (decimal numbers, e.g., 7.25) 3) is.logical (e.g., TRUE/FALSE) 4) is.factor (e.g., “great”, “greater”, “the greatest”)</p>
+<p>You could also use: 1) is.integer (whole numbers, e.g., 7) 2) is.double
+(decimal numbers, e.g., 7.25) 3) is.logical (e.g., TRUE/FALSE) 4)
+is.factor (e.g., “great”, “greater”, “the greatest”)</p>
 </div>
 <div id="combine-selectors" class="section level3 hasAnchor" number="6.4.5">
 <h3><span class="header-section-number">6.4.5</span> Combine selectors<a href="tutorial-advanced-data-management.html#combine-selectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>You can combine selectors, of course. Let’s select all character columns and columns that start with “autonomy”.</p>
+<p>You can combine selectors, of course. Let’s select all character columns
+and columns that start with “autonomy”.</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="tutorial-advanced-data-management.html#cb201-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">where</span>(is.character) <span class="sc">|</span> <span class="fu">starts_with</span>(<span class="st">&quot;autonomy&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 3
 ##    employment autonomy_selection autonomy_emphasis
@@ -799,7 +834,8 @@ result will be a list of data frames.</p>
 </div>
 <div id="reorder-your-columns-with-everything" class="section level3 hasAnchor" number="6.4.6">
 <h3><span class="header-section-number">6.4.6</span> Reorder your columns with everything()<a href="tutorial-advanced-data-management.html#reorder-your-columns-with-everything" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Finally, you can select <strong>all</strong> columns with <code>everything()</code>. This allows you to reorder your columns quickly:</p>
+<p>Finally, you can select <strong>all</strong> columns with <code>everything()</code>. This allows
+you to reorder your columns quickly:</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="tutorial-advanced-data-management.html#cb203-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">select</span>(temp_contract, country, <span class="fu">everything</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 15
 ##    temp_contract country   reach employment autonomy_selection autonomy_emphasis
@@ -822,8 +858,12 @@ result will be a list of data frames.</p>
 </div>
 <div id="advanced-selection-of-rows" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> Advanced selection of rows<a href="tutorial-advanced-data-management.html#advanced-selection-of-rows" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>You can make very advanced row selections by using the function <code>str_detect</code> from the <code>stringr</code> package in combination with <code>filter</code> from the <code>dplyr</code> package, especially if you combine <code>str_detect</code> with regular expressions</p>
-<p>Let’s start with partial matching, i.e., when your pattern is <em>part</em> of a string, select it:</p>
+<p>You can make very advanced row selections by using the function
+<code>str_detect</code> from the <code>stringr</code> package in combination with <code>filter</code>
+from the <code>dplyr</code> package, especially if you combine <code>str_detect</code> with
+regular expressions</p>
+<p>Let’s start with partial matching, i.e., when your pattern is <em>part</em> of
+a string, select it:</p>
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="tutorial-advanced-data-management.html#cb205-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(employment, <span class="st">&quot;Free&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 172 × 15
 ##    country   reach employment temp_contract autonomy_selection autonomy_emphasis
@@ -842,7 +882,8 @@ result will be a list of data frames.</p>
 ## # ℹ 9 more variables: ethics_1 &lt;dbl&gt;, ethics_2 &lt;dbl&gt;, ethics_3 &lt;dbl&gt;,
 ## #   ethics_4 &lt;dbl&gt;, work_experience &lt;dbl&gt;, trust_parliament &lt;dbl&gt;,
 ## #   trust_government &lt;dbl&gt;, trust_parties &lt;dbl&gt;, trust_politicians &lt;dbl&gt;</code></pre>
-<p>Note that str_detect is case-sensitive, i.e., it reacts sensitive to capitalization. You won’tget a match for “free”:</p>
+<p>Note that str_detect is case-sensitive, i.e., it reacts sensitive to
+capitalization. You won’tget a match for “free”:</p>
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="tutorial-advanced-data-management.html#cb207-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(employment, <span class="st">&quot;free&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 15
 ## # ℹ 15 variables: country &lt;fct&gt;, reach &lt;fct&gt;, employment &lt;chr&gt;,
@@ -850,7 +891,9 @@ result will be a list of data frames.</p>
 ## #   ethics_1 &lt;dbl&gt;, ethics_2 &lt;dbl&gt;, ethics_3 &lt;dbl&gt;, ethics_4 &lt;dbl&gt;,
 ## #   work_experience &lt;dbl&gt;, trust_parliament &lt;dbl&gt;, trust_government &lt;dbl&gt;,
 ## #   trust_parties &lt;dbl&gt;, trust_politicians &lt;dbl&gt;</code></pre>
-<p>In regex language, you can ask <code>str_detectto</code> look for lowercase and uppercase matches, when you are unsure of whether the entries are capitalized in your dataset:</p>
+<p>In regex language, you can ask <code>str_detectto</code> look for lowercase and
+uppercase matches, when you are unsure of whether the entries are
+capitalized in your dataset:</p>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="tutorial-advanced-data-management.html#cb209-1" tabindex="-1"></a>data <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(employment, <span class="st">&quot;[fF]ree&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 172 × 15
 ##    country   reach employment temp_contract autonomy_selection autonomy_emphasis
@@ -888,20 +931,43 @@ result will be a list of data frames.</p>
 ## # ℹ 9 more variables: ethics_1 &lt;dbl&gt;, ethics_2 &lt;dbl&gt;, ethics_3 &lt;dbl&gt;,
 ## #   ethics_4 &lt;dbl&gt;, work_experience &lt;dbl&gt;, trust_parliament &lt;dbl&gt;,
 ## #   trust_government &lt;dbl&gt;, trust_parties &lt;dbl&gt;, trust_politicians &lt;dbl&gt;</code></pre>
-<p>I can’t cover regular expressions and the <code>stringr</code> package in this tutorial, but if you are interested in mastering regular expressions, you can have look at my tutorial for our <a href="https://lkobilke.github.io/data-journalism/tutorial-text-manipulation-with-stringr.html#tutorial-text-manipulation-with-stringr">MA journalism students</a>.</p>
+<p>I can’t cover regular expressions and the <code>stringr</code> package in this
+tutorial, but if you are interested in mastering regular expressions,
+you can have look at my tutorial for our <a href="https://lkobilke.github.io/data-journalism/tutorial-text-manipulation-with-stringr.html#tutorial-text-manipulation-with-stringr">MA journalism
+students</a>.</p>
 </div>
 <div id="take-aways-4" class="section level2 hasAnchor" number="6.6">
 <h2><span class="header-section-number">6.6</span> Take-Aways<a href="tutorial-advanced-data-management.html#take-aways-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
-<li><strong>Working directory</strong>: Avoid hard-coding your working directory as it is not reproducible on different machines. Instead, use the <code>rstudioapi</code> package to set the working directory dynamically based on the location of the R script.</li>
-<li><strong>Use relative paths</strong>: Use relative paths to navigate your working directory. They describe how to navigate through folders and subfolders starting from your current location. Use <code>./</code> to move down a folder and <code>../</code> to move up one level in the folder hierarchy.</li>
-<li><strong>Reading multiple files</strong>: When reading multiple files into R, create a character vector of file paths using <code>list.files()</code>. Use the <code>map()</code> function from the <code>purrr</code> package to iterate over the file paths and read each file using functions like <code>read.csv()</code>. Combine the resulting data frames using <code>bind_rows()</code> from the <code>dplyr</code> package.</li>
-<li><strong>Advanced column selectors</strong>: Use advanced column selectors from the <code>tidyselect</code> package in <code>dplyr::select()</code> to select and manipulate columns in a data frame. Examples include <code>last_col()</code>, <code>starts_with()</code>, <code>ends_with()</code>, <code>contains()</code>, <code>matches()</code>, <code>num_range()</code>, and <code>where()</code> in <code>select()</code>.</li>
-<li><strong>Reorder columns</strong>: using <code>everything()</code> in <code>select()</code> to select all columns and place them in a desired order.</li>
-<li><strong>Advanced row selectors</strong>: Use st<code>r_detect()</code> from the <code>stringr</code> package in <code>dplyr::filter()</code> to filter observations based on a pattern or regular expression.</li>
+<li><strong>Working directory</strong>: Avoid hard-coding your working directory as
+it is not reproducible on different machines. Instead, use the
+<code>rstudioapi</code> package to set the working directory dynamically based
+on the location of the R script.</li>
+<li><strong>Use relative paths</strong>: Use relative paths to navigate your working
+directory. They describe how to navigate through folders and
+subfolders starting from your current location. Use <code>./</code> to move
+down a folder and <code>../</code> to move up one level in the folder
+hierarchy.</li>
+<li><strong>Reading multiple files</strong>: When reading multiple files into R,
+create a character vector of file paths using <code>list.files()</code>. Use
+the <code>map()</code> function from the <code>purrr</code> package to iterate over the
+file paths and read each file using functions like <code>read.csv()</code>.
+Combine the resulting data frames using <code>bind_rows()</code> from the
+<code>dplyr</code> package.</li>
+<li><strong>Advanced column selectors</strong>: Use advanced column selectors from
+the <code>tidyselect</code> package in <code>dplyr::select()</code> to select and
+manipulate columns in a data frame. Examples include <code>last_col()</code>,
+<code>starts_with()</code>, <code>ends_with()</code>, <code>contains()</code>, <code>matches()</code>,
+<code>num_range()</code>, and <code>where()</code> in <code>select()</code>.</li>
+<li><strong>Reorder columns</strong>: using <code>everything()</code> in <code>select()</code> to select
+all columns and place them in a desired order.</li>
+<li><strong>Advanced row selectors</strong>: Use st<code>r_detect()</code> from the <code>stringr</code>
+package in <code>dplyr::filter()</code> to filter observations based on a
+pattern or regular expression.</li>
 </ul>
-<p>You still have questions? The following book can help you with that:
-- <a href="https://christianb.gumroad.com/l/tidyverse-booster">Going from Beginner to Advanced in the Tidyverse by C. Burkhart</a></p>
+<p>You still have questions? The following book can help you with that: -
+<a href="https://christianb.gumroad.com/l/tidyverse-booster">Going from Beginner to Advanced in the Tidyverse by C.
+Burkhart</a></p>
 </div>
 </div>
             </section>

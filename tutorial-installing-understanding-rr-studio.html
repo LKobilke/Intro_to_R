@@ -439,18 +439,57 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="tutorial-installing-understanding-rr-studio" class="section level1 hasAnchor" number="2">
 <h1><span class="header-section-number"> 2</span> Tutorial: Installing &amp; Understanding R/R Studio<a href="tutorial-installing-understanding-rr-studio.html#tutorial-installing-understanding-rr-studio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>After working through Tutorial 1, you’ll…
-- know how to install R and R Studio
-- know how to update R and R Studio
-- understand the layout of R Studio</p>
+<p>After working through Tutorial 1, you’ll… - know how to install R and
+R Studio - know how to update R and R Studio - understand the layout of
+R Studio</p>
 <div id="what-is-r" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> What is R?<a href="tutorial-installing-understanding-rr-studio.html#what-is-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R is the programming language we’ll use to import, edit, and analyze data. It’s original form is called Base R. A more recent and streamlined syntax for R is called the tidyverse. Base R and the tidyverse are both popular approaches to data manipulation and analysis in R, but they differ in their philosophies and syntax.</p>
-<p>Base R is the set of core functions that come with the R programming language without any additional installations. These functions allow you to perform a wide range of data manipulation and analysis tasks, including reading and writing data, transforming and summarizing data, and creating visualizations. Base R is designed to be efficient and flexible, and it provides a lot of low-level functionality for working with data.</p>
-<p>The tidyverse, on the other hand, is a collection of R packages (thus called a “meta-package”) developed by Hadley Wickham and his team at RStudio. The tidyverse is very readable code: You can usually read the code out loud and understand what it is doing. Moreover, the tidyverse is built around a set of principles and syntax that emphasize the importance of tidy data, i.e. data that is organized into rows and columns, where each column represents a variable and each row represents an observation. As you can see: tidy data looks just like your typical SPSS data window!</p>
-<p>Our approach to teaching our BA students is to use the tidycomm package developed by Julian Unkel. It uses the tidyverse style of coding, but incorporates many convenience functions for communication researchers, such as calculating ICR tests (e.g., Krippendorff’s alpha or Fretwurst’s lotus). Julian, Mario Haim, and I are currently enhancing the package to greatly simplify data analysis for our students as compared to using SPSS. For example, with each significance test tidycomm will automatically provide students suitable graphical visualizations. To convince yourself of the ease of working with tidycomm, please refer to the following section: <a href="#id_#Using%20R%20is%20easy!">Using R is easy!</a></p>
-<p>A hint for best practice: Usually, R users decide to use either Base R or the tidyverse at some point. When writing code, it’s a good practice to stick two one of the two approaches, Base R or tidyverse, and not mix them up because that makes the code less readable (just like writing in German dialect, Bavarian and East Frisian are both German, but a Bavarian will struggle more when reading a text that is partly written in East Frisian).</p>
-<p>The approach of this tutorial is to use the first lesson to teach you a little bit of Base R – just enough that you are able to identify code as being written in Base. This way, you can distinguish helpful answers in online forums that are written in “your dialect” (i.e. tidyverse R) from those that are not written in your dialect (i.e., Base R). After that first lesson, we will stick to the tidyverse approach because it is so much more similar to SPSS and much more readable and easy-to-learn for beginners.</p>
+<p>R is the programming language we’ll use to import, edit, and analyze
+data. It’s original form is called Base R. A more recent and streamlined
+syntax for R is called the tidyverse. Base R and the tidyverse are both
+popular approaches to data manipulation and analysis in R, but they
+differ in their philosophies and syntax.</p>
+<p>Base R is the set of core functions that come with the R programming
+language without any additional installations. These functions allow you
+to perform a wide range of data manipulation and analysis tasks,
+including reading and writing data, transforming and summarizing data,
+and creating visualizations. Base R is designed to be efficient and
+flexible, and it provides a lot of low-level functionality for working
+with data.</p>
+<p>The tidyverse, on the other hand, is a collection of R packages (thus
+called a “meta-package”) developed by Hadley Wickham and his team at
+RStudio. The tidyverse is very readable code: You can usually read the
+code out loud and understand what it is doing. Moreover, the tidyverse
+is built around a set of principles and syntax that emphasize the
+importance of tidy data, i.e. data that is organized into rows and
+columns, where each column represents a variable and each row represents
+an observation. As you can see: tidy data looks just like your typical
+SPSS data window!</p>
+<p>Our approach to teaching our BA students is to use the tidycomm package
+developed by Julian Unkel. It uses the tidyverse style of coding, but
+incorporates many convenience functions for communication researchers,
+such as calculating ICR tests (e.g., Krippendorff’s alpha or Fretwurst’s
+lotus). Julian, Mario Haim, and I are currently enhancing the package to
+greatly simplify data analysis for our students as compared to using
+SPSS. For example, with each significance test tidycomm will
+automatically provide students suitable graphical visualizations. To
+convince yourself of the ease of working with tidycomm, please refer to
+the following section: <a href="#id_#Using%20R%20is%20easy!">Using R is easy!</a></p>
+<p>A hint for best practice: Usually, R users decide to use either Base R
+or the tidyverse at some point. When writing code, it’s a good practice
+to stick two one of the two approaches, Base R or tidyverse, and not mix
+them up because that makes the code less readable (just like writing in
+German dialect, Bavarian and East Frisian are both German, but a
+Bavarian will struggle more when reading a text that is partly written
+in East Frisian).</p>
+<p>The approach of this tutorial is to use the first lesson to teach you a
+little bit of Base R – just enough that you are able to identify code
+as being written in Base. This way, you can distinguish helpful answers
+in online forums that are written in “your dialect” (i.e. tidyverse R)
+from those that are not written in your dialect (i.e., Base R). After
+that first lesson, we will stick to the tidyverse approach because it is
+so much more similar to SPSS and much more readable and easy-to-learn
+for beginners.</p>
 <table>
 <colgroup>
 <col width="100%" />
@@ -467,7 +506,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-r-is-easy" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Using R is easy!<a href="tutorial-installing-understanding-rr-studio.html#using-r-is-easy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R programming can be made easy with the usage of tidyverse and tidycomm. Allow me to demonstrate this by importing the well-known Worlds of Journalism data into R, filtering out all non-German journalists, describing the data using descriptive statistics, and analyzing it with an ANOVA.</p>
+<p>R programming can be made easy with the usage of tidyverse and tidycomm.
+Allow me to demonstrate this by importing the well-known Worlds of
+Journalism data into R, filtering out all non-German journalists,
+describing the data using descriptive statistics, and analyzing it with
+an ANOVA.</p>
 <table>
 <colgroup>
 <col width="100%" />
@@ -494,18 +537,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Let’s activate the tidyverse and tidycomm packages (we will come back to this later in the Packages section):</p>
+<p>Let’s activate the tidyverse and tidycomm packages (we will come back to
+this later in the Packages section):</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="tutorial-installing-understanding-rr-studio.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href="tutorial-installing-understanding-rr-studio.html#cb2-2" tabindex="-1"></a><span class="fu">library</span>(tidycomm)</span></code></pre></div>
-<p>And now, let us filter our data to include only German journalists in the dataset.</p>
+<p>And now, let us filter our data to include only German journalists in
+the dataset.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tutorial-installing-understanding-rr-studio.html#cb3-1" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">filter</span>(country <span class="sc">==</span> <span class="st">&quot;Germany&quot;</span>)</span></code></pre></div>
-<p>Looks great! Now let’s describe our data. Let’s get some descriptives for the variable “reach”, i.e., whether the journalists are working for regional or national outlets.</p>
+<p>Looks great! Now let’s describe our data. Let’s get some descriptives
+for the variable “reach”, i.e., whether the journalists are working for
+regional or national outlets.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="tutorial-installing-understanding-rr-studio.html#cb4-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe_cat</span>(reach)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 6
 ##   Variable     N Missing Unique Mode     Mode_N
 ## * &lt;chr&gt;    &lt;int&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;     &lt;int&gt;
 ## 1 reach      173       0      3 Regional     80</code></pre>
-<p>Repeat this for the variable “autonomy_selection,” which refers to the level of autonomy that journalists feel they have in their daily work life.</p>
+<p>Repeat this for the variable “autonomy_selection,” which refers to the
+level of autonomy that journalists feel they have in their daily work
+life.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="tutorial-installing-understanding-rr-studio.html#cb6-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe</span>(autonomy_selection)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 15
 ##   Variable             N Missing     M    SD   Min   Q25   Mdn   Q75   Max Range
@@ -513,7 +562,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 1 autonomy_select…   172       1  3.97 0.881     1     3     4     5     5     4
 ## # ℹ 4 more variables: CI_95_LL &lt;dbl&gt;, CI_95_UL &lt;dbl&gt;, Skewness &lt;dbl&gt;,
 ## #   Kurtosis &lt;dbl&gt;</code></pre>
-<p>It’s time to run an ANOVA with the two variables! IV = reach, DV = autonomy_selection.</p>
+<p>It’s time to run an ANOVA with the two variables! IV = reach, DV =
+autonomy_selection.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="tutorial-installing-understanding-rr-studio.html#cb8-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(reach, autonomy_selection, <span class="at">descriptives =</span> <span class="cn">TRUE</span>, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 15
 ##   Variable       F df_num df_denom     p eta_squared M_Local SD_Local M_Regional
@@ -526,17 +576,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="installing-r" class="section level2 hasAnchor" number="2.3">
 <h2><span class="header-section-number">2.3</span> Installing R<a href="tutorial-installing-understanding-rr-studio.html#installing-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When you are ready to install R, use <a href="https://cran.r-project.org/">Cran</a>
-to install the newest version of Ra nd its GUI (graphical user interface) (version 4.2.3, realeased 2023-03-15, called “Shortstop Beagle”). You’ll have
-to specify your operation system to download the right version:</p>
+to install the newest version of Ra nd its GUI (graphical user
+interface) (version 4.2.3, realeased 2023-03-15, called “Shortstop
+Beagle”). You’ll have to specify your operation system to download the
+right version:</p>
 <ul>
 <li><a href="https://cran.r-project.org/bin/windows/base/R-4.2.3-win.exe">Installer for
 Windows</a></li>
-<li><a href="https://cran.r-project.org/bin/macosx/base/R-4.2.3.pkg">Installer for
-macOS 10.13 (High Sierra) and higher</a></li>
-<li><a href="https://cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.2.3-arm64.pkg">Installer for
-macOS 11 (Big Sur) and higher</a></li>
+<li><a href="https://cran.r-project.org/bin/macosx/base/R-4.2.3.pkg">Installer for macOS 10.13 (High Sierra) and
+higher</a></li>
+<li><a href="https://cran.r-project.org/bin/macosx/big-sur-arm64/base/R-4.2.3-arm64.pkg">Installer for macOS 11 (Big Sur) and
+higher</a></li>
 </ul>
-<p><strong>Mac Users: Please read the <a href="https://cran.r-project.org/bin/macosx/">documentation of the installers on this site</a>. You might need to install other dependencies to make R work.</strong></p>
+<p><strong>Mac Users: Please read the <a href="https://cran.r-project.org/bin/macosx/">documentation of the installers on this
+site</a>. You might need to install
+other dependencies to make R work.</strong></p>
 </div>
 <div id="installing-r-studio" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Installing R Studio<a href="tutorial-installing-understanding-rr-studio.html#installing-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -547,23 +601,25 @@ version of R Studio can be downloaded via this
 </div>
 <div id="updating-r-and-r-studio" class="section level2 hasAnchor" number="2.5">
 <h2><span class="header-section-number">2.5</span> Updating R and R Studio<a href="tutorial-installing-understanding-rr-studio.html#updating-r-and-r-studio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you have already installed R and RStudio, please update your current version to
-the latest version. This way, we’ll all know that our versions are
-compatible.</p>
+<p>If you have already installed R and RStudio, please update your current
+version to the latest version. This way, we’ll all know that our
+versions are compatible.</p>
 <div id="on-windows" class="section level3 hasAnchor" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> On Windows<a href="tutorial-installing-understanding-rr-studio.html#on-windows" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Updating on Windows is tricky. Therefore, you can use a package called
 <code>installr</code>, which helps you manage your update. First, install the
-<code>installr</code> package in the R GUI (not RStudio!). Use the following code by copy-pasting it into the RStudio console and running it:</p>
+<code>installr</code> package in the R GUI (not RStudio!). Use the following code
+by copy-pasting it into the RStudio console and running it:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tutorial-installing-understanding-rr-studio.html#cb10-1" tabindex="-1"></a><span class="co"># installing/loading the package:</span></span>
 <span id="cb10-2"><a href="tutorial-installing-understanding-rr-studio.html#cb10-2" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(installr)) {</span>
 <span id="cb10-3"><a href="tutorial-installing-understanding-rr-studio.html#cb10-3" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">&quot;installr&quot;</span>); </span>
 <span id="cb10-4"><a href="tutorial-installing-understanding-rr-studio.html#cb10-4" tabindex="-1"></a>  <span class="fu">require</span>(installr)</span>
 <span id="cb10-5"><a href="tutorial-installing-understanding-rr-studio.html#cb10-5" tabindex="-1"></a>} <span class="co">#load / install+load installr</span></span></code></pre></div>
-<p>After you have run the above code, let’s start the
-updating process of your R installation by using the <code>updateR()</code>
-function. It will check for newer versions, and if one is available,
-will guide you through the decisions you’d need to make. You need to to copy the below code to your console and run it:</p>
+<p>After you have run the above code, let’s start the updating process of
+your R installation by using the <code>updateR()</code> function. It will check for
+newer versions, and if one is available, will guide you through the
+decisions you’d need to make. You need to to copy the below code to your
+console and run it:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="tutorial-installing-understanding-rr-studio.html#cb11-1" tabindex="-1"></a><span class="co"># using the package:</span></span>
 <span id="cb11-2"><a href="tutorial-installing-understanding-rr-studio.html#cb11-2" tabindex="-1"></a><span class="fu">updateR</span>()</span></code></pre></div>
 <p>Finally, update R Studio. Updating RStudio is easy, just open RStudio
@@ -614,11 +670,22 @@ are basically additional functions you may need for more specific
 analyses) on CRAN that you can use to extend R’s base functions.</p></li>
 <li><p>R offers you <strong>flexibility</strong>. You can work with almost any type of
 data and rely on a large (!) set of functions to import, edit, or
-analyze such data. You can perform “complex” statistical modeling like SEM, panel analysis, multilevel analysis, and computational methods in R. And if the function you need to do so hasn’t been
-implemented (or simply does not exist yet), you can write it yourself! R supports package development!</p></li>
+analyze such data. You can perform “complex” statistical modeling
+like SEM, panel analysis, multilevel analysis, and computational
+methods in R. And if the function you need to do so hasn’t been
+implemented (or simply does not exist yet), you can write it
+yourself! R supports package development!</p></li>
 <li><p>Learning R increases your chances of on the <strong>job market</strong>. For many
-jobs (e.g., market research, data science, data journalism), applicants are required to know at least one programming language.</p></li>
-<li><p>You can even write your homework in R (using <code>RMarkdown</code>). This allows for the complete reproducibility of your analysis and report. All of the code, data, and visualizations can be easily shared and reproduced, ensuring <strong>transparency and enhancing the credibility</strong> of your work. Conveniently, documents can <strong>automatically update tables and graphs</strong> when changes are made to the underlying data or analysis. This saves time and reduces the likelihood of errors when updating results.</p></li>
+jobs (e.g., market research, data science, data journalism),
+applicants are required to know at least one programming language.</p></li>
+<li><p>You can even write your homework in R (using <code>RMarkdown</code>). This
+allows for the complete reproducibility of your analysis and report.
+All of the code, data, and visualizations can be easily shared and
+reproduced, ensuring <strong>transparency and enhancing the credibility</strong>
+of your work. Conveniently, documents can <strong>automatically update
+tables and graphs</strong> when changes are made to the underlying data or
+analysis. This saves time and reduces the likelihood of errors when
+updating results.</p></li>
 </ol>
 </div>
 <div id="how-does-r-studio-work" class="section level2 hasAnchor" number="2.8">
@@ -653,7 +720,11 @@ window right away. In this case, simply open it by clicking on
 (the order of windows may vary and so may the windows’ names). I have
 made the experience that having these four windows open works best for
 me. This may be different for you. If you want to modify the appearance
-of your R Studio, simply choose <em>“Tools/Global Options/Pane Layout”</em>. In the options menu, you can perform various cool customizations, such as enabling rainbow parentheses (highly recommended). With this feature, a starting parenthesis will be displayed in the same color as its corresponding closing parenthesis.</p>
+of your R Studio, simply choose <em>“Tools/Global Options/Pane Layout”</em>. In
+the options menu, you can perform various cool customizations, such as
+enabling rainbow parentheses (highly recommended). With this feature, a
+starting parenthesis will be displayed in the same color as its
+corresponding closing parenthesis.</p>
 <table>
 <colgroup>
 <col width="100%" />
@@ -713,9 +784,9 @@ called <em>word</em>.</p>
 <div id="annotating-code" class="section level4 hasAnchor" number="2.8.1.2">
 <h4><span class="header-section-number">2.8.1.2</span> Annotating Code<a href="tutorial-installing-understanding-rr-studio.html#annotating-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Another helpful aspect of R is that you can comment your own code.
-Often, this is very helpful for understanding your code later (if
-you write several hundred lines of codes, you may not remember their
-exact meaning months later).</p>
+Often, this is very helpful for understanding your code later (if you
+write several hundred lines of codes, you may not remember their exact
+meaning months later).</p>
 <p>Comments or notes can be made via hashtags <code>#</code>. Anything following a
 hashtag will not be considered code by R but be ignored instead.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tutorial-installing-understanding-rr-studio.html#cb14-1" tabindex="-1"></a>word <span class="ot">&lt;-</span> <span class="st">&quot;hello&quot;</span> <span class="co"># this line of code assigns the word &quot;hello&quot; to an object called word</span></span></code></pre></div>
@@ -727,8 +798,8 @@ hashtag will not be considered code by R but be ignored instead.</p>
 <li>Mark the parts of the code you want to run (for instance, single
 rows of code or blocks of code across several rows)</li>
 <li>Either press <em>Run</em> (see upper right side of the same window) or
-press <strong>Ctrl / Command + Enter</strong> (On Mac OS X, hold the command key and press
-return instead).</li>
+press <strong>Ctrl / Command + Enter</strong> (On Mac OS X, hold the command key
+and press return instead).</li>
 </ul>
 <p>R should now execute exactly those lines of codes that you marked
 (hereby creating the object <em>word</em>). If you haven’t marked any specific
@@ -758,7 +829,9 @@ reproduced.</p>
 <li>Choose the menu option <em>File/Save as</em>. <strong>Important</strong>: Code needs to
 be saved with the ending <strong>“.R”</strong>.</li>
 <li>Chose the <em>Save</em>-button in the <em>source</em> window and save your code in
-the correct format, for instance as “MyCode.R” (some advice: try to avoid numbers or dates as file names because this can break the saving process).</li>
+the correct format, for instance as “MyCode.R” (some advice: try to
+avoid numbers or dates as file names because this can break the
+saving process).</li>
 </ul>
 <table>
 <colgroup>
@@ -805,7 +878,10 @@ when running this code (here, the object word) in the console.</p>
 <p>The third window is called “Environment”<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. This window displays all
 the objects currently existing - in our case, only the object “word”. As
 soon as you start creating more objects, this environment will fill up.</p>
-<p>If you are an SPSS user, you may find this window very similar to what is referred to as the <em>Datenansicht / Data overview</em> in SPSS. However, the R version of this view is much more flexible as it can contain multiple datasets simultaneously in one environment.</p>
+<p>If you are an SPSS user, you may find this window very similar to what
+is referred to as the <em>Datenansicht / Data overview</em> in SPSS. However,
+the R version of this view is much more flexible as it can contain
+multiple datasets simultaneously in one environment.</p>
 <table>
 <colgroup>
 <col width="100%" />
@@ -819,7 +895,11 @@ soon as you start creating more objects, this environment will fill up.</p>
 </tr>
 </tbody>
 </table>
-<p>It is important to note that we can visually examine any object in R by using the <em>View()</em> command. Upon running this command, a new tab will open in the “Source” window. While this may not seem particularly useful at the moment, it becomes immensely helpful when working with larger datasets that have multiple observations and variables.</p>
+<p>It is important to note that we can visually examine any object in R by
+using the <em>View()</em> command. Upon running this command, a new tab will
+open in the “Source” window. While this may not seem particularly useful
+at the moment, it becomes immensely helpful when working with larger
+datasets that have multiple observations and variables.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="tutorial-installing-understanding-rr-studio.html#cb17-1" tabindex="-1"></a><span class="fu">View</span>(word)</span></code></pre></div>
 <table>
 <colgroup>
@@ -837,7 +917,11 @@ soon as you start creating more objects, this environment will fill up.</p>
 </div>
 <div id="plotshelppackages-do-everything-else" class="section level3 hasAnchor" number="2.8.4">
 <h3><span class="header-section-number">2.8.4</span> Plots/Help/Packages: Do everything else<a href="tutorial-installing-understanding-rr-studio.html#plotshelppackages-do-everything-else" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The fourth window in the standard R Studio interface, which contains several sub-sections like “Files”, “Plots”, or “Packages”, has specific functions that you will understand later. For example, it can be used to plot and visualize results or to see which packages are currently loaded.</p>
+<p>The fourth window in the standard R Studio interface, which contains
+several sub-sections like “Files”, “Plots”, or “Packages”, has specific
+functions that you will understand later. For example, it can be used to
+plot and visualize results or to see which packages are currently
+loaded.</p>
 <table>
 <colgroup>
 <col width="100%" />
@@ -855,8 +939,17 @@ soon as you start creating more objects, this environment will fill up.</p>
 </div>
 <div id="why-arent-we-using-a-gui-for-point-and-click-analyses" class="section level2 hasAnchor" number="2.9">
 <h2><span class="header-section-number">2.9</span> Why aren’t we using a GUI for point-and-click analyses?<a href="tutorial-installing-understanding-rr-studio.html#why-arent-we-using-a-gui-for-point-and-click-analyses" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>If you now SPSS, you might miss having a graphical user interface (GUI) in RStudio for point-and-click analyses. For those who prefer such a GUI, they can install <code>jamovi</code>, which is a GUI for R. However, I’d recommend against using <code>jamovi</code>.</p>
-<p>The reason for this is that coding skills allow for faster adaptation of the written syntax to fit individual needs. Those who first learn to handle a statistics program through point-and-click may have a weaker understanding of the resulting code. If adjustments to the code need to be made later on, you may not be able to do so, and analyses may need to be redone completely by clicking instead of quickly adapting them throughout the script (e.g., with<code>Search + Replace</code>).</p>
+<p>If you now SPSS, you might miss having a graphical user interface (GUI)
+in RStudio for point-and-click analyses. For those who prefer such a
+GUI, they can install <code>jamovi</code>, which is a GUI for R. However, I’d
+recommend against using <code>jamovi</code>.</p>
+<p>The reason for this is that coding skills allow for faster adaptation of
+the written syntax to fit individual needs. Those who first learn to
+handle a statistics program through point-and-click may have a weaker
+understanding of the resulting code. If adjustments to the code need to
+be made later on, you may not be able to do so, and analyses may need to
+be redone completely by clicking instead of quickly adapting them
+throughout the script (e.g., with<code>Search + Replace</code>).</p>
 <p>Thus, starting to code early helps with understanding and efficiency.</p>
 </div>
 <div id="packages" class="section level2 hasAnchor" number="2.10">
@@ -884,7 +977,12 @@ the command <code>install.packages()</code>, you can install the package on your
 computer. You’ll have to give the function the name of the package you
 are interested in installing.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tutorial-installing-understanding-rr-studio.html#cb18-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<p>After the installation, the package is now available locally on your computer. It is important to note that the <code>install.packages()</code> command only needs to be executed <strong>once</strong> for each package. In subsequent R sessions (e.g., after closing RSTudio and reopening it the next day), you only need to activate the installed package, which we will learn in the following section.</p>
+<p>After the installation, the package is now available locally on your
+computer. It is important to note that the <code>install.packages()</code> command
+only needs to be executed <strong>once</strong> for each package. In subsequent R
+sessions (e.g., after closing RSTudio and reopening it the next day),
+you only need to activate the installed package, which we will learn in
+the following section.</p>
 </div>
 <div id="activating-packages" class="section level3 hasAnchor" number="2.10.2">
 <h3><span class="header-section-number">2.10.2</span> Activating packages<a href="tutorial-installing-understanding-rr-studio.html#activating-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -910,8 +1008,7 @@ of a package’s functions) or, if available, its “vignette” (tutorials on
 how to use selected functions for the corresponding package) provided by
 a package’s author on a website called “CRAN”.</p>
 <p>The easiest way to finding these manuals/vignettes is Google: Simply
-google <em>CRAN dplyr</em>, for instance, and you’ll be guided to the
-following
+google <em>CRAN dplyr</em>, for instance, and you’ll be guided to the following
 <a href="https://cran.r-project.org/web/packages/dplyr/index.html">website</a>:</p>
 <table>
 <colgroup>

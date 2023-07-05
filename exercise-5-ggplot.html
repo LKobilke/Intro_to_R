@@ -439,9 +439,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="exercise-5-ggplot" class="section level1 unnumbered hasAnchor">
 <h1>Exercise 5: ggplot<a href="exercise-5-ggplot.html#exercise-5-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>After working through Exercise 5, you’ll…
-- be able to see a graph and recreate it with <code>ggplot2</code>
-- be able to see a problem and customize any type of plot with <code>dplyr</code> &amp; <code>ggplot2</code> to solve it</p>
+<p>After working through Exercise 5, you’ll… - be able to see a graph and
+recreate it with <code>ggplot2</code> - be able to see a problem and customize any
+type of plot with <code>dplyr</code> &amp; <code>ggplot2</code> to solve it</p>
 <div id="task-1-4" class="section level2 hasAnchor" number="7.8">
 <h2><span class="header-section-number">7.8</span> Task 1<a href="exercise-5-ggplot.html#task-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Please set your working directory and load the WoJ_names.csv.</p>
@@ -453,11 +453,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb244-3"><a href="exercise-5-ggplot.html#cb244-3" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>); </span>
 <span id="cb244-4"><a href="exercise-5-ggplot.html#cb244-4" tabindex="-1"></a>    <span class="fu">require</span>(ggplot2)</span>
 <span id="cb244-5"><a href="exercise-5-ggplot.html#cb244-5" tabindex="-1"></a>} <span class="co">#load / install+load ggplot2</span></span></code></pre></div>
-<p>Now, create a box plot to visualize the distribution of work experience in years for each country in the dataset:
-- Assign country to the x-axis and work_experience to the y-axis.
-- Use the <code>geom_boxplot()</code> function to generate a box plot.
-- Choose an appropriate theme.
-- Label the axes and the title appropriately using labs().</p>
+<p>Now, create a box plot to visualize the distribution of work experience
+in years for each country in the dataset: - Assign country to the x-axis
+and work_experience to the y-axis. - Use the <code>geom_boxplot()</code> function
+to generate a box plot. - Choose an appropriate theme. - Label the axes
+and the title appropriately using labs().</p>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-156-1.png" width="672" /></p>
 </div>
 <div id="task-2-4" class="section level2 hasAnchor" number="7.9">
@@ -467,13 +467,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="task-3-4" class="section level2 hasAnchor" number="7.10">
 <h2><span class="header-section-number">7.10</span> Task 3<a href="exercise-5-ggplot.html#task-3-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Try to create an advanced version of your graph from Task 2 that shows the names of the journalists. You can use the geom_text function for the labels, like this:</p>
+<p>Try to create an advanced version of your graph from Task 2 that shows
+the names of the journalists. You can use the geom_text function for the
+labels, like this:</p>
 <div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="exercise-5-ggplot.html#cb245-1" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>name), <span class="at">check_overlap =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## mapping: label = ~name 
 ## geom_text: parse = FALSE, check_overlap = TRUE, na.rm = FALSE
 ## stat_identity: na.rm = FALSE
 ## position_identity</code></pre>
-<p>If you’d like to adjust the position of the labels, you can add the argument <code>, hjust = 0, vjust = 0</code> to this command, like this:</p>
+<p>If you’d like to adjust the position of the labels, you can add the
+argument <code>, hjust = 0, vjust = 0</code> to this command, like this:</p>
 <div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="exercise-5-ggplot.html#cb247-1" tabindex="-1"></a><span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>name), <span class="at">check_overlap =</span> <span class="cn">TRUE</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">vjust =</span> <span class="dv">0</span>)</span></code></pre></div>
 <pre><code>## mapping: label = ~name 
 ## geom_text: parse = FALSE, check_overlap = TRUE, na.rm = FALSE
@@ -493,12 +496,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="task-5-2" class="section level2 hasAnchor" number="7.12">
 <h2><span class="header-section-number">7.12</span> Task 5<a href="exercise-5-ggplot.html#task-5-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Try to create an advanced version of the graph from Task 4.</p>
-<p>First, create a new variable ‘experience_level’ that categorizes the ‘work_experience’ into three groups:
-- “Junior” for work_experience &lt;= 10
-- “Mid-Level” for work_experience &gt; 10 &amp; &lt;= 20
-- “Senior” for work_experience &gt; 20</p>
-<p>Next, use the new variable ‘experience_level’ to create separate graphs for juniors, mid-level staff, and seniors.</p>
-<p>Note: To make the graph look better, you should rotate the x-axis labels and move the labels a bit more to the bottom of the graph. You can use the <code>theme()</code> function and adjust the <code>axis.text.x</code> argument. In this case, you’d use <code>theme(element_text(angle = 45, hjust = 1))</code> at the end of your code.</p>
+<p>First, create a new variable ‘experience_level’ that categorizes the
+‘work_experience’ into three groups: - “Junior” for work_experience &lt;=
+10 - “Mid-Level” for work_experience &gt; 10 &amp; &lt;= 20 - “Senior” for
+work_experience &gt; 20</p>
+<p>Next, use the new variable ‘experience_level’ to create separate graphs
+for juniors, mid-level staff, and seniors.</p>
+<p>Note: To make the graph look better, you should rotate the x-axis labels
+and move the labels a bit more to the bottom of the graph. You can use
+the <code>theme()</code> function and adjust the <code>axis.text.x</code> argument. In this
+case, you’d use <code>theme(element_text(angle = 45, hjust = 1))</code> at the end
+of your code.</p>
 </div>
 </div>
             </section>
