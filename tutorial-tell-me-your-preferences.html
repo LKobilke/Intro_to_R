@@ -359,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.1" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#packages-1"><i class="fa fa-check"></i><b>9.3.1</b> Packages</a></li>
 <li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a New R Markdown File</a></li>
 <li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown Documents</a></li>
-<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the Document:</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the Document</a></li>
 <li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the Document</a></li>
 <li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing Papers with Zotero</a></li>
 </ul></li>
@@ -697,7 +697,8 @@ started.</p>
 <p>Firstly, you’ll need to install the <code>rmarkdown</code> package and its
 dependencies, including <code>knitr</code> for executing code chunks. You can do
 this from within R or RStudio:</p>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="tutorial-tell-me-your-preferences.html#cb379-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb379"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb379-1"><a href="tutorial-tell-me-your-preferences.html#cb379-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>)</span>
+<span id="cb379-2"><a href="tutorial-tell-me-your-preferences.html#cb379-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="tutorial-tell-me-your-preferences.html#cb380-1" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span></code></pre></div>
 </div>
 <div id="creating-a-new-r-markdown-file" class="section level3 hasAnchor" number="9.3.2">
@@ -725,7 +726,7 @@ enclosing it in <code>{r} and</code>.</p></li>
 description of the WoJ dataset would be included in the final document.</p>
 </div>
 <div id="rendering-the-document" class="section level3 hasAnchor" number="9.3.4">
-<h3><span class="header-section-number">9.3.4</span> Rendering the Document:<a href="tutorial-tell-me-your-preferences.html#rendering-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.3.4</span> Rendering the Document<a href="tutorial-tell-me-your-preferences.html#rendering-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To convert your R Markdown document into a final, shareable format, you
 need to ‘render’ it. You can do this in RStudio by clicking the ‘Knit’
 button. You can also use the <code>render()</code> function from the rmarkdown
