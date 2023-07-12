@@ -150,3 +150,15 @@ formatting
 cite-papers-with-zotero
 formatting-the-document
 citing-papers-with-zotero
+tutorial-good-coding-style-project-management
+naming-conventions-for-variables
+spacing-and-operators
+commenting-your-code
+dont-repeat-yourself-dry-code
+using-tidyverse-functions
+file-and-script-organization
+using-r-projects
+function-documentation-with-roxygen2
+automated-code-styling
+styler
+lintr

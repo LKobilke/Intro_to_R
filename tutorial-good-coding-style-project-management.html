@@ -4,20 +4,20 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exercise 6: dplyr, ggplot, tidycomm | Continuing education: R</title>
-  <meta name="description" content="Exercise 6: dplyr, ggplot, tidycomm | Continuing education: R - Seminar at the IfKW, SoSe 2023" />
+  <title> 10 Tutorial: Good coding style &amp; project management | Continuing education: R</title>
+  <meta name="description" content=" 10 Tutorial: Good coding style &amp; project management | Continuing education: R - Seminar at the IfKW, SoSe 2023" />
   <meta name="generator" content="bookdown 0.34 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exercise 6: dplyr, ggplot, tidycomm | Continuing education: R" />
+  <meta property="og:title" content=" 10 Tutorial: Good coding style &amp; project management | Continuing education: R" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Exercise 6: dplyr, ggplot, tidycomm | Continuing education: R - Seminar at the IfKW, SoSe 2023" />
+  <meta property="og:description" content=" 10 Tutorial: Good coding style &amp; project management | Continuing education: R - Seminar at the IfKW, SoSe 2023" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exercise 6: dplyr, ggplot, tidycomm | Continuing education: R" />
+  <meta name="twitter:title" content=" 10 Tutorial: Good coding style &amp; project management | Continuing education: R" />
   
-  <meta name="twitter:description" content="Exercise 6: dplyr, ggplot, tidycomm | Continuing education: R - Seminar at the IfKW, SoSe 2023" />
+  <meta name="twitter:description" content=" 10 Tutorial: Good coding style &amp; project management | Continuing education: R - Seminar at the IfKW, SoSe 2023" />
   
 
 <meta name="author" content="Lara Kobilke, IfKW, Ludwig-Maximilians-Universität München" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="tutorial-data-analysis-with-tidycomm.html"/>
-<link rel="next" href="tutorial-tell-me-your-preferences.html"/>
+<link rel="prev" href="tutorial-tell-me-your-preferences.html"/>
+<link rel="next" href="solutions.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -453,100 +453,118 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="exercise-6-dplyr-ggplot-tidycomm" class="section level1 unnumbered hasAnchor">
-<h1>Exercise 6: dplyr, ggplot, tidycomm<a href="exercise-6-dplyr-ggplot-tidycomm.html#exercise-6-dplyr-ggplot-tidycomm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><strong>After working through Exercise 6, you’ll…</strong></p>
+<div id="tutorial-good-coding-style-project-management" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number"> 10</span> Tutorial: Good coding style &amp; project management<a href="tutorial-good-coding-style-project-management.html#tutorial-good-coding-style-project-management" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>After working through Tutorial 10, you’ll…</p>
 <ul>
-<li>have repeated the most important functions of <code>dplyr</code> and <code>ggplot2</code></li>
+<li>have received some tips about how to organize your R projects</li>
+<li>know about how to write good code according to the tidyverse principles</li>
 </ul>
-<p>This exercise was created to prepare you for your graded coding
-assignment. You don’t have to work through it completely, but it can
-certainly help you with the graded assignment. In this exercise, we will
-work with the <code>mtcars</code> data that comes pre-installed with <code>dplyr</code>.</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb359-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb359-2"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb359-2" tabindex="-1"></a></span>
-<span id="cb359-3"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb359-3" tabindex="-1"></a>data <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb359-4"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb359-4" tabindex="-1"></a></span>
-<span id="cb359-5"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb359-5" tabindex="-1"></a><span class="co"># To make the data somewhat more interesting, let&#39;s set a few values to missing values (you don&#39;t need to know this code):</span></span>
-<span id="cb359-6"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb359-6" tabindex="-1"></a>data<span class="sc">$</span>wt <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>wt, <span class="fl">4.070</span>)</span>
-<span id="cb359-7"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb359-7" tabindex="-1"></a>data<span class="sc">$</span>mpg <span class="ot">&lt;-</span> <span class="fu">na_if</span>(data<span class="sc">$</span>mpg, <span class="fl">22.8</span>)</span></code></pre></div>
-<p>Let’s first get to know this data. We can get some information about the
-variables that are included in the dataset by using <code>R</code>s <code>help()</code>
-function:</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="exercise-6-dplyr-ggplot-tidycomm.html#cb360-1" tabindex="-1"></a><span class="fu">help</span>(mtcars)</span></code></pre></div>
-<table>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td align="left"><em>Image: Output of the help(mtcars) function:</em></td>
-</tr>
-<tr class="even">
-<td align="left"><img src="C:/Users/LaraK/Desktop/To-Do/Mittelbaufortbildung/LaraKobilke/images/mtcars.JPG" style="width:30.0%" /></td>
-</tr>
-</tbody>
-</table>
-<p>We get to know that this is a data set was created from the <em>1974 Motor
-Trend US magazine</em>, and that it comprises fuel consumption (<em>mpg</em>) and
-10 other aspects (<em>cyl</em>, <em>wt</em>) of automobile design and performance for
-32 different cars.</p>
-<div id="task-1-5" class="section level2 unnumbered hasAnchor">
-<h2>Task 1<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-1-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Check the dataset for missing values (<em>NA</em>s) and delete all observations
-that have missing values.</p>
+<p>Writing clean, understandable code is fundamental in programming. It’s not just for the machine to execute, but also for humans to read and comprehend. The <a href="https://style.tidyverse.org/">Tidyverse style guide by Hadley Wickham</a> offers a set of conventions that can help you achieve this. In this tutorial, we’ll go over some of these guidelines, and we’ll also discuss some packages that can enforce good coding style in R.</p>
+<div id="naming-conventions-for-variables" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> Naming conventions for variables<a href="tutorial-good-coding-style-project-management.html#naming-conventions-for-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>Variable names:</strong> Use lowercase and separate words with underscores. Avoid dots in variable names, as they have a special meaning in R.</p></li>
+<li><p><strong>Long variable names:</strong> While it can be tempting to use short, cryptic variable names, it’s often a good idea to use longer, more descriptive names. This makes your code easier to understand and maintain. And you can always copy and paste variable names (and RStudio will provide the full name once you start typing the first letters anyway), so long names are no problem. Here’s a very simple example:</p></li>
+<li><p><strong>Function names:</strong> Use lowercase and separate words with underscores. Use verbs because functions are doing something!</p></li>
+</ol>
 </div>
-<div id="task-2-5" class="section level2 unnumbered hasAnchor">
-<h2>Task 2<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-2-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s transform the weight <em>wt</em> of the cars. Currently, it’s given as
-<em>Weight in 1000 lbs</em>. I guess you are not used to lbs, so try to mutate
-<em>wt</em> to represent <em>Weight in 1000 kg</em>. 1000 lbs = 453.59 kg, so we will
-need to divide by 2.20.</p>
-<p>Similarly, I think that you are not very familiar with the unit <em>Miles
-per gallon</em> of the <em>mpg</em> variable. Let’s transform it into <em>Kilometer
-per liter</em>. 1 m/g = 0.425144 km/l, so again divide by 2.20.</p>
+<div id="spacing-and-operators" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> Spacing and operators<a href="tutorial-good-coding-style-project-management.html#spacing-and-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>Insert spaces around all binary operators (=, +, -, &lt;, &gt;, etc.).</p></li>
+<li><p>Never place a space before a comma, but always after a comma.</p></li>
+</ol>
 </div>
-<div id="task-3-5" class="section level2 unnumbered hasAnchor">
-<h2>Task 3<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-3-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now we want to group the weight of the cars in three categories: light,
-medium, heavy. But how to define light, medium, and heavy cars, i.e., at
-what kg should you put the threshold? A reasonable approach is to use
-quantiles (see Tutorial: <a href="tutorial-data-management-with-tidyverse.html#summarize-group_by">summarize() [+
-group_by()]</a>). Quantiles divide data. For example,
-the 75% quantile states that exactly 75% of the data values are equal or
-below the quantile value. The rest of the values are equal or above it.</p>
-<p>Use the lower quantile (0.25) and the upper quantile (0.75) to estimate
-two values that divide the weight of the cars in three groups. What are
-these values?</p>
+<div id="commenting-your-code" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> Commenting your code<a href="tutorial-good-coding-style-project-management.html#commenting-your-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Good commenting is a crucial aspect of writing clean, understandable code. Comments should provide clarity and context to your code. Here are some guidelines:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Purpose of the code:</strong> Every nontrivial function should have a comment explaining what it does. The comment should explain what the function does, not <em>how</em> it does it.</p></li>
+<li><p><strong>Non-obvious code segments:</strong> If you have a piece of code that does something non-obvious or tricky, it’s a good idea to add a comment explaining what it’s doing and why it’s needed.</p></li>
+<li><p><strong>Assumptions and constraints:</strong> If your code makes certain assumptions (e.g., about the input data) or has certain constraints, it’s good to document them in comments.</p></li>
+<li><p><strong>Do <em>not</em> over-comment:</strong> Avoid commenting on obvious things. Good code is self-documenting to some extent. If you’re finding that you need to add a lot of comments to explain what your code is doing, it may be a sign that you need to refactor your code to make it clearer. If you follow all of the above guidelines on how to write clean code, then you won’t need as many comments!</p></li>
+<li><p><strong>Update comments as you update code:</strong> There’s nothing more confusing than comments that don’t match the code. If you change your code, make sure to update the relevant comments as well.</p></li>
+</ol>
 </div>
-<div id="task-4-3" class="section level2 unnumbered hasAnchor">
-<h2>Task 4<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-4-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Use the values from Task 3 to create a new variable <em>wt_cat</em> that
-divides the cars in three groups: light, medium, and heavy cars.</p>
+<div id="dont-repeat-yourself-dry-code" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> Don’t Repeat Yourself: DRY code<a href="tutorial-good-coding-style-project-management.html#dont-repeat-yourself-dry-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The DRY principle is a fundamental concept in software development. You should strive to avoid duplicating code, as it inflates your code and makes it harder to read. If you find yourself writing the same or very similar code in multiple places, consider creating a function, which can then be called from those places.</p>
 </div>
-<div id="task-5-3" class="section level2 unnumbered hasAnchor">
-<h2>Task 5<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-5-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>How many light, medium, and heavy cars are part of the data?</p>
+<div id="using-tidyverse-functions" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> Using tidyverse functions<a href="tutorial-good-coding-style-project-management.html#using-tidyverse-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><p>The pipe operator <code>%&gt;%</code> is a valuable tool for chaining multiple operations. Each step in the chain should be on a new line.</p></li>
+<li><p>Use <code>mutate</code> to add new variables that are functions of existing variables.</p></li>
+</ol>
 </div>
-<div id="task-6-2" class="section level2 unnumbered hasAnchor">
-<h2>Task 6<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-6-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Now sort this count of the car weight classes from highest to lowest.</p>
+<div id="file-and-script-organization" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> File and script organization<a href="tutorial-good-coding-style-project-management.html#file-and-script-organization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The organization of files and directories in your project, as well as the naming and organization of scripts, is a critical aspect of good coding practices. Here are some tips to get you started:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Consistent Project Structure:</strong> Make sure your project has a consistent structure.</li>
+</ol>
+<pre><code>project/
+│
+├── R/
+│   ├── functions.R
+│   └── main_script.R
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── figures/
+│   └── plot.png
+│
+├── doc/
+│   ├── report.Rmd
+│   └── report.html
+│
+└── project.Rproj</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p><strong>Separate Raw and Processed Data:</strong> Keep raw and processed data in separate folders.</p></li>
+<li><p><strong>Use Meaningful Names:</strong> Use clear and descriptive names for your files and folders.</p></li>
+<li><p><strong>Enumerate Scripts:</strong> It’s often a good idea to separate data preparation (loading, cleaning, transforming) and data analysis (statistical analysis, plotting) into separate scripts. If there’s a specific order in which scripts should be run, consider enumerating them in your <code>R/</code> folder.</p></li>
+</ol>
+<pre><code>01_load_data.R
+02_clean_data.R
+03_analyze_data.R
+04_plot_data.R</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Function Scripts:</strong> If you have functions that are used in multiple scripts, consider putting them in their own script, like <code>utilities.R</code> or <code>functions.R</code>, and source this script when you need to use those functions, i.e. <code>source(functions.R)</code>.</li>
+</ol>
 </div>
-<div id="task-7-1" class="section level2 unnumbered hasAnchor">
-<h2>Task 7<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-7-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Make a scatter plot to indicate how many km per liter (<em>mpg</em>) a car can
-drive depending on its weight (<em>wt</em>). Facet the plot by weight class
-(<em>wt_cat</em>). Try to hide the plot legend (you have learned that in
-Exercise 3, Task 1).</p>
+<div id="using-r-projects" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> Using R Projects<a href="tutorial-good-coding-style-project-management.html#using-r-projects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Projects, via RStudio, offer a straightforward way to organize your work. An R Project is simply a working directory designated with a <code>.Rproj</code> file. When you open an R Project, RStudio sets the working directory to the project root directory, which is very helpful for file referencing and reproducibility.</p>
+<p>To create an R Project in RStudio, go to <code>File -&gt; New Project</code>. You can then choose to create a new directory for your project or to associate the project with an existing directory. After you’ve created your R Project, RStudio will create a <code>.Rproj</code> file in the project directory. This file contains various settings and preferences, which RStudio will restore each time you open the project.</p>
+<p>Using R Projects brings several benefits:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Reproducibility:</strong> Since the working directory is set to the project root, you can use relative file paths in your code, which makes it more likely to run on other machines.</p></li>
+<li><p><strong>Organization:</strong> Each project is self-contained, making it easier to manage files, variables, packages, and more.</p></li>
+<li><p><strong>Integration with Version Control Systems:</strong> RStudio’s Projects integrate well with version control systems like Git, making it easier to track changes, collaborate with others, and sync your work across different machines.</p></li>
+<li><p><strong>Multiple Sessions:</strong> You can work on multiple projects in separate sessions, each with its own working directory and workspace.</p></li>
+<li><p><strong>Restoring Previous Work:</strong> When you reopen a project, RStudio restores the working directory, the command history, and the previously opened scripts, helping you pick up right where you left off.</p></li>
+</ol>
 </div>
-<div id="task-8" class="section level2 unnumbered hasAnchor">
-<h2>Task 8<a href="exercise-6-dplyr-ggplot-tidycomm.html#task-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Recreate the diagram from Task 7, but exclude all cars that weigh
-between 1.4613636 and 1.5636364 *1000kg from it.</p>
-<p>When you’re ready to look at the solutions, you can find them here:
-<a href="solutions.html#solutions-for-exercise-6">Solutions for Exercise 6</a>.</p>
-<p>We have officially finished our chapters on data management and
-visualization!</p>
+<div id="function-documentation-with-roxygen2" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> Function documentation with Roxygen2<a href="tutorial-good-coding-style-project-management.html#function-documentation-with-roxygen2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>When you’re writing functions, especially if you’re planning to share your code or use it in the future, it’s important to document what the function does, what inputs it expects, and what it returns. The Roxygen2 package in R makes this easy.</p>
+<p>Roxygen2 uses specially formatted comments that start with #’ to generate documentation for your functions that is universally known by other R programmers. Here’s an example of how to use roxygen2 to document a function:</p>
+</div>
+<div id="automated-code-styling" class="section level2 hasAnchor" number="10.9">
+<h2><span class="header-section-number">10.9</span> Automated code styling<a href="tutorial-good-coding-style-project-management.html#automated-code-styling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>While adhering to coding style guidelines is crucial, it can sometimes be challenging to manage manually. Thankfully, R has several packages to help with this:</p>
+<div id="styler" class="section level3 hasAnchor" number="10.9.1">
+<h3><span class="header-section-number">10.9.1</span> styler<a href="tutorial-good-coding-style-project-management.html#styler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>styler</code> package can automatically format your R code to adhere to the tidyverse style guide without changing the code’s behavior.</p>
+</div>
+<div id="lintr" class="section level3 hasAnchor" number="10.9.2">
+<h3><span class="header-section-number">10.9.2</span> lintr<a href="tutorial-good-coding-style-project-management.html#lintr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <code>lintr</code> package provides static code analysis for R, enforcing good coding style. It can be integrated with various text editors, including RStudio.</p>
+<p>The <code>lint()</code> function returns a list of issues with your code, including stylistic issues, syntax errors, and potential bugs.</p>
+</div>
 </div>
 </div>
             </section>
@@ -554,8 +572,8 @@ visualization!</p>
           </div>
         </div>
       </div>
-<a href="tutorial-data-analysis-with-tidycomm.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="tutorial-tell-me-your-preferences.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="tutorial-tell-me-your-preferences.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="solutions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

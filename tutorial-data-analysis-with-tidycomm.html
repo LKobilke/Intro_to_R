@@ -23,7 +23,7 @@
 <meta name="author" content="Lara Kobilke, IfKW, Ludwig-Maximilians-Universität München" />
 
 
-<meta name="date" content="2023-07-05" />
+<meta name="date" content="2023-07-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -364,6 +364,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing Papers with Zotero</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="10" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html"><i class="fa fa-check"></i><b>10</b> Tutorial: Good coding style &amp; project management</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#naming-conventions-for-variables"><i class="fa fa-check"></i><b>10.1</b> Naming conventions for variables</a></li>
+<li class="chapter" data-level="10.2" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#spacing-and-operators"><i class="fa fa-check"></i><b>10.2</b> Spacing and operators</a></li>
+<li class="chapter" data-level="10.3" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#commenting-your-code"><i class="fa fa-check"></i><b>10.3</b> Commenting your code</a></li>
+<li class="chapter" data-level="10.4" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#dont-repeat-yourself-dry-code"><i class="fa fa-check"></i><b>10.4</b> Don’t Repeat Yourself: DRY code</a></li>
+<li class="chapter" data-level="10.5" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#using-tidyverse-functions"><i class="fa fa-check"></i><b>10.5</b> Using tidyverse functions</a></li>
+<li class="chapter" data-level="10.6" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#file-and-script-organization"><i class="fa fa-check"></i><b>10.6</b> File and script organization</a></li>
+<li class="chapter" data-level="10.7" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#using-r-projects"><i class="fa fa-check"></i><b>10.7</b> Using R Projects</a></li>
+<li class="chapter" data-level="10.8" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#function-documentation-with-roxygen2"><i class="fa fa-check"></i><b>10.8</b> Function documentation with Roxygen2</a></li>
+<li class="chapter" data-level="10.9" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#automated-code-styling"><i class="fa fa-check"></i><b>10.9</b> Automated code styling</a>
+<ul>
+<li class="chapter" data-level="10.9.1" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#styler"><i class="fa fa-check"></i><b>10.9.1</b> styler</a></li>
+<li class="chapter" data-level="10.9.2" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html#lintr"><i class="fa fa-check"></i><b>10.9.2</b> lintr</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html"><i class="fa fa-check"></i>Solutions</a>
 <ul>
 <li class="chapter" data-level="" data-path="solutions.html"><a href="solutions.html#solutions-for-exercise-1"><i class="fa fa-check"></i>Solutions for Exercise 1</a>
@@ -479,65 +495,13 @@ branches in this repository, one of which is called <code>devel</code>.</p>
 <p>To install the <code>tidycomm</code> package from this <code>devel</code> branch, use the
 <code>install.github</code> function from the <code>remotes</code> package. Provide the GitHub
 username, the repository name, and the branch name as follows:</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb251-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;joon-e/tidycomm@devel&quot;</span>)</span></code></pre></div>
-<pre><code>## vctrs    (0.6.2  -&gt; 0.6.3 ) [CRAN]
-## processx (3.8.1  -&gt; 3.8.2 ) [CRAN]
-## digest   (0.6.31 -&gt; 0.6.32) [CRAN]
-## haven    (2.5.2  -&gt; 2.5.3 ) [CRAN]
-## 
-##   Es gibt eine Binärversion, jedoch ist der Quelltext neuer:
-##          binary source needs_compilation
-## processx  3.8.1  3.8.2              TRUE
-## 
-## Paket &#39;vctrs&#39; erfolgreich ausgepackt und MD5 Summen abgeglichen
-## Paket &#39;digest&#39; erfolgreich ausgepackt und MD5 Summen abgeglichen
-## 
-## Die heruntergeladenen Binärpakete sind in 
-##  C:\Users\LaraK\AppData\Local\Temp\RtmpOqHddY\downloaded_packages
-## ── R CMD build ─────────────────────────────────────────────────────────────────
-##   
-  
-  
-   checking for file &#39;C:\Users\LaraK\AppData\Local\Temp\RtmpOqHddY\remotes564725e481f\joon-e-tidycomm-b9b8189/DESCRIPTION&#39; ...
-  
-   checking for file &#39;C:\Users\LaraK\AppData\Local\Temp\RtmpOqHddY\remotes564725e481f\joon-e-tidycomm-b9b8189/DESCRIPTION&#39; ... 
-  
-✔  checking for file &#39;C:\Users\LaraK\AppData\Local\Temp\RtmpOqHddY\remotes564725e481f\joon-e-tidycomm-b9b8189/DESCRIPTION&#39; (1.1s)
-## 
-  
-  
-  
-─  preparing &#39;tidycomm&#39;: (631ms)
-##    checking DESCRIPTION meta-information ...
-  
-   checking DESCRIPTION meta-information ... 
-  
-✔  checking DESCRIPTION meta-information
-## 
-  
-  
-  
-─  checking for LF line-endings in source and make files and shell scripts
-## 
-  
-  
-  
-─  checking for empty or unneeded directories
-## 
-  
-  
-  
-─  building &#39;tidycomm_0.3.0.tar.gz&#39;
-## 
-  
-   
-## </code></pre>
-<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb253-1" tabindex="-1"></a><span class="co"># Alternatively, you can use this code: remotes::install_github(&quot;joon-e/tidycomm&quot;, ref=&quot;devel&quot;)</span></span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb251-1" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;joon-e/tidycomm@devel&quot;</span>)</span>
+<span id="cb251-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb251-2" tabindex="-1"></a><span class="co"># Alternatively, you can use this code: remotes::install_github(&quot;joon-e/tidycomm&quot;, ref=&quot;devel&quot;)</span></span></code></pre></div>
 <p>Then, load the package:</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb254-1" tabindex="-1"></a><span class="fu">library</span>(tidycomm)</span></code></pre></div>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb252-1" tabindex="-1"></a><span class="fu">library</span>(tidycomm)</span></code></pre></div>
 <p>Finally, load the WoJ and the fbposts data:</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb255-1" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>WoJ</span>
-<span id="cb255-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb255-2" tabindex="-1"></a>fbposts <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>fbposts</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb253-1" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>WoJ</span>
+<span id="cb253-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb253-2" tabindex="-1"></a>fbposts <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>fbposts</span></code></pre></div>
 <p>The <code>tidycomm</code> package provides convenience functions for common data
 modification and analysis tasks in communication research. This includes
 functions for univariate and bivariate data analysis, index generation
@@ -555,8 +519,8 @@ specified, the function will compute for all variables in the data set
 <p>that comes pre-packaged with <code>tidycomm</code>. It’s a coder-annotated data
 set, with each Facebook post (<code>post_id</code>) annotated by several coders
 (<code>coder_id</code>).</p>
-<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb256-1" tabindex="-1"></a>fbposts <span class="sc">%&gt;%</span>  </span>
-<span id="cb256-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb256-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb254-1" tabindex="-1"></a>fbposts <span class="sc">%&gt;%</span>  </span>
+<span id="cb254-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb254-2" tabindex="-1"></a>  <span class="fu">head</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 7
 ##   post_id coder_id type  n_pictures pop_elite pop_people pop_othering
 ##     &lt;int&gt;    &lt;int&gt; &lt;chr&gt;      &lt;int&gt;     &lt;int&gt;      &lt;int&gt;        &lt;int&gt;
@@ -572,7 +536,7 @@ output includes simple percent agreement, Holsti’s reliability estimate
 (mean pairwise agreement), and Krippendorff’s Alpha by default, but you
 can specify other estimates to compute via optional arguments /
 parameters.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb258-1" tabindex="-1"></a>fbposts <span class="sc">%&gt;%</span> <span class="fu">test_icr</span>(post_id, coder_id)</span></code></pre></div>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb256-1" tabindex="-1"></a>fbposts <span class="sc">%&gt;%</span> <span class="fu">test_icr</span>(post_id, coder_id)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 8
 ##   Variable     n_Units n_Coders n_Categories Level   Agreement Holstis_CR
 ## * &lt;chr&gt;          &lt;int&gt;    &lt;int&gt;        &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;      &lt;dbl&gt;
@@ -583,9 +547,9 @@ parameters.</p>
 ## 5 pop_othering      45        6            4 nominal     0.867      0.945
 ## # ℹ 1 more variable: Krippendorffs_Alpha &lt;dbl&gt;</code></pre>
 <p>Here are some more ICR estimates:</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb260-1" tabindex="-1"></a>fbposts <span class="sc">%&gt;%</span> <span class="fu">test_icr</span>(post_id, coder_id, </span>
-<span id="cb260-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb260-2" tabindex="-1"></a>                     <span class="at">fleiss_kappa =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb260-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb260-3" tabindex="-1"></a>                     <span class="at">lotus =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb258-1" tabindex="-1"></a>fbposts <span class="sc">%&gt;%</span> <span class="fu">test_icr</span>(post_id, coder_id, </span>
+<span id="cb258-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb258-2" tabindex="-1"></a>                     <span class="at">fleiss_kappa =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb258-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb258-3" tabindex="-1"></a>                     <span class="at">lotus =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 10
 ##   Variable     n_Units n_Coders n_Categories Level   Agreement Holstis_CR
 ## * &lt;chr&gt;          &lt;int&gt;    &lt;int&gt;        &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;      &lt;dbl&gt;
@@ -615,8 +579,8 @@ variables to the data. The second argument (or first, if used in a pipe)
 is the name of the index variable to be created. For example, if you
 want to create a mean index named ‘ethical_concerns’ using variables
 ‘ethics_1’ to ‘ethics_4’, you can use the following code:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb262-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> </span>
-<span id="cb262-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb262-2" tabindex="-1"></a>  <span class="fu">add_index</span>(ethical_concerns, ethics_1, ethics_2, ethics_3, ethics_4)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb260-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> </span>
+<span id="cb260-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb260-2" tabindex="-1"></a>  <span class="fu">add_index</span>(ethical_concerns, ethics_1, ethics_2, ethics_3, ethics_4)</span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 16
 ##    country   reach employment temp_contract autonomy_selection autonomy_emphasis
 ##  * &lt;fct&gt;     &lt;fct&gt; &lt;chr&gt;      &lt;fct&gt;                      &lt;dbl&gt;             &lt;dbl&gt;
@@ -636,8 +600,8 @@ want to create a mean index named ‘ethical_concerns’ using variables
 ## #   trust_government &lt;dbl&gt;, trust_parties &lt;dbl&gt;, trust_politicians &lt;dbl&gt;,
 ## #   ethical_concerns &lt;dbl&gt;</code></pre>
 <p>To create a sum index instead, set <code>type = "sum"</code>:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb264-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> </span>
-<span id="cb264-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb264-2" tabindex="-1"></a>  <span class="fu">add_index</span>(ethical_flexibility, ethics_1, ethics_2, ethics_3, ethics_4, <span class="at">type =</span> <span class="st">&quot;sum&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb262-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> </span>
+<span id="cb262-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb262-2" tabindex="-1"></a>  <span class="fu">add_index</span>(ethical_flexibility, ethics_1, ethics_2, ethics_3, ethics_4, <span class="at">type =</span> <span class="st">&quot;sum&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,200 × 16
 ##    country   reach employment temp_contract autonomy_selection autonomy_emphasis
 ##  * &lt;fct&gt;     &lt;fct&gt; &lt;chr&gt;      &lt;fct&gt;                      &lt;dbl&gt;             &lt;dbl&gt;
@@ -658,8 +622,8 @@ want to create a mean index named ‘ethical_concerns’ using variables
 ## #   ethical_flexibility &lt;dbl&gt;</code></pre>
 <p>Make sure to save your index back into your original data set if you
 want to keep it for later use:</p>
-<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb266-1" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span>  </span>
-<span id="cb266-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb266-2" tabindex="-1"></a>  <span class="fu">add_index</span>(ethical_concerns, ethics_1, ethics_2, ethics_3, ethics_4)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb264-1" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span>  </span>
+<span id="cb264-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb264-2" tabindex="-1"></a>  <span class="fu">add_index</span>(ethical_concerns, ethics_1, ethics_2, ethics_3, ethics_4)</span></code></pre></div>
 </div>
 <div id="get_reliability" class="section level4 hasAnchor" number="8.3.1.2">
 <h4><span class="header-section-number">8.3.1.2</span> 7.3.1.2 get_reliability()<a href="tutorial-data-analysis-with-tidycomm.html#get_reliability" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -667,7 +631,7 @@ want to keep it for later use:</p>
 consistency estimates for indices created with <code>add_index()</code>. The
 function outputs Cronbach’s α along with descriptives and index
 information.</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb267-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">get_reliability</span>(ethical_concerns)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb265-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">get_reliability</span>(ethical_concerns)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   Index            Index_of                              M    SD Cronbachs_Alpha
 ## * &lt;chr&gt;            &lt;chr&gt;                             &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;
@@ -675,7 +639,7 @@ information.</p>
 <p>By default, if you pass no further arguments to the function, it will
 automatically compute reliability estimates for all indices created with
 <code>add_index()</code> found in the data.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb269-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">get_reliability</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb267-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">get_reliability</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   Index            Index_of                              M    SD Cronbachs_Alpha
 ## * &lt;chr&gt;            &lt;chr&gt;                             &lt;dbl&gt; &lt;dbl&gt;           &lt;dbl&gt;
@@ -704,7 +668,7 @@ relevant statistics:</p>
 tendency and variability for all variables named in the function call
 (i.e., <strong>mean, standard deviation, min, max, range, and quartiles</strong>).
 Here’s how you use it:</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb271-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe</span>(autonomy_emphasis, ethics_1, work_experience)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb269-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe</span>(autonomy_emphasis, ethics_1, work_experience)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 15
 ##   Variable            N Missing     M     SD   Min   Q25   Mdn   Q75   Max Range
 ## * &lt;chr&gt;           &lt;int&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -715,7 +679,7 @@ Here’s how you use it:</p>
 ## #   Kurtosis &lt;dbl&gt;</code></pre>
 <p>If no variables are passed to <code>describe()</code>, all numeric variables in the
 data are described:</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb273-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb271-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">describe</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 15
 ##    Variable           N Missing     M     SD   Min   Q25   Mdn   Q75   Max Range
 ##  * &lt;chr&gt;          &lt;int&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -734,9 +698,9 @@ data are described:</p>
 ## # ℹ 4 more variables: CI_95_LL &lt;dbl&gt;, CI_95_UL &lt;dbl&gt;, Skewness &lt;dbl&gt;,
 ## #   Kurtosis &lt;dbl&gt;</code></pre>
 <p>You can also group data (using <code>dplyr</code>) before describing:</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb275-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
-<span id="cb275-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb275-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
-<span id="cb275-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb275-3" tabindex="-1"></a>  <span class="fu">describe</span>(autonomy_emphasis)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb273-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
+<span id="cb273-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb273-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span> </span>
+<span id="cb273-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb273-3" tabindex="-1"></a>  <span class="fu">describe</span>(autonomy_emphasis)</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 16
 ## # Groups:   country [5]
 ##   country Variable     N Missing     M    SD   Min   Q25   Mdn   Q75   Max Range
@@ -750,38 +714,38 @@ data are described:</p>
 ## #   Kurtosis &lt;dbl&gt;</code></pre>
 <p>Finally, you can create visualizations of your variables by applying the
 <code>visualize()</code> function to your data:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb277-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span></span>
-<span id="cb277-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb277-2" tabindex="-1"></a>  <span class="fu">describe</span>(autonomy_emphasis) <span class="sc">%&gt;%</span></span>
-<span id="cb277-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb277-3" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb275-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span></span>
+<span id="cb275-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb275-2" tabindex="-1"></a>  <span class="fu">describe</span>(autonomy_emphasis) <span class="sc">%&gt;%</span></span>
+<span id="cb275-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb275-3" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-176-1.png" width="672" /></p>
 <p>Second, the <code>tab_percentiles</code> function tabulates percentiles for at
 least one continuous variable:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb278-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
-<span id="cb278-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb278-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb276-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
+<span id="cb276-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb276-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 11
 ##   Variable            p10   p20   p30   p40   p50   p60   p70   p80   p90  p100
 ## * &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 autonomy_emphasis     3     4     4     4     4     4     4     5     5     5</code></pre>
 <p>You can use it to tabulate percentiles for more than one variable:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb280-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
-<span id="cb280-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb280-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis, ethics_1)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb278-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
+<span id="cb278-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb278-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis, ethics_1)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 11
 ##   Variable            p10   p20   p30   p40   p50   p60   p70   p80   p90  p100
 ## * &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 autonomy_emphasis     3     4     4     4     4     4     4     5     5     5
 ## 2 ethics_1              1     1     1     1     1     2     2     2     3     5</code></pre>
 <p>You can also specify your own percentiles:</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb282-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
-<span id="cb282-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb282-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis, ethics_1, <span class="at">levels =</span> <span class="fu">c</span>(<span class="fl">0.16</span>, <span class="fl">0.50</span>, <span class="fl">0.84</span>, <span class="fl">1.0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb280-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span>  </span>
+<span id="cb280-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb280-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis, ethics_1, <span class="at">levels =</span> <span class="fu">c</span>(<span class="fl">0.16</span>, <span class="fl">0.50</span>, <span class="fl">0.84</span>, <span class="fl">1.0</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 5
 ##   Variable            p16   p50   p84  p100
 ## * &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1 autonomy_emphasis     3     4     5     5
 ## 2 ethics_1              1     1     2     5</code></pre>
 <p>And you can visualize your percentiles:</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb284-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span></span>
-<span id="cb284-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb284-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis) <span class="sc">%&gt;%</span> </span>
-<span id="cb284-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb284-3" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb282-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span></span>
+<span id="cb282-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb282-2" tabindex="-1"></a>  <span class="fu">tab_percentiles</span>(autonomy_emphasis) <span class="sc">%&gt;%</span> </span>
+<span id="cb282-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb282-3" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 </div>
 </div>
@@ -790,7 +754,7 @@ least one continuous variable:</p>
 <p>You can perform a descriptive, bivariate analysis using the <code>crosstab()</code>
 function. The <code>crosstab()</code> function computes contingency tables for one
 independent (column) variable and one or more dependent (row) variables.</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb285-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb283-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 5
 ##   employment Local Regional National Transnational
 ## * &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt;
@@ -800,9 +764,9 @@ independent (column) variable and one or more dependent (row) variables.</p>
 <p>You can also add a ‘Total’ column to the contingency table and output
 column-wise percentages instead of absolute values by using additional
 arguments:</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb287-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, </span>
-<span id="cb287-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb287-2" tabindex="-1"></a>                 <span class="at">add_total =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb287-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb287-3" tabindex="-1"></a>                 <span class="at">percentages =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb285-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, </span>
+<span id="cb285-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb285-2" tabindex="-1"></a>                 <span class="at">add_total =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb285-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb285-3" tabindex="-1"></a>                 <span class="at">percentages =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 6
 ##   employment Local Regional National Transnational Total
 ## * &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;
@@ -811,8 +775,8 @@ arguments:</p>
 ## 3 Part-time  0.101   0.0901    0.122        0.0506 0.105</code></pre>
 <p>Finally, you can visualize your variables using the <code>visualize()</code>
 function:</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb289-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, <span class="at">chi_square =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb289-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb289-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb287-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, <span class="at">chi_square =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb287-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb287-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-183-1.png" width="672" /></p>
 </div>
 </div>
@@ -822,7 +786,7 @@ function:</p>
 <h3><span class="header-section-number">8.4.1</span> crosstab()<a href="tutorial-data-analysis-with-tidycomm.html#crosstab" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The ‘crosstab()’ function also offers a <code>chi_square</code> argument that, when
 set to <code>TRUE</code>, will calculate the chi-square test and Cramer’s V.</p>
-<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb290-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, <span class="at">chi_square =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb288-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, <span class="at">chi_square =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 5
 ##   employment Local Regional National Transnational
 ## * &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt;
@@ -833,7 +797,7 @@ set to <code>TRUE</code>, will calculate the chi-square test and Cramer’s V.</
 <p>Remember that you can access the full documentation of this function
 using the <code>help()</code> function, which will give you access to additional
 arguments / parameters and run examples of the function:</p>
-<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb292-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, <span class="at">chi_square =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb290-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">crosstab</span>(reach, employment, <span class="at">chi_square =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 5
 ##   employment Local Regional National Transnational
 ## * &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt;
@@ -852,7 +816,7 @@ variance (using a Levene test) to decide whether to use pooled variance
 or to use the Welch approximation to the degrees of freedom.</p>
 <p>You can provide an independent (group) variable and a dependent variable
 and the t-values, p-values and Cohen’s d will be calculated.</p>
-<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb294-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_emphasis)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb292-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_emphasis)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   Variable M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M     t    df
 ## * &lt;chr&gt;      &lt;num:.3!&gt;    &lt;num:.3!&gt;   &lt;num:.3!&gt;    &lt;num:.3!&gt; &lt;num:.&gt; &lt;num&gt; &lt;dbl&gt;
@@ -861,10 +825,10 @@ and the t-values, p-values and Cohen’s d will be calculated.</p>
 <p>Remember that you can always save your analysis into an R object and
 inspect it with <code>View()</code>. This is very helpful if the resulting output
 is larger than your screen:</p>
-<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb296-1" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_emphasis)</span>
-<span id="cb296-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb296-2" tabindex="-1"></a><span class="fu">View</span>(model1)</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb294-1" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_emphasis)</span>
+<span id="cb294-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb294-2" tabindex="-1"></a><span class="fu">View</span>(model1)</span></code></pre></div>
 <p>You can also specify more than one dependent variable:</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb297-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_emphasis, ethics_1)</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb295-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_emphasis, ethics_1)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 12
 ##   Variable      M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
 ## * &lt;chr&gt;           &lt;num:.3!&gt;    &lt;num:.3!&gt;   &lt;num:.3!&gt;    &lt;num:.3!&gt; &lt;num:.&gt; &lt;num:&gt;
@@ -874,7 +838,7 @@ is larger than your screen:</p>
 ## #   var_equal &lt;chr&gt;</code></pre>
 <p>If you do not specify a dependent variable, all suitable variables in
 your data set will be used:</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb299-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb297-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract)</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 12
 ##    Variable     M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M      t
 ##  * &lt;chr&gt;          &lt;num:.3!&gt;    &lt;num:.3!&gt;   &lt;num:.3!&gt;    &lt;num:.3!&gt; &lt;num:.&gt; &lt;num:&gt;
@@ -895,7 +859,7 @@ your data set will be used:</p>
 <p>If you have an independent (group) variable with more than two levels,
 you can also specify the levels that you want to use for your
 <code>t_test()</code>:</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb301-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(employment, autonomy_emphasis, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Full-time&quot;</span>, <span class="st">&quot;Freelancer&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb299-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb299-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(employment, autonomy_emphasis, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Full-time&quot;</span>, <span class="st">&quot;Freelancer&quot;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   Variable `M_Full-time` `SD_Full-time` M_Freelancer SD_Freelancer Delta_M     t
 ## * &lt;chr&gt;        &lt;num:.3!&gt;      &lt;num:.3!&gt;    &lt;num:.3!&gt;     &lt;num:.3!&gt; &lt;num:.&gt; &lt;num&gt;
@@ -907,7 +871,7 @@ test) to decide whether to use pooled variance or to use the Welch
 approximation to the degrees of freedom. This is an example for the use
 of Welch’s approximation to account for unequal variances between
 groups:</p>
-<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb303-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb301-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb301-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   Variable M_Permanent SD_Permanent M_Temporary SD_Temporary Delta_M     t    df
 ## * &lt;chr&gt;      &lt;num:.3!&gt;    &lt;num:.3!&gt;   &lt;num:.3!&gt;    &lt;num:.3!&gt; &lt;num:.&gt; &lt;num&gt; &lt;dbl&gt;
@@ -916,18 +880,18 @@ groups:</p>
 <p>You can also run a one-sample t-test (also called: location test) by
 providing a variable and checking whether the mean of this variable is
 equal to a provided population mean <code>mu</code>:</p>
-<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb305-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(autonomy_selection, <span class="at">mu =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb303-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb303-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(autonomy_selection, <span class="at">mu =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 9
 ##   Variable               M    SD CI_95_LL CI_95_UL    Mu     t    df         p
 ## * &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
 ## 1 autonomy_selection  3.88 0.803     3.83     3.92     3  37.7  1196 6.32e-206</code></pre>
 <p>Finally, you can visualize your test results by calling the
 <code>visualize()</code> function:</p>
-<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb307-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection) <span class="sc">%&gt;%</span> </span>
-<span id="cb307-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb307-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb305-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb305-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">t_test</span>(temp_contract, autonomy_selection) <span class="sc">%&gt;%</span> </span>
+<span id="cb305-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb305-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-193-1.png" width="672" /></p>
 <p>To access the full documentation / help:</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb308-1" tabindex="-1"></a>?<span class="fu">t_test</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb306-1" tabindex="-1"></a>?<span class="fu">t_test</span>()</span></code></pre></div>
 </div>
 <div id="unianova" class="section level3 hasAnchor" number="8.4.3">
 <h3><span class="header-section-number">8.4.3</span> unianova()<a href="tutorial-data-analysis-with-tidycomm.html#unianova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -944,14 +908,14 @@ automatically use the Games-Howell test.</p>
 <p><code>unianova</code> works similarly to <code>t_test()</code>, i.e., you specify an
 independent (group) variable followed by one or more dependent
 variables.</p>
-<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb309-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb307-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 8
 ##   Variable                F df_num df_denom     p eta_squared Levene_p var_equal
 ## * &lt;chr&gt;             &lt;num:.&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;num&gt;   &lt;num:.3!&gt;    &lt;dbl&gt; &lt;chr&gt;    
 ## 1 autonomy_emphasis   5.861      2     1192 0.003       0.010    0.175 TRUE</code></pre>
 <p>Provide only an independent variable to use all suitable variables in
 your data set as dependent variables:</p>
-<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb311-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb309-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment)</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 9
 ##    Variable           F df_num df_denom     p omega_squared eta_squared Levene_p
 ##  * &lt;chr&gt;         &lt;num:&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;num&gt;     &lt;num:.3!&gt;   &lt;num:.3!&gt;    &lt;dbl&gt;
@@ -971,7 +935,7 @@ your data set as dependent variables:</p>
 <p>You can obtain the descriptives (mean and standard deviation for all
 group levels) by providing the additional argument
 <code>descriptives = TRUE</code>.</p>
-<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb313-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis, <span class="at">descriptives =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb311-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis, <span class="at">descriptives =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 14
 ##   Variable      F df_num df_denom     p eta_squared `M_Full-time` `SD_Full-time`
 ## * &lt;chr&gt;     &lt;num&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;num&gt;   &lt;num:.3!&gt;         &lt;dbl&gt;          &lt;dbl&gt;
@@ -985,17 +949,17 @@ inspected by saving your analysis in a separate model and then using
 <code>View()</code>. Once <code>View()</code> has opened your model, you can navigate to the
 rightmost part and click on the 1 variable cell under the post hoc
 column. This will display your post hoc test results.</p>
-<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb315-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb313-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 9
 ##   Variable       F df_num df_denom     p eta_squared post_hoc Levene_p var_equal
 ## * &lt;chr&gt;      &lt;num&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;num&gt;   &lt;num:.3!&gt; &lt;list&gt;      &lt;dbl&gt; &lt;chr&gt;    
 ## 1 autonomy_… 5.861      2     1192 0.003       0.010 &lt;df&gt;        0.175 TRUE</code></pre>
-<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb317-1" tabindex="-1"></a><span class="co"># model2 &lt;- WoJ %&gt;% unianova(employment, autonomy_emphasis, post_hoc = TRUE)</span></span>
-<span id="cb317-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb317-2" tabindex="-1"></a><span class="co"># View(model2)</span></span></code></pre></div>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb315-1" tabindex="-1"></a><span class="co"># model2 &lt;- WoJ %&gt;% unianova(employment, autonomy_emphasis, post_hoc = TRUE)</span></span>
+<span id="cb315-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb315-2" tabindex="-1"></a><span class="co"># View(model2)</span></span></code></pre></div>
 <p>Alternatively, you can extract the PostHoc test results with this code:</p>
-<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb318-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb318-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb318-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Variable, post_hoc) <span class="sc">%&gt;%</span> </span>
-<span id="cb318-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb318-3" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">unnest</span>(post_hoc)</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb316-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb316-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb316-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Variable, post_hoc) <span class="sc">%&gt;%</span> </span>
+<span id="cb316-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb316-3" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">unnest</span>(post_hoc)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
 ##   Variable Group_Var contrast Delta_M conf_lower conf_upper     p       d     se
 ##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
@@ -1005,7 +969,7 @@ column. This will display your post hoc test results.</p>
 ## # ℹ 2 more variables: t &lt;dbl&gt;, df &lt;dbl&gt;</code></pre>
 <p>If the variances are not equal, a Welch test and a Games-Howell test
 will be performed automatically, replacing the classic ANOVA method:</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb320-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">descriptives =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb318-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">descriptives =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 14
 ##   Variable                   F df_num df_denom     p omega_squared `M_Full-time`
 ## * &lt;chr&gt;              &lt;num:.3!&gt;  &lt;dbl&gt;    &lt;dbl&gt; &lt;num&gt;     &lt;num:.3!&gt;         &lt;dbl&gt;
@@ -1013,9 +977,9 @@ will be performed automatically, replacing the classic ANOVA method:</p>
 ## # ℹ 7 more variables: `SD_Full-time` &lt;dbl&gt;, `M_Part-time` &lt;dbl&gt;,
 ## #   `SD_Part-time` &lt;dbl&gt;, M_Freelancer &lt;dbl&gt;, SD_Freelancer &lt;dbl&gt;,
 ## #   Levene_p &lt;dbl&gt;, var_equal &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb322-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb322-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb322-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Variable, post_hoc) <span class="sc">%&gt;%</span> </span>
-<span id="cb322-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb322-3" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">unnest</span>(post_hoc)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb320-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_selection, <span class="at">post_hoc =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb320-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb320-2" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Variable, post_hoc) <span class="sc">%&gt;%</span> </span>
+<span id="cb320-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb320-3" tabindex="-1"></a>  tidyr<span class="sc">::</span><span class="fu">unnest</span>(post_hoc)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 11
 ##   Variable Group_Var contrast Delta_M conf_lower conf_upper     p       d     se
 ##   &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
@@ -1025,24 +989,24 @@ will be performed automatically, replacing the classic ANOVA method:</p>
 ## # ℹ 2 more variables: t &lt;dbl&gt;, df &lt;dbl&gt;</code></pre>
 <p>Finally, you can visualize your test results by calling the
 <code>visualize()</code> function:</p>
-<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb324-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis) <span class="sc">%&gt;%</span> </span>
-<span id="cb324-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb324-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb322-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">unianova</span>(employment, autonomy_emphasis) <span class="sc">%&gt;%</span> </span>
+<span id="cb322-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb322-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-201-1.png" width="672" /></p>
 <p>For full documentation / help:</p>
-<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb325-1" tabindex="-1"></a>?<span class="fu">unianova</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb323-1" tabindex="-1"></a>?<span class="fu">unianova</span>()</span></code></pre></div>
 </div>
 <div id="correlate" class="section level3 hasAnchor" number="8.4.4">
 <h3><span class="header-section-number">8.4.4</span> correlate()<a href="tutorial-data-analysis-with-tidycomm.html#correlate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>correlate()</code> function computes correlation coefficients for all
 combinations of the specified variables. If no variables are specified,
 all numeric (integer or double) variables are used.</p>
-<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb326-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb324-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   x        y                        r    df       p
 ## * &lt;chr&gt;    &lt;chr&gt;                &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
 ## 1 ethics_1 autonomy_selection -0.0766  1195 0.00798</code></pre>
 <p>Once again, you can specify more than two variables:</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb328-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb326-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 5
 ##   x                  y                        r    df            p
 ## * &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt; &lt;int&gt;        &lt;dbl&gt;
@@ -1052,7 +1016,7 @@ all numeric (integer or double) variables are used.</p>
 <p>Three variables? That screams “partial correlation” to me! If you’d like
 to calculate the partial correlation coefficient of three variables,
 just add the optional parameter <code>partial = TRUE</code>.</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb330-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience, <span class="at">partial =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb328-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience, <span class="at">partial =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 6
 ##   x               y                  z                        r    df          p
 ## * &lt;chr&gt;           &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
@@ -1061,7 +1025,7 @@ just add the optional parameter <code>partial = TRUE</code>.</p>
 ## 3 work_experience autonomy_selection ethics_1            0.154   1181    1.03e-7</code></pre>
 <p>And you can get the correlation for all suitable variables in your data
 set:</p>
-<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb332-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb330-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 66 × 5
 ##    x                  y                        r    df         p
 ##  * &lt;chr&gt;              &lt;chr&gt;                &lt;dbl&gt; &lt;int&gt;     &lt;dbl&gt;
@@ -1080,8 +1044,8 @@ set:</p>
 matrix, just like you find them in SPSS. You can do that using an
 additional function <code>to_correlation_matrix</code> after your <code>correlate()</code>
 function:</p>
-<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb334-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb334-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb334-2" tabindex="-1"></a>  <span class="fu">to_correlation_matrix</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb332-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb332-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb332-2" tabindex="-1"></a>  <span class="fu">to_correlation_matrix</span>()</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 13
 ##    r             autonomy_selection autonomy_emphasis ethics_1 ethics_2 ethics_3
 ##  * &lt;chr&gt;                      &lt;dbl&gt;             &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
@@ -1104,7 +1068,7 @@ function:</p>
 <ol style="list-style-type: decimal">
 <li>Using Pearson’s r (default):</li>
 </ol>
-<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb336-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb334-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   x        y                        r    df       p
 ## * &lt;chr&gt;    &lt;chr&gt;                &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt;
@@ -1112,7 +1076,7 @@ function:</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Using Spearman’s rho:</li>
 </ol>
-<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb338-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb336-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   x        y                      rho df         p
 ## * &lt;chr&gt;    &lt;chr&gt;                &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1120,7 +1084,7 @@ function:</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Using Kendall’s tau:</li>
 </ol>
-<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb340-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb338-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, <span class="at">method =</span> <span class="st">&quot;kendall&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   x        y                      tau df         p
 ## * &lt;chr&gt;    &lt;chr&gt;                &lt;dbl&gt; &lt;lgl&gt;  &lt;dbl&gt;
@@ -1131,31 +1095,31 @@ visualize a partial correlation, the choice of graph might vary:</p>
 <ol style="list-style-type: decimal">
 <li>Visualize a bivariate correlation:</li>
 </ol>
-<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb342-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection) <span class="sc">%&gt;%</span> </span>
-<span id="cb342-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb342-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb340-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection) <span class="sc">%&gt;%</span> </span>
+<span id="cb340-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb340-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
-<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb343-1" tabindex="-1"></a><span class="co"># Pro tip: use parameters which = jitter and which = alpha to change layout of the geom_points</span></span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb341-1" tabindex="-1"></a><span class="co"># Pro tip: use parameters which = jitter and which = alpha to change layout of the geom_points</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Visualize with multiple variables:</li>
 </ol>
-<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb344-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb344-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb344-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb342-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
+<span id="cb342-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb342-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Visualize a partial correlation:</li>
 </ol>
-<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb345-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience, <span class="at">partial =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb345-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb345-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb343-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">correlate</span>(ethics_1, autonomy_selection, work_experience, <span class="at">partial =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb343-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb343-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-213-1.png" width="672" /></p>
 <p>Of course, you can always get help:</p>
-<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb346-1" tabindex="-1"></a>?<span class="fu">correlate</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb344-1" tabindex="-1"></a>?<span class="fu">correlate</span>()</span></code></pre></div>
 </div>
 <div id="regress" class="section level3 hasAnchor" number="8.4.5">
 <h3><span class="header-section-number">8.4.5</span> regress()<a href="tutorial-data-analysis-with-tidycomm.html#regress" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Finally, you can also run linear regressions. The <code>regress()</code> function
 will compute a linear regression for all independent variables on the
 specified dependent variable.</p>
-<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb347-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb345-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 6
 ##   Variable                  B  StdErr    beta     t        p
 ## * &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -1165,7 +1129,7 @@ specified dependent variable.</p>
 ## # F(2, 1181) = 8.677001, p = 0.000182, R-square = 0.014482</code></pre>
 <p>You can also perform a linear modeling of multiple independent variables
 (this will use stepwise regression modeling):</p>
-<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb349-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb347-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 6
 ##   Variable                  B  StdErr    beta     t        p
 ## * &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;
@@ -1176,10 +1140,10 @@ specified dependent variable.</p>
 <p>You can even check the preconditions of a linear regression (e.g.,
 multicollinearity and homoscedasticity) by providing optional arguments
 / parameters:</p>
-<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb351-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience, </span>
-<span id="cb351-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb351-2" tabindex="-1"></a>                <span class="at">check_independenterrors =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb351-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb351-3" tabindex="-1"></a>                <span class="at">check_multicollinearity =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb351-4"><a href="tutorial-data-analysis-with-tidycomm.html#cb351-4" tabindex="-1"></a>                <span class="at">check_homoscedasticity =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb349"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb349-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb349-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience, </span>
+<span id="cb349-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb349-2" tabindex="-1"></a>                <span class="at">check_independenterrors =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb349-3"><a href="tutorial-data-analysis-with-tidycomm.html#cb349-3" tabindex="-1"></a>                <span class="at">check_multicollinearity =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb349-4"><a href="tutorial-data-analysis-with-tidycomm.html#cb349-4" tabindex="-1"></a>                <span class="at">check_homoscedasticity =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 8
 ##   Variable                  B  StdErr    beta     t        p   VIF tolerance
 ## * &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
@@ -1187,7 +1151,7 @@ multicollinearity and homoscedasticity) by providing optional arguments
 ## 2 autonomy_selection -0.0692  0.0325  -0.0624 -2.13 3.32e- 2  1.03     0.974
 ## 3 work_experience    -0.00762 0.00239 -0.0934 -3.19 1.46e- 3  1.03     0.974
 ## # F(2, 1181) = 8.677001, p = 0.000182, R-square = 0.014482
-## - Check for independent errors: Durbin-Watson = 2.037690 (p = 0.526000)
+## - Check for independent errors: Durbin-Watson = 2.037690 (p = 0.498000)
 ## - Check for homoscedasticity: Breusch-Pagan = 6.966472 (p = 0.008305)
 ## - Check for multicollinearity: VIF/tolerance added to output</code></pre>
 <p>Or you can make visual inspections to check the preconditions using
@@ -1195,45 +1159,45 @@ several different visualizations:</p>
 <ol style="list-style-type: decimal">
 <li>Base visualization:</li>
 </ol>
-<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb353-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb353-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb353-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb351"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb351-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb351-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
+<span id="cb351-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb351-2" tabindex="-1"></a>  <span class="fu">visualize</span>()</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-218-1.png" width="672" /></p>
-<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb354-1" tabindex="-1"></a><span class="co"># Pro tip: use parameters which = jitter and which = alpha to change layout of the geom_points</span></span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb352-1" tabindex="-1"></a><span class="co"># Pro tip: use parameters which = jitter and which = alpha to change layout of the geom_points</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Correlograms among independent variables:</li>
 </ol>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb355-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb355-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb355-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;correlogram&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb353"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb353-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb353-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
+<span id="cb353-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb353-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;correlogram&quot;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li>Residuals-versus-fitted plot to determine distributions:</li>
 </ol>
-<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb356-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb356-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb356-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;resfit&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb354-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
+<span id="cb354-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb354-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;resfit&quot;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-220-1.png" width="672" /></p>
 <ol start="4" style="list-style-type: decimal">
 <li>Normal probability-probability plot to check for multicollinearity:</li>
 </ol>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb357-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb357-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb357-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;pp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb355"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb355-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb355-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
+<span id="cb355-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb355-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;pp&quot;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-221-1.png" width="672" /></p>
 <ol start="5" style="list-style-type: decimal">
 <li>Scale-location (sometimes also called spread-location) plot to check
 whether residuals are spread equally (to help check for
 homoscedasticity):</li>
 </ol>
-<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb358-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb358-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb358-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;scaloc&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb356-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
+<span id="cb356-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb356-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;scaloc&quot;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
 <ol start="6" style="list-style-type: decimal">
 <li>Residuals-versus-leverage plot to check for influential outliers
 affecting the final model more than the rest of the data:</li>
 </ol>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb359-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb359-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
-<span id="cb359-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb359-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;reslev&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb357-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb357-1" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span> <span class="fu">regress</span>(ethics_1, autonomy_selection, work_experience) <span class="sc">%&gt;%</span> </span>
+<span id="cb357-2"><a href="tutorial-data-analysis-with-tidycomm.html#cb357-2" tabindex="-1"></a>  <span class="fu">visualize</span>(<span class="at">which =</span> <span class="st">&quot;reslev&quot;</span>)</span></code></pre></div>
 <p><img src="Intro-to-R_files/figure-html/unnamed-chunk-223-1.png" width="672" /></p>
 <p>Again, you can always get help:</p>
-<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb360-1" tabindex="-1"></a>?<span class="fu">regress</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="tutorial-data-analysis-with-tidycomm.html#cb358-1" tabindex="-1"></a>?<span class="fu">regress</span>()</span></code></pre></div>
 </div>
 </div>
 </div>
