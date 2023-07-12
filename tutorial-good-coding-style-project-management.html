@@ -458,51 +458,151 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>After working through Tutorial 10, you’ll…</p>
 <ul>
 <li>have received some tips about how to organize your R projects</li>
-<li>know about how to write good code according to the tidyverse principles</li>
+<li>know about how to write good code according to the tidyverse
+principles</li>
 </ul>
-<p>Writing clean, understandable code is fundamental in programming. It’s not just for the machine to execute, but also for humans to read and comprehend. The <a href="https://style.tidyverse.org/">Tidyverse style guide by Hadley Wickham</a> offers a set of conventions that can help you achieve this. In this tutorial, we’ll go over some of these guidelines, and we’ll also discuss some packages that can enforce good coding style in R.</p>
+<p>Writing clean, understandable code is fundamental in programming. It’s
+not just for the machine to execute, but also for humans to read and
+comprehend. The <a href="https://style.tidyverse.org/">Tidyverse style guide by Hadley
+Wickham</a> offers a set of conventions that
+can help you achieve this. In this tutorial, we’ll go over some of these
+guidelines, and we’ll also discuss some packages that can enforce good
+coding style in R.</p>
 <div id="naming-conventions-for-variables" class="section level2 hasAnchor" number="10.1">
 <h2><span class="header-section-number">10.1</span> Naming conventions for variables<a href="tutorial-good-coding-style-project-management.html#naming-conventions-for-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li><p><strong>Variable names:</strong> Use lowercase and separate words with underscores. Avoid dots in variable names, as they have a special meaning in R.</p></li>
-<li><p><strong>Long variable names:</strong> While it can be tempting to use short, cryptic variable names, it’s often a good idea to use longer, more descriptive names. This makes your code easier to understand and maintain. And you can always copy and paste variable names (and RStudio will provide the full name once you start typing the first letters anyway), so long names are no problem. Here’s a very simple example:</p></li>
-<li><p><strong>Function names:</strong> Use lowercase and separate words with underscores. Use verbs because functions are doing something!</p></li>
+<li><strong>Variable names:</strong> Use lowercase and separate words with
+underscores. Avoid dots in variable names, as they have a special
+meaning in R.</li>
 </ol>
+<div class="sourceCode" id="cb381"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb381-1"><a href="tutorial-good-coding-style-project-management.html#cb381-1" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb381-2"><a href="tutorial-good-coding-style-project-management.html#cb381-2" tabindex="-1"></a>variable_name <span class="ot">&lt;-</span> <span class="st">&quot;example&quot;</span></span>
+<span id="cb381-3"><a href="tutorial-good-coding-style-project-management.html#cb381-3" tabindex="-1"></a></span>
+<span id="cb381-4"><a href="tutorial-good-coding-style-project-management.html#cb381-4" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb381-5"><a href="tutorial-good-coding-style-project-management.html#cb381-5" tabindex="-1"></a>VariableName <span class="ot">&lt;-</span> <span class="st">&quot;example&quot;</span></span>
+<span id="cb381-6"><a href="tutorial-good-coding-style-project-management.html#cb381-6" tabindex="-1"></a>variable.name <span class="ot">&lt;-</span> <span class="st">&quot;example&quot;</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Long variable names:</strong> While it can be tempting to use short,
+cryptic variable names, it’s often a good idea to use longer, more
+descriptive names. This makes your code easier to understand and
+maintain. And you can always copy and paste variable names (and
+RStudio will provide the full name once you start typing the first
+letters anyway), so long names are no problem. Here’s a very simple
+example:</li>
+</ol>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="tutorial-good-coding-style-project-management.html#cb382-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb382-2"><a href="tutorial-good-coding-style-project-management.html#cb382-2" tabindex="-1"></a>work_exp <span class="ot">&lt;-</span> <span class="fl">10.3</span></span>
+<span id="cb382-3"><a href="tutorial-good-coding-style-project-management.html#cb382-3" tabindex="-1"></a></span>
+<span id="cb382-4"><a href="tutorial-good-coding-style-project-management.html#cb382-4" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb382-5"><a href="tutorial-good-coding-style-project-management.html#cb382-5" tabindex="-1"></a>average_work_experience <span class="ot">&lt;-</span> <span class="fl">10.3</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Function names:</strong> Use lowercase and separate words with
+underscores. Use verbs because functions are doing something!</li>
+</ol>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb383-1"><a href="tutorial-good-coding-style-project-management.html#cb383-1" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb383-2"><a href="tutorial-good-coding-style-project-management.html#cb383-2" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb383-3"><a href="tutorial-good-coding-style-project-management.html#cb383-3" tabindex="-1"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb383-4"><a href="tutorial-good-coding-style-project-management.html#cb383-4" tabindex="-1"></a>}</span>
+<span id="cb383-5"><a href="tutorial-good-coding-style-project-management.html#cb383-5" tabindex="-1"></a></span>
+<span id="cb383-6"><a href="tutorial-good-coding-style-project-management.html#cb383-6" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb383-7"><a href="tutorial-good-coding-style-project-management.html#cb383-7" tabindex="-1"></a>calculateMean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb383-8"><a href="tutorial-good-coding-style-project-management.html#cb383-8" tabindex="-1"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb383-9"><a href="tutorial-good-coding-style-project-management.html#cb383-9" tabindex="-1"></a>}</span>
+<span id="cb383-10"><a href="tutorial-good-coding-style-project-management.html#cb383-10" tabindex="-1"></a></span>
+<span id="cb383-11"><a href="tutorial-good-coding-style-project-management.html#cb383-11" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb383-12"><a href="tutorial-good-coding-style-project-management.html#cb383-12" tabindex="-1"></a>mean_calculation <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb383-13"><a href="tutorial-good-coding-style-project-management.html#cb383-13" tabindex="-1"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb383-14"><a href="tutorial-good-coding-style-project-management.html#cb383-14" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="spacing-and-operators" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Spacing and operators<a href="tutorial-good-coding-style-project-management.html#spacing-and-operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li><p>Insert spaces around all binary operators (=, +, -, &lt;, &gt;, etc.).</p></li>
-<li><p>Never place a space before a comma, but always after a comma.</p></li>
+<li>Insert spaces around all binary operators (=, +, -, &lt;, &gt;, etc.).</li>
 </ol>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="tutorial-good-coding-style-project-management.html#cb384-1" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb384-2"><a href="tutorial-good-coding-style-project-management.html#cb384-2" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x)</span>
+<span id="cb384-3"><a href="tutorial-good-coding-style-project-management.html#cb384-3" tabindex="-1"></a></span>
+<span id="cb384-4"><a href="tutorial-good-coding-style-project-management.html#cb384-4" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb384-5"><a href="tutorial-good-coding-style-project-management.html#cb384-5" tabindex="-1"></a>average<span class="ot">&lt;-</span><span class="fu">sum</span>(x)<span class="sc">/</span><span class="fu">length</span>(x)</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Never place a space before a comma, but always after a comma.</li>
+</ol>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb385-1"><a href="tutorial-good-coding-style-project-management.html#cb385-1" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb385-2"><a href="tutorial-good-coding-style-project-management.html#cb385-2" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb385-3"><a href="tutorial-good-coding-style-project-management.html#cb385-3" tabindex="-1"></a></span>
+<span id="cb385-4"><a href="tutorial-good-coding-style-project-management.html#cb385-4" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb385-5"><a href="tutorial-good-coding-style-project-management.html#cb385-5" tabindex="-1"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(x ,<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="commenting-your-code" class="section level2 hasAnchor" number="10.3">
 <h2><span class="header-section-number">10.3</span> Commenting your code<a href="tutorial-good-coding-style-project-management.html#commenting-your-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Good commenting is a crucial aspect of writing clean, understandable code. Comments should provide clarity and context to your code. Here are some guidelines:</p>
+<p>Good commenting is a crucial aspect of writing clean, understandable
+code. Comments should provide clarity and context to your code. Here are
+some guidelines:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Purpose of the code:</strong> Every nontrivial function should have a comment explaining what it does. The comment should explain what the function does, not <em>how</em> it does it.</p></li>
-<li><p><strong>Non-obvious code segments:</strong> If you have a piece of code that does something non-obvious or tricky, it’s a good idea to add a comment explaining what it’s doing and why it’s needed.</p></li>
-<li><p><strong>Assumptions and constraints:</strong> If your code makes certain assumptions (e.g., about the input data) or has certain constraints, it’s good to document them in comments.</p></li>
-<li><p><strong>Do <em>not</em> over-comment:</strong> Avoid commenting on obvious things. Good code is self-documenting to some extent. If you’re finding that you need to add a lot of comments to explain what your code is doing, it may be a sign that you need to refactor your code to make it clearer. If you follow all of the above guidelines on how to write clean code, then you won’t need as many comments!</p></li>
-<li><p><strong>Update comments as you update code:</strong> There’s nothing more confusing than comments that don’t match the code. If you change your code, make sure to update the relevant comments as well.</p></li>
+<li><p><strong>Purpose of the code:</strong> Every nontrivial function should have a
+comment explaining what it does. The comment should explain what the
+function does, not <em>how</em> it does it.</p></li>
+<li><p><strong>Non-obvious code segments:</strong> If you have a piece of code that does
+something non-obvious or tricky, it’s a good idea to add a comment
+explaining what it’s doing and why it’s needed.</p></li>
+<li><p><strong>Assumptions and constraints:</strong> If your code makes certain
+assumptions (e.g., about the input data) or has certain constraints,
+it’s good to document them in comments.</p></li>
+<li><p><strong>Do <em>not</em> over-comment:</strong> Avoid commenting on obvious things. Good
+code is self-documenting to some extent. If you’re finding that you
+need to add a lot of comments to explain what your code is doing, it
+may be a sign that you need to refactor your code to make it
+clearer. If you follow all of the above guidelines on how to write
+clean code, then you won’t need as many comments!</p></li>
+<li><p><strong>Update comments as you update code:</strong> There’s nothing more
+confusing than comments that don’t match the code. If you change
+your code, make sure to update the relevant comments as well.</p></li>
 </ol>
 </div>
 <div id="dont-repeat-yourself-dry-code" class="section level2 hasAnchor" number="10.4">
 <h2><span class="header-section-number">10.4</span> Don’t Repeat Yourself: DRY code<a href="tutorial-good-coding-style-project-management.html#dont-repeat-yourself-dry-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The DRY principle is a fundamental concept in software development. You should strive to avoid duplicating code, as it inflates your code and makes it harder to read. If you find yourself writing the same or very similar code in multiple places, consider creating a function, which can then be called from those places.</p>
+<p>The DRY principle is a fundamental concept in software development. You
+should strive to avoid duplicating code, as it inflates your code and
+makes it harder to read. If you find yourself writing the same or very
+similar code in multiple places, consider creating a function, which can
+then be called from those places.</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="tutorial-good-coding-style-project-management.html#cb386-1" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb386-2"><a href="tutorial-good-coding-style-project-management.html#cb386-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb386-3"><a href="tutorial-good-coding-style-project-management.html#cb386-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> y <span class="sc">-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb386-4"><a href="tutorial-good-coding-style-project-management.html#cb386-4" tabindex="-1"></a>z <span class="ot">&lt;-</span> z <span class="sc">-</span> <span class="fu">mean</span>(z)</span>
+<span id="cb386-5"><a href="tutorial-good-coding-style-project-management.html#cb386-5" tabindex="-1"></a></span>
+<span id="cb386-6"><a href="tutorial-good-coding-style-project-management.html#cb386-6" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb386-7"><a href="tutorial-good-coding-style-project-management.html#cb386-7" tabindex="-1"></a>center <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb386-8"><a href="tutorial-good-coding-style-project-management.html#cb386-8" tabindex="-1"></a>  x <span class="sc">-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb386-9"><a href="tutorial-good-coding-style-project-management.html#cb386-9" tabindex="-1"></a>}</span>
+<span id="cb386-10"><a href="tutorial-good-coding-style-project-management.html#cb386-10" tabindex="-1"></a></span>
+<span id="cb386-11"><a href="tutorial-good-coding-style-project-management.html#cb386-11" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">center</span>(x)</span>
+<span id="cb386-12"><a href="tutorial-good-coding-style-project-management.html#cb386-12" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">center</span>(y)</span>
+<span id="cb386-13"><a href="tutorial-good-coding-style-project-management.html#cb386-13" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">center</span>(z)</span></code></pre></div>
 </div>
 <div id="using-tidyverse-functions" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> Using tidyverse functions<a href="tutorial-good-coding-style-project-management.html#using-tidyverse-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ol style="list-style-type: decimal">
-<li><p>The pipe operator <code>%&gt;%</code> is a valuable tool for chaining multiple operations. Each step in the chain should be on a new line.</p></li>
-<li><p>Use <code>mutate</code> to add new variables that are functions of existing variables.</p></li>
+<li><p>The pipe operator <code>%&gt;%</code> is a valuable tool for chaining multiple
+operations. Each step in the chain should be on a new line.</p></li>
+<li><p>Use <code>mutate</code> to add new variables that are functions of existing
+variables.</p></li>
 </ol>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb387-1"><a href="tutorial-good-coding-style-project-management.html#cb387-1" tabindex="-1"></a><span class="co"># Good</span></span>
+<span id="cb387-2"><a href="tutorial-good-coding-style-project-management.html#cb387-2" tabindex="-1"></a>WoJ <span class="sc">%&gt;%</span></span>
+<span id="cb387-3"><a href="tutorial-good-coding-style-project-management.html#cb387-3" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">work_experience_in_days =</span> work_experience <span class="sc">*</span> <span class="dv">365</span>)</span>
+<span id="cb387-4"><a href="tutorial-good-coding-style-project-management.html#cb387-4" tabindex="-1"></a></span>
+<span id="cb387-5"><a href="tutorial-good-coding-style-project-management.html#cb387-5" tabindex="-1"></a><span class="co"># Bad</span></span>
+<span id="cb387-6"><a href="tutorial-good-coding-style-project-management.html#cb387-6" tabindex="-1"></a>WoJ<span class="sc">$</span>work_experience_in_days <span class="ot">&lt;-</span> WoJ<span class="sc">$</span>work_experience <span class="sc">*</span> <span class="dv">365</span></span></code></pre></div>
 </div>
 <div id="file-and-script-organization" class="section level2 hasAnchor" number="10.6">
 <h2><span class="header-section-number">10.6</span> File and script organization<a href="tutorial-good-coding-style-project-management.html#file-and-script-organization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The organization of files and directories in your project, as well as the naming and organization of scripts, is a critical aspect of good coding practices. Here are some tips to get you started:</p>
+<p>The organization of files and directories in your project, as well as
+the naming and organization of scripts, is a critical aspect of good
+coding practices. Here are some tips to get you started:</p>
 <ol style="list-style-type: decimal">
-<li><strong>Consistent Project Structure:</strong> Make sure your project has a consistent structure.</li>
+<li><strong>Consistent Project Structure:</strong> Make sure your project has a
+consistent structure.</li>
 </ol>
 <pre><code>project/
 │
@@ -523,47 +623,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 │
 └── project.Rproj</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><p><strong>Separate Raw and Processed Data:</strong> Keep raw and processed data in separate folders.</p></li>
-<li><p><strong>Use Meaningful Names:</strong> Use clear and descriptive names for your files and folders.</p></li>
-<li><p><strong>Enumerate Scripts:</strong> It’s often a good idea to separate data preparation (loading, cleaning, transforming) and data analysis (statistical analysis, plotting) into separate scripts. If there’s a specific order in which scripts should be run, consider enumerating them in your <code>R/</code> folder.</p></li>
+<li><p><strong>Separate Raw and Processed Data:</strong> Keep raw and processed data in
+separate folders.</p></li>
+<li><p><strong>Use Meaningful Names:</strong> Use clear and descriptive names for your
+files and folders.</p></li>
+<li><p><strong>Enumerate Scripts:</strong> It’s often a good idea to separate data
+preparation (loading, cleaning, transforming) and data analysis
+(statistical analysis, plotting) into separate scripts. If there’s a
+specific order in which scripts should be run, consider enumerating
+them in your <code>R/</code> folder.</p></li>
 </ol>
 <pre><code>01_load_data.R
 02_clean_data.R
 03_analyze_data.R
 04_plot_data.R</code></pre>
 <ol start="5" style="list-style-type: decimal">
-<li><strong>Function Scripts:</strong> If you have functions that are used in multiple scripts, consider putting them in their own script, like <code>utilities.R</code> or <code>functions.R</code>, and source this script when you need to use those functions, i.e. <code>source(functions.R)</code>.</li>
+<li><strong>Function Scripts:</strong> If you have functions that are used in
+multiple scripts, consider putting them in their own script, like
+<code>utilities.R</code> or <code>functions.R</code>, and source this script when you need
+to use those functions, i.e. <code>source(functions.R)</code>.</li>
 </ol>
 </div>
 <div id="using-r-projects" class="section level2 hasAnchor" number="10.7">
 <h2><span class="header-section-number">10.7</span> Using R Projects<a href="tutorial-good-coding-style-project-management.html#using-r-projects" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R Projects, via RStudio, offer a straightforward way to organize your work. An R Project is simply a working directory designated with a <code>.Rproj</code> file. When you open an R Project, RStudio sets the working directory to the project root directory, which is very helpful for file referencing and reproducibility.</p>
-<p>To create an R Project in RStudio, go to <code>File -&gt; New Project</code>. You can then choose to create a new directory for your project or to associate the project with an existing directory. After you’ve created your R Project, RStudio will create a <code>.Rproj</code> file in the project directory. This file contains various settings and preferences, which RStudio will restore each time you open the project.</p>
+<p>R Projects, via RStudio, offer a straightforward way to organize your
+work. An R Project is simply a working directory designated with a
+<code>.Rproj</code> file. When you open an R Project, RStudio sets the working
+directory to the project root directory, which is very helpful for file
+referencing and reproducibility.</p>
+<p>To create an R Project in RStudio, go to <code>File -&gt; New Project</code>. You can
+then choose to create a new directory for your project or to associate
+the project with an existing directory. After you’ve created your R
+Project, RStudio will create a <code>.Rproj</code> file in the project directory.
+This file contains various settings and preferences, which RStudio will
+restore each time you open the project.</p>
 <p>Using R Projects brings several benefits:</p>
 <ol style="list-style-type: decimal">
-<li><p><strong>Reproducibility:</strong> Since the working directory is set to the project root, you can use relative file paths in your code, which makes it more likely to run on other machines.</p></li>
-<li><p><strong>Organization:</strong> Each project is self-contained, making it easier to manage files, variables, packages, and more.</p></li>
-<li><p><strong>Integration with Version Control Systems:</strong> RStudio’s Projects integrate well with version control systems like Git, making it easier to track changes, collaborate with others, and sync your work across different machines.</p></li>
-<li><p><strong>Multiple Sessions:</strong> You can work on multiple projects in separate sessions, each with its own working directory and workspace.</p></li>
-<li><p><strong>Restoring Previous Work:</strong> When you reopen a project, RStudio restores the working directory, the command history, and the previously opened scripts, helping you pick up right where you left off.</p></li>
+<li><p><strong>Reproducibility:</strong> Since the working directory is set to the
+project root, you can use relative file paths in your code, which
+makes it more likely to run on other machines.</p></li>
+<li><p><strong>Organization:</strong> Each project is self-contained, making it easier
+to manage files, variables, packages, and more.</p></li>
+<li><p><strong>Integration with Version Control Systems:</strong> RStudio’s Projects
+integrate well with version control systems like Git, making it
+easier to track changes, collaborate with others, and sync your work
+across different machines.</p></li>
+<li><p><strong>Multiple Sessions:</strong> You can work on multiple projects in separate
+sessions, each with its own working directory and workspace.</p></li>
+<li><p><strong>Restoring Previous Work:</strong> When you reopen a project, RStudio
+restores the working directory, the command history, and the
+previously opened scripts, helping you pick up right where you left
+off.</p></li>
 </ol>
 </div>
 <div id="function-documentation-with-roxygen2" class="section level2 hasAnchor" number="10.8">
 <h2><span class="header-section-number">10.8</span> Function documentation with Roxygen2<a href="tutorial-good-coding-style-project-management.html#function-documentation-with-roxygen2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>When you’re writing functions, especially if you’re planning to share your code or use it in the future, it’s important to document what the function does, what inputs it expects, and what it returns. The Roxygen2 package in R makes this easy.</p>
-<p>Roxygen2 uses specially formatted comments that start with #’ to generate documentation for your functions that is universally known by other R programmers. Here’s an example of how to use roxygen2 to document a function:</p>
+<p>When you’re writing functions, especially if you’re planning to share
+your code or use it in the future, it’s important to document what the
+function does, what inputs it expects, and what it returns. The Roxygen2
+package in R makes this easy.</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="tutorial-good-coding-style-project-management.html#cb390-1" tabindex="-1"></a><span class="co"># Install the roxygen2 package</span></span>
+<span id="cb390-2"><a href="tutorial-good-coding-style-project-management.html#cb390-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;roxygen2&quot;</span>)</span></code></pre></div>
+<p>Roxygen2 uses specially formatted comments that start with #’ to
+generate documentation for your functions that is universally known by
+other R programmers. Here’s an example of how to use roxygen2 to
+document a function:</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb391-1"><a href="tutorial-good-coding-style-project-management.html#cb391-1" tabindex="-1"></a><span class="co">#&#39; Calculate the mean of a vector</span></span>
+<span id="cb391-2"><a href="tutorial-good-coding-style-project-management.html#cb391-2" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb391-3"><a href="tutorial-good-coding-style-project-management.html#cb391-3" tabindex="-1"></a><span class="co">#&#39; This function calculates the mean of a vector, excluding NA values.</span></span>
+<span id="cb391-4"><a href="tutorial-good-coding-style-project-management.html#cb391-4" tabindex="-1"></a><span class="co">#&#39;</span></span>
+<span id="cb391-5"><a href="tutorial-good-coding-style-project-management.html#cb391-5" tabindex="-1"></a><span class="co">#&#39; @param x A numeric vector.</span></span>
+<span id="cb391-6"><a href="tutorial-good-coding-style-project-management.html#cb391-6" tabindex="-1"></a><span class="co">#&#39; @return The mean of the vector, excluding NA values.</span></span>
+<span id="cb391-7"><a href="tutorial-good-coding-style-project-management.html#cb391-7" tabindex="-1"></a><span class="co">#&#39; @examples</span></span>
+<span id="cb391-8"><a href="tutorial-good-coding-style-project-management.html#cb391-8" tabindex="-1"></a><span class="co">#&#39; calculate_mean(c(1, 2, 3, NA))</span></span>
+<span id="cb391-9"><a href="tutorial-good-coding-style-project-management.html#cb391-9" tabindex="-1"></a>calculate_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb391-10"><a href="tutorial-good-coding-style-project-management.html#cb391-10" tabindex="-1"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb391-11"><a href="tutorial-good-coding-style-project-management.html#cb391-11" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="automated-code-styling" class="section level2 hasAnchor" number="10.9">
 <h2><span class="header-section-number">10.9</span> Automated code styling<a href="tutorial-good-coding-style-project-management.html#automated-code-styling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>While adhering to coding style guidelines is crucial, it can sometimes be challenging to manage manually. Thankfully, R has several packages to help with this:</p>
+<p>While adhering to coding style guidelines is crucial, it can sometimes
+be challenging to manage manually. Thankfully, R has several packages to
+help with this:</p>
 <div id="styler" class="section level3 hasAnchor" number="10.9.1">
 <h3><span class="header-section-number">10.9.1</span> styler<a href="tutorial-good-coding-style-project-management.html#styler" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The <code>styler</code> package can automatically format your R code to adhere to the tidyverse style guide without changing the code’s behavior.</p>
+<p>The <code>styler</code> package can automatically format your R code to adhere to
+the tidyverse style guide without changing the code’s behavior.</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="tutorial-good-coding-style-project-management.html#cb392-1" tabindex="-1"></a><span class="co"># Install the styler package</span></span>
+<span id="cb392-2"><a href="tutorial-good-coding-style-project-management.html#cb392-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;styler&quot;</span>)</span>
+<span id="cb392-3"><a href="tutorial-good-coding-style-project-management.html#cb392-3" tabindex="-1"></a></span>
+<span id="cb392-4"><a href="tutorial-good-coding-style-project-management.html#cb392-4" tabindex="-1"></a><span class="co"># Load the styler package</span></span>
+<span id="cb392-5"><a href="tutorial-good-coding-style-project-management.html#cb392-5" tabindex="-1"></a><span class="fu">library</span>(styler)</span>
+<span id="cb392-6"><a href="tutorial-good-coding-style-project-management.html#cb392-6" tabindex="-1"></a></span>
+<span id="cb392-7"><a href="tutorial-good-coding-style-project-management.html#cb392-7" tabindex="-1"></a><span class="co"># Style a single line of code</span></span>
+<span id="cb392-8"><a href="tutorial-good-coding-style-project-management.html#cb392-8" tabindex="-1"></a><span class="fu">style_text</span>(<span class="st">&quot;a=1+2&quot;</span>)</span>
+<span id="cb392-9"><a href="tutorial-good-coding-style-project-management.html#cb392-9" tabindex="-1"></a></span>
+<span id="cb392-10"><a href="tutorial-good-coding-style-project-management.html#cb392-10" tabindex="-1"></a><span class="co"># Style an entire script</span></span>
+<span id="cb392-11"><a href="tutorial-good-coding-style-project-management.html#cb392-11" tabindex="-1"></a><span class="fu">style_file</span>(<span class="st">&quot;path/to/your/script.R&quot;</span>)</span>
+<span id="cb392-12"><a href="tutorial-good-coding-style-project-management.html#cb392-12" tabindex="-1"></a></span>
+<span id="cb392-13"><a href="tutorial-good-coding-style-project-management.html#cb392-13" tabindex="-1"></a><span class="co"># Style an entire package</span></span>
+<span id="cb392-14"><a href="tutorial-good-coding-style-project-management.html#cb392-14" tabindex="-1"></a><span class="fu">style_pkg</span>(<span class="st">&quot;path/to/your/package&quot;</span>)</span></code></pre></div>
 </div>
 <div id="lintr" class="section level3 hasAnchor" number="10.9.2">
 <h3><span class="header-section-number">10.9.2</span> lintr<a href="tutorial-good-coding-style-project-management.html#lintr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The <code>lintr</code> package provides static code analysis for R, enforcing good coding style. It can be integrated with various text editors, including RStudio.</p>
-<p>The <code>lint()</code> function returns a list of issues with your code, including stylistic issues, syntax errors, and potential bugs.</p>
+<p>The <code>lintr</code> package provides static code analysis for R, enforcing good
+coding style. It can be integrated with various text editors, including
+RStudio.</p>
+<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="tutorial-good-coding-style-project-management.html#cb393-1" tabindex="-1"></a><span class="co"># Install the lintr package</span></span>
+<span id="cb393-2"><a href="tutorial-good-coding-style-project-management.html#cb393-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;lintr&quot;</span>)</span>
+<span id="cb393-3"><a href="tutorial-good-coding-style-project-management.html#cb393-3" tabindex="-1"></a></span>
+<span id="cb393-4"><a href="tutorial-good-coding-style-project-management.html#cb393-4" tabindex="-1"></a><span class="co"># Load the lintr package</span></span>
+<span id="cb393-5"><a href="tutorial-good-coding-style-project-management.html#cb393-5" tabindex="-1"></a><span class="fu">library</span>(lintr)</span>
+<span id="cb393-6"><a href="tutorial-good-coding-style-project-management.html#cb393-6" tabindex="-1"></a></span>
+<span id="cb393-7"><a href="tutorial-good-coding-style-project-management.html#cb393-7" tabindex="-1"></a><span class="co"># Lint a single file</span></span>
+<span id="cb393-8"><a href="tutorial-good-coding-style-project-management.html#cb393-8" tabindex="-1"></a><span class="fu">lint</span>(<span class="st">&quot;path/to/your/script.R&quot;</span>)</span>
+<span id="cb393-9"><a href="tutorial-good-coding-style-project-management.html#cb393-9" tabindex="-1"></a></span>
+<span id="cb393-10"><a href="tutorial-good-coding-style-project-management.html#cb393-10" tabindex="-1"></a><span class="co"># Lint an entire package</span></span>
+<span id="cb393-11"><a href="tutorial-good-coding-style-project-management.html#cb393-11" tabindex="-1"></a><span class="fu">lint_package</span>(<span class="st">&quot;path/to/your/package&quot;</span>)</span></code></pre></div>
+<p>The <code>lint()</code> function returns a list of issues with your code, including
+stylistic issues, syntax errors, and potential bugs.</p>
 </div>
 </div>
 </div>
