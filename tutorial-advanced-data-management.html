@@ -357,11 +357,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#introduction-to-r-markdown"><i class="fa fa-check"></i><b>9.3</b> Introduction to R Markdown</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#packages-1"><i class="fa fa-check"></i><b>9.3.1</b> Packages</a></li>
-<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a New R Markdown File</a></li>
-<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown Documents</a></li>
-<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the Document</a></li>
-<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the Document</a></li>
-<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing Papers with Zotero</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a new R Markdown file</a></li>
+<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown documents</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the document</a></li>
+<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the document</a></li>
+<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing papers with Zotero</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html"><i class="fa fa-check"></i><b>10</b> Tutorial: Good coding style &amp; project management</a>
@@ -485,7 +485,7 @@ directory. I will create a script in a folder called <code>IPR</code> that rests
 under the folder path: <code>"C:/Users/LaraK/Documents/IPR/"</code>. Save that
 script in your folder!</p>
 <p>Now copy the following line of code in your R script and execute it:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="tutorial-advanced-data-management.html#cb167-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="fu">dirname</span>(rstudioapi<span class="sc">::</span><span class="fu">getSourceEditorContext</span>()<span class="sc">$</span>path))</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="tutorial-advanced-data-management.html#cb167-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="fu">dirname</span>(rstudioapi<span class="sc">::</span><span class="fu">getSourceEditorContext</span>()<span class="sc">$</span>path))</span></code></pre></div>
 <p>By using the <code>dirname()</code> function on
 <code>rstudioapi::getSourceEditorContext()$path</code>, we extract the directory
 <strong>path of the currently active R script</strong> and pass it to <code>setwd()</code> to
@@ -532,12 +532,12 @@ want to navigate to. For example, if you’re in the folder
 <code>"C:/Users/LaraK/Documents/IPR/"</code> and you want to move your working
 directory down to the <code>"mutiple_files"</code> subfolder, you can use the
 following code:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="tutorial-advanced-data-management.html#cb168-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="st">&quot;./mutiple_files&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="tutorial-advanced-data-management.html#cb168-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./mutiple_files&quot;</span>)</span></code></pre></div>
 <p>To move up one level in the folder hierarchy again, you can use the
 <code>../</code> notation. The <code>../</code> represents the parent directory of the current
 working directory. You can use this notation with the <code>setwd()</code> function
 to navigate up the folder again:</p>
-<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="tutorial-advanced-data-management.html#cb169-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="st">&quot;../&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="tutorial-advanced-data-management.html#cb169-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;../&quot;</span>)</span></code></pre></div>
 </div>
 </div>
 <div id="reading-multiple-files-into-r" class="section level2 hasAnchor" number="6.3">
@@ -549,7 +549,7 @@ solution by creating a character vector of file paths and reading them
 into R using the <code>read_*</code> functions.</p>
 <p>First, you will need to set the folder <code>"multiple_files"</code> as your
 working directory.</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="tutorial-advanced-data-management.html#cb170-1" tabindex="-1"></a><span class="fu">setwd</span> (<span class="st">&quot;./mutiple_files&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="tutorial-advanced-data-management.html#cb170-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./mutiple_files&quot;</span>)</span></code></pre></div>
 <p>Now you need to save the folder path of your working directory as a
 character string. You can use <code>getwd()</code> and save the result in an R
 object called <code>path</code>:</p>
@@ -562,31 +562,35 @@ the file names of a folder by using the function <code>list.files()</code>:</p>
 <span id="cb172-2"><a href="tutorial-advanced-data-management.html#cb172-2" tabindex="-1"></a>file_names</span></code></pre></div>
 <p>Now turn these names into a proper character vector of all the file
 paths by adding additional arguments to the function <code>list.files()</code>:</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="tutorial-advanced-data-management.html#cb173-1" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path,       <span class="co"># takes the path to the working directory / folder</span></span>
-<span id="cb173-2"><a href="tutorial-advanced-data-management.html#cb173-2" tabindex="-1"></a>                         <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>,   <span class="co"># file should contain the string &#39;csv&#39;, but you could also opt for &quot;WoJ_names&quot;</span></span>
-<span id="cb173-3"><a href="tutorial-advanced-data-management.html#cb173-3" tabindex="-1"></a>                         <span class="at">full.names =</span> <span class="cn">TRUE</span>) <span class="co"># store the full file paths, not just the file names</span></span>
-<span id="cb173-4"><a href="tutorial-advanced-data-management.html#cb173-4" tabindex="-1"></a>file_paths</span></code></pre></div>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="tutorial-advanced-data-management.html#cb173-1" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
+<span id="cb173-2"><a href="tutorial-advanced-data-management.html#cb173-2" tabindex="-1"></a>  <span class="at">path =</span> path, <span class="co"># takes the path to the working directory / folder</span></span>
+<span id="cb173-3"><a href="tutorial-advanced-data-management.html#cb173-3" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>, <span class="co"># file should contain the string &#39;csv&#39;, but you could also opt for &quot;WoJ_names&quot;</span></span>
+<span id="cb173-4"><a href="tutorial-advanced-data-management.html#cb173-4" tabindex="-1"></a>  <span class="at">full.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb173-5"><a href="tutorial-advanced-data-management.html#cb173-5" tabindex="-1"></a>) <span class="co"># store the full file paths, not just the file names</span></span>
+<span id="cb173-6"><a href="tutorial-advanced-data-management.html#cb173-6" tabindex="-1"></a>file_paths</span></code></pre></div>
 <p>Finally, read the files using <code>map()</code>: Use <code>map()</code> from the <code>purrr</code>
 package (part of the <code>tidyverse</code> metapackage) to iterate over the file
 paths and read each file using a function like <code>read.csv()</code> (or
 <code>read_excel()</code>, etc.). The result will be a list of data frames.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="tutorial-advanced-data-management.html#cb174-1" tabindex="-1"></a>data_list <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span> </span>
-<span id="cb174-2"><a href="tutorial-advanced-data-management.html#cb174-2" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span><span class="fu">read.csv2</span>(<span class="at">file =</span> .x))  <span class="co"># use map to apply read.csv2 (semicolon-separated) to each individual file path, .x stands for each individual file path</span></span>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="tutorial-advanced-data-management.html#cb174-1" tabindex="-1"></a>data_list <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span></span>
+<span id="cb174-2"><a href="tutorial-advanced-data-management.html#cb174-2" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">read.csv2</span>(<span class="at">file =</span> .x)) <span class="co"># use map to apply read.csv2 (semicolon-separated) to each individual file path, .x stands for each individual file path</span></span>
 <span id="cb174-3"><a href="tutorial-advanced-data-management.html#cb174-3" tabindex="-1"></a>data_list</span></code></pre></div>
 <p>However, we don’t want our data to be read in as separate files. We want
 to combine them in one single file. We can use <code>bind_rows()</code> from the
 <code>dpylr</code> package for that:</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="tutorial-advanced-data-management.html#cb175-1" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> data_list <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()  <span class="co"># bind all of your rows in your data list into one dataframe</span></span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="tutorial-advanced-data-management.html#cb175-1" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> data_list <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>() <span class="co"># bind all of your rows in your data list into one dataframe</span></span></code></pre></div>
 <p>That involved a great number of individual steps. Let’s now consolidate
 everything into a simpler pipeline and execute it:</p>
 <div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="tutorial-advanced-data-management.html#cb176-1" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
-<span id="cb176-2"><a href="tutorial-advanced-data-management.html#cb176-2" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path,</span>
-<span id="cb176-3"><a href="tutorial-advanced-data-management.html#cb176-3" tabindex="-1"></a>                         <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>,</span>
-<span id="cb176-4"><a href="tutorial-advanced-data-management.html#cb176-4" tabindex="-1"></a>                         <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb176-5"><a href="tutorial-advanced-data-management.html#cb176-5" tabindex="-1"></a></span>
-<span id="cb176-6"><a href="tutorial-advanced-data-management.html#cb176-6" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span> </span>
-<span id="cb176-7"><a href="tutorial-advanced-data-management.html#cb176-7" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span><span class="fu">read.csv2</span>(<span class="at">file =</span> .x)) <span class="sc">%&gt;%</span></span>
-<span id="cb176-8"><a href="tutorial-advanced-data-management.html#cb176-8" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
+<span id="cb176-2"><a href="tutorial-advanced-data-management.html#cb176-2" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
+<span id="cb176-3"><a href="tutorial-advanced-data-management.html#cb176-3" tabindex="-1"></a>  <span class="at">path =</span> path,</span>
+<span id="cb176-4"><a href="tutorial-advanced-data-management.html#cb176-4" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>,</span>
+<span id="cb176-5"><a href="tutorial-advanced-data-management.html#cb176-5" tabindex="-1"></a>  <span class="at">full.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb176-6"><a href="tutorial-advanced-data-management.html#cb176-6" tabindex="-1"></a>)</span>
+<span id="cb176-7"><a href="tutorial-advanced-data-management.html#cb176-7" tabindex="-1"></a></span>
+<span id="cb176-8"><a href="tutorial-advanced-data-management.html#cb176-8" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span></span>
+<span id="cb176-9"><a href="tutorial-advanced-data-management.html#cb176-9" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">read.csv2</span>(<span class="at">file =</span> .x)) <span class="sc">%&gt;%</span></span>
+<span id="cb176-10"><a href="tutorial-advanced-data-management.html#cb176-10" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
 <p><strong>Note:</strong> If the files have different column names or structures, you
 may encounter issues when binding them together with this approach. Make
 sure the files have compatible structures or consider preprocessing the
@@ -607,14 +611,16 @@ lowercase dynamically. To handle the missing column, we will use
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="tutorial-advanced-data-management.html#cb177-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;./mutiple_files_messy&quot;</span>)</span>
 <span id="cb177-2"><a href="tutorial-advanced-data-management.html#cb177-2" tabindex="-1"></a></span>
 <span id="cb177-3"><a href="tutorial-advanced-data-management.html#cb177-3" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="fu">getwd</span>()</span>
-<span id="cb177-4"><a href="tutorial-advanced-data-management.html#cb177-4" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> path,</span>
-<span id="cb177-5"><a href="tutorial-advanced-data-management.html#cb177-5" tabindex="-1"></a>                         <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>,</span>
-<span id="cb177-6"><a href="tutorial-advanced-data-management.html#cb177-6" tabindex="-1"></a>                         <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb177-7"><a href="tutorial-advanced-data-management.html#cb177-7" tabindex="-1"></a></span>
-<span id="cb177-8"><a href="tutorial-advanced-data-management.html#cb177-8" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span> </span>
-<span id="cb177-9"><a href="tutorial-advanced-data-management.html#cb177-9" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span><span class="fu">read.csv2</span>(<span class="at">file =</span> .x) <span class="sc">%&gt;%</span></span>
-<span id="cb177-10"><a href="tutorial-advanced-data-management.html#cb177-10" tabindex="-1"></a>        <span class="fu">setNames</span>(<span class="fu">tolower</span>(<span class="fu">names</span>(.)))) <span class="sc">%&gt;%</span></span>
-<span id="cb177-11"><a href="tutorial-advanced-data-management.html#cb177-11" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
+<span id="cb177-4"><a href="tutorial-advanced-data-management.html#cb177-4" tabindex="-1"></a>file_paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(</span>
+<span id="cb177-5"><a href="tutorial-advanced-data-management.html#cb177-5" tabindex="-1"></a>  <span class="at">path =</span> path,</span>
+<span id="cb177-6"><a href="tutorial-advanced-data-management.html#cb177-6" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">&quot;csv&quot;</span>,</span>
+<span id="cb177-7"><a href="tutorial-advanced-data-management.html#cb177-7" tabindex="-1"></a>  <span class="at">full.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb177-8"><a href="tutorial-advanced-data-management.html#cb177-8" tabindex="-1"></a>)</span>
+<span id="cb177-9"><a href="tutorial-advanced-data-management.html#cb177-9" tabindex="-1"></a></span>
+<span id="cb177-10"><a href="tutorial-advanced-data-management.html#cb177-10" tabindex="-1"></a>combined_data <span class="ot">&lt;-</span> file_paths <span class="sc">%&gt;%</span></span>
+<span id="cb177-11"><a href="tutorial-advanced-data-management.html#cb177-11" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">read.csv2</span>(<span class="at">file =</span> .x) <span class="sc">%&gt;%</span></span>
+<span id="cb177-12"><a href="tutorial-advanced-data-management.html#cb177-12" tabindex="-1"></a>    <span class="fu">setNames</span>(<span class="fu">tolower</span>(<span class="fu">names</span>(.)))) <span class="sc">%&gt;%</span></span>
+<span id="cb177-13"><a href="tutorial-advanced-data-management.html#cb177-13" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div>
 <p>Neat! Note that you can always exchange the string in the <code>pattern</code>
 argument of <code>list.files</code> include a regular expression. I can’t cover
 regular expressions and the <code>stringr</code> package in this tutorial, but if

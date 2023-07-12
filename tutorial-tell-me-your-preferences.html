@@ -357,11 +357,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#introduction-to-r-markdown"><i class="fa fa-check"></i><b>9.3</b> Introduction to R Markdown</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#packages-1"><i class="fa fa-check"></i><b>9.3.1</b> Packages</a></li>
-<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a New R Markdown File</a></li>
-<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown Documents</a></li>
-<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the Document</a></li>
-<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the Document</a></li>
-<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing Papers with Zotero</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a new R Markdown file</a></li>
+<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown documents</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the document</a></li>
+<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the document</a></li>
+<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing papers with Zotero</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html"><i class="fa fa-check"></i><b>10</b> Tutorial: Good coding style &amp; project management</a>
@@ -466,14 +466,18 @@ into R. It’s the more common approach.</p>
 <p>First things first, let’s load the libraries and data we’ll need:</p>
 <div class="sourceCode" id="cb361"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb361-1"><a href="tutorial-tell-me-your-preferences.html#cb361-1" tabindex="-1"></a><span class="fu">library</span>(tidycomm)</span>
 <span id="cb361-2"><a href="tutorial-tell-me-your-preferences.html#cb361-2" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb361-3"><a href="tutorial-tell-me-your-preferences.html#cb361-3" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>WoJ <span class="sc">%&gt;%</span> </span>
+<span id="cb361-3"><a href="tutorial-tell-me-your-preferences.html#cb361-3" tabindex="-1"></a>WoJ <span class="ot">&lt;-</span> tidycomm<span class="sc">::</span>WoJ <span class="sc">%&gt;%</span></span>
 <span id="cb361-4"><a href="tutorial-tell-me-your-preferences.html#cb361-4" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">case_id =</span> <span class="fu">row_number</span>())</span></code></pre></div>
 <p>Next, we’ll split the WoJ dataset into two groups based on work
 experience: rookies and veterans. We’ll also reduce the numbers of
 rookies and veterans based on an arbitrary third variable to make the
 cases included in the datasets somewhat different from each other.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="tutorial-tell-me-your-preferences.html#cb362-1" tabindex="-1"></a>rookies <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">filter</span>(work_experience <span class="sc">&lt;=</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(autonomy_selection <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
-<span id="cb362-2"><a href="tutorial-tell-me-your-preferences.html#cb362-2" tabindex="-1"></a>veterans <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span> <span class="fu">filter</span>(work_experience <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(ethics_1 <span class="sc">&lt;</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="tutorial-tell-me-your-preferences.html#cb362-1" tabindex="-1"></a>rookies <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span></span>
+<span id="cb362-2"><a href="tutorial-tell-me-your-preferences.html#cb362-2" tabindex="-1"></a>  <span class="fu">filter</span>(work_experience <span class="sc">&lt;=</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb362-3"><a href="tutorial-tell-me-your-preferences.html#cb362-3" tabindex="-1"></a>  <span class="fu">filter</span>(autonomy_selection <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb362-4"><a href="tutorial-tell-me-your-preferences.html#cb362-4" tabindex="-1"></a>veterans <span class="ot">&lt;-</span> WoJ <span class="sc">%&gt;%</span></span>
+<span id="cb362-5"><a href="tutorial-tell-me-your-preferences.html#cb362-5" tabindex="-1"></a>  <span class="fu">filter</span>(work_experience <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb362-6"><a href="tutorial-tell-me-your-preferences.html#cb362-6" tabindex="-1"></a>  <span class="fu">filter</span>(ethics_1 <span class="sc">&lt;</span> <span class="dv">5</span>)</span></code></pre></div>
 <p>Now, let’s say you want to merge these datasets back together for some
 comparative analysis. The <code>tidyr</code> package (part of the <code>tidyverse</code>!)
 offers you different types of joins for this exact purpose. Let’s
@@ -718,14 +722,14 @@ this from within R or RStudio:</p>
 <div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="tutorial-tell-me-your-preferences.html#cb378-1" tabindex="-1"></a><span class="fu">library</span>(rmarkdown)</span></code></pre></div>
 </div>
 <div id="creating-a-new-r-markdown-file" class="section level3 hasAnchor" number="9.3.2">
-<h3><span class="header-section-number">9.3.2</span> Creating a New R Markdown File<a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.3.2</span> Creating a new R Markdown file<a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can create a new R Markdown file in RStudio by clicking on
 <code>File &gt; New File &gt; R Markdown...</code> This will open a dialog box where you
 can give the document a title and author, and choose the output format
 (HTML, PDF, or Word).</p>
 </div>
 <div id="structure-of-r-markdown-documents" class="section level3 hasAnchor" number="9.3.3">
-<h3><span class="header-section-number">9.3.3</span> Structure of R Markdown Documents<a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.3.3</span> Structure of R Markdown documents<a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>An R Markdown document consists of YAML metadata, markdown text, and R
 code chunks.</p>
 <ul>
@@ -742,7 +746,7 @@ enclosing it in <code>{r} and</code>.</p></li>
 description of the WoJ dataset would be included in the final document.</p>
 </div>
 <div id="rendering-the-document" class="section level3 hasAnchor" number="9.3.4">
-<h3><span class="header-section-number">9.3.4</span> Rendering the Document<a href="tutorial-tell-me-your-preferences.html#rendering-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.3.4</span> Rendering the document<a href="tutorial-tell-me-your-preferences.html#rendering-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To convert your R Markdown document into a final, shareable format, you
 need to ‘render’ it. You can do this in RStudio by clicking the ‘Knit’
 button. You can also use the <code>render()</code> function from the rmarkdown
@@ -752,7 +756,7 @@ package:</p>
 formatted text, and combine everything into a final document.</p>
 </div>
 <div id="formatting-the-document" class="section level3 hasAnchor" number="9.3.5">
-<h3><span class="header-section-number">9.3.5</span> Formatting the Document<a href="tutorial-tell-me-your-preferences.html#formatting-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.3.5</span> Formatting the document<a href="tutorial-tell-me-your-preferences.html#formatting-the-document" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can format your R Markdown document by using Markdown as a simple
 formatting syntax. This is the basic syntax:</p>
 <ul>
@@ -773,8 +777,8 @@ exclamation point !, like this but without the space: [Alt text]
 <li><p>Code: Use backticks ` around inline code snippets. For larger
 blocks of code, use triple backticks.</p></li>
 <li><p>Blockquotes: Start the line with a &gt; to create a blockquote.</p></li>
-<li><p>Footnotes: Are placed inside the square bracket after a caret:
-<code>^[ ]</code>.[^This is how a footnote looks like after rendering.]</p></li>
+<li><p>Footnotes: The footnote number is placed inside the square bracket after a caret:
+<code>^[ 4 ]</code>. Then you put the text of the footnote after another caret: <code>^[ 4 ]: This is how a footnote looks like after rednering.</code><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p></li>
 </ul>
 <p>Finally, you can use this <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf">R Markdown cheat
 sheet</a>
@@ -787,7 +791,7 @@ videos):
 <a href="https://www.ikmz.uzh.ch/static/methoden/R_Introduction/forschungsbericht-mit-bookdown.html">Link</a>.”</p>
 </div>
 <div id="citing-papers-with-zotero" class="section level3 hasAnchor" number="9.3.6">
-<h3><span class="header-section-number">9.3.6</span> Citing Papers with Zotero<a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">9.3.6</span> Citing papers with Zotero<a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You can integrate Zotero to cite your sources within an R Markdown
 document. First, you <a href="https://www.zotero.org/">need to download and install
 Zotero</a>. It’s a free, open-source tool that
@@ -821,7 +825,7 @@ screenshot for a visual aid:</p>
 <td align="left"><em>How to pin BibTex keys in Zotero:</em></td>
 </tr>
 <tr class="even">
-<td align="left"><img src="images/pin_betterBibtex.png" /></td>
+<td align="left"><img src="images/pin_betterBibtex.PNG" /></td>
 </tr>
 </tbody>
 </table>
@@ -877,6 +881,12 @@ guide on using Zotero with R
 Markdown</a>.</p>
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p>This is how a footnote looks like after rendering.]<a href="tutorial-tell-me-your-preferences.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 

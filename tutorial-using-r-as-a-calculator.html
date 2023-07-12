@@ -357,11 +357,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#introduction-to-r-markdown"><i class="fa fa-check"></i><b>9.3</b> Introduction to R Markdown</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#packages-1"><i class="fa fa-check"></i><b>9.3.1</b> Packages</a></li>
-<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a New R Markdown File</a></li>
-<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown Documents</a></li>
-<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the Document</a></li>
-<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the Document</a></li>
-<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing Papers with Zotero</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a new R Markdown file</a></li>
+<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown documents</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the document</a></li>
+<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the document</a></li>
+<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing papers with Zotero</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html"><i class="fa fa-check"></i><b>10</b> Tutorial: Good coding style &amp; project management</a>
@@ -467,12 +467,12 @@ calculator. You have access to many mathematical operators in R (e.g. +,
 <ol style="list-style-type: decimal">
 <li>Addition:</li>
 </ol>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tutorial-using-r-as-a-calculator.html#cb21-1" tabindex="-1"></a><span class="dv">5</span><span class="sc">+</span><span class="dv">7</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="tutorial-using-r-as-a-calculator.html#cb21-1" tabindex="-1"></a><span class="dv">5</span> <span class="sc">+</span> <span class="dv">7</span></span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Subtraction:</li>
 </ol>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tutorial-using-r-as-a-calculator.html#cb23-1" tabindex="-1"></a><span class="dv">12-7</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="tutorial-using-r-as-a-calculator.html#cb23-1" tabindex="-1"></a><span class="dv">12</span> <span class="sc">-</span> <span class="dv">7</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li>Exponentiation:</li>
@@ -497,15 +497,15 @@ to avoid the warning messages (with #):</p>
 <span id="cb28-3"><a href="tutorial-using-r-as-a-calculator.html#cb28-3" tabindex="-1"></a><span class="co">#  my-1st-number &lt;- 3</span></span></code></pre></div>
 <p>You can use variables in your calculations by assigning the numbers to
 variables (i.e. store the numerical value in the variable).’</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tutorial-using-r-as-a-calculator.html#cb29-1" tabindex="-1"></a>five <span class="ot">&lt;-</span> <span class="dv">5</span> </span>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="tutorial-using-r-as-a-calculator.html#cb29-1" tabindex="-1"></a>five <span class="ot">&lt;-</span> <span class="dv">5</span></span>
 <span id="cb29-2"><a href="tutorial-using-r-as-a-calculator.html#cb29-2" tabindex="-1"></a>seven <span class="ot">&lt;-</span> <span class="dv">7</span></span>
 <span id="cb29-3"><a href="tutorial-using-r-as-a-calculator.html#cb29-3" tabindex="-1"></a>twelve <span class="ot">&lt;-</span> five <span class="sc">+</span> seven <span class="co"># here you add the two variables in which the numbers are stored. The result of the addition is stored in the variable &quot;twelve&quot;</span></span>
-<span id="cb29-4"><a href="tutorial-using-r-as-a-calculator.html#cb29-4" tabindex="-1"></a>twelve                 <span class="co"># now you have to retrieve the content of the variable, so that the result is printed to the console</span></span></code></pre></div>
+<span id="cb29-4"><a href="tutorial-using-r-as-a-calculator.html#cb29-4" tabindex="-1"></a>twelve <span class="co"># now you have to retrieve the content of the variable, so that the result is printed to the console</span></span></code></pre></div>
 <pre><code>## [1] 12</code></pre>
 <p>The names of the variables are freely selectable. For example, you can
 also proceed like this:</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="tutorial-using-r-as-a-calculator.html#cb31-1" tabindex="-1"></a>three <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb31-2"><a href="tutorial-using-r-as-a-calculator.html#cb31-2" tabindex="-1"></a>three  <span class="co"># print the content of the variable to the console</span></span></code></pre></div>
+<span id="cb31-2"><a href="tutorial-using-r-as-a-calculator.html#cb31-2" tabindex="-1"></a>three <span class="co"># print the content of the variable to the console</span></span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
 </div>
 <div id="using-vectors-for-calculation" class="section level2 hasAnchor" number="3.2">
@@ -514,11 +514,11 @@ also proceed like this:</p>
 process “creating vectors” because variables that contain more than one
 number are called <em>“vectors”</em> in R. Vectors are created using the
 combine function <code>c()</code> in R.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tutorial-using-r-as-a-calculator.html#cb33-1" tabindex="-1"></a>twelve <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>) </span>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="tutorial-using-r-as-a-calculator.html#cb33-1" tabindex="-1"></a>twelve <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>)</span>
 <span id="cb33-2"><a href="tutorial-using-r-as-a-calculator.html#cb33-2" tabindex="-1"></a>twelve <span class="co"># print the content of the variable to the console</span></span></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12</code></pre>
 <p>Again, the variable name is chosen arbitrarily. You can also do this:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tutorial-using-r-as-a-calculator.html#cb35-1" tabindex="-1"></a>twelve <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">21</span>,<span class="dv">33</span>)</span>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="tutorial-using-r-as-a-calculator.html#cb35-1" tabindex="-1"></a>twelve <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">21</span>, <span class="dv">33</span>)</span>
 <span id="cb35-2"><a href="tutorial-using-r-as-a-calculator.html#cb35-2" tabindex="-1"></a>twelve <span class="co"># print the content of the variable to the console</span></span></code></pre></div>
 <pre><code>## [1]  4 10 15 21 33</code></pre>
 <p>You can use mathematical operations on vectors (e.g., +, -, * and /).
@@ -528,7 +528,7 @@ weighs 60 kg and is 1.75 m tall:</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="tutorial-using-r-as-a-calculator.html#cb37-1" tabindex="-1"></a>weight <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">72</span>, <span class="dv">57</span>, <span class="dv">90</span>, <span class="dv">95</span>, <span class="dv">72</span>)</span>
 <span id="cb37-2"><a href="tutorial-using-r-as-a-calculator.html#cb37-2" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.75</span>, <span class="fl">1.80</span>, <span class="fl">1.65</span>, <span class="fl">1.90</span>, <span class="fl">1.74</span>, <span class="fl">1.91</span>)</span></code></pre></div>
 <p>Now we can calculate the Body Mass Index (BMI) using the BMI formula:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tutorial-using-r-as-a-calculator.html#cb38-1" tabindex="-1"></a>BMI <span class="ot">&lt;-</span> weight<span class="sc">/</span>height<span class="sc">^</span><span class="dv">2</span></span>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="tutorial-using-r-as-a-calculator.html#cb38-1" tabindex="-1"></a>BMI <span class="ot">&lt;-</span> weight <span class="sc">/</span> height<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb38-2"><a href="tutorial-using-r-as-a-calculator.html#cb38-2" tabindex="-1"></a>BMI <span class="co"># print the content of the BMI variable to the console</span></span></code></pre></div>
 <pre><code>## [1] 19.59184 22.22222 20.93664 24.93075 31.37799 19.73630</code></pre>
 <p>Now we know that the first person has a BMI of 19.59, which is within

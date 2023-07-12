@@ -357,11 +357,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#introduction-to-r-markdown"><i class="fa fa-check"></i><b>9.3</b> Introduction to R Markdown</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#packages-1"><i class="fa fa-check"></i><b>9.3.1</b> Packages</a></li>
-<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a New R Markdown File</a></li>
-<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown Documents</a></li>
-<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the Document</a></li>
-<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the Document</a></li>
-<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing Papers with Zotero</a></li>
+<li class="chapter" data-level="9.3.2" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#creating-a-new-r-markdown-file"><i class="fa fa-check"></i><b>9.3.2</b> Creating a new R Markdown file</a></li>
+<li class="chapter" data-level="9.3.3" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#structure-of-r-markdown-documents"><i class="fa fa-check"></i><b>9.3.3</b> Structure of R Markdown documents</a></li>
+<li class="chapter" data-level="9.3.4" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#rendering-the-document"><i class="fa fa-check"></i><b>9.3.4</b> Rendering the document</a></li>
+<li class="chapter" data-level="9.3.5" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#formatting-the-document"><i class="fa fa-check"></i><b>9.3.5</b> Formatting the document</a></li>
+<li class="chapter" data-level="9.3.6" data-path="tutorial-tell-me-your-preferences.html"><a href="tutorial-tell-me-your-preferences.html#citing-papers-with-zotero"><i class="fa fa-check"></i><b>9.3.6</b> Citing papers with Zotero</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="10" data-path="tutorial-good-coding-style-project-management.html"><a href="tutorial-good-coding-style-project-management.html"><i class="fa fa-check"></i><b>10</b> Tutorial: Good coding style &amp; project management</a>
@@ -677,11 +677,13 @@ object like <em>WoJ</em> or <em>data</em>). The data is now stored in this objec
 40 different fictitious names. The names will be saved into a new column
 in the dataset, which we will call <em>name</em>. Please run this code to add
 names to your data:</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="tutorial-working-with-data-files.html#cb56-1" tabindex="-1"></a>survey<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Rosalie&quot;</span>, <span class="st">&quot;Laurens&quot;</span>, <span class="st">&quot;Florian&quot;</span>, <span class="st">&quot;Chantal&quot;</span>, <span class="st">&quot;Cynthia&quot;</span>, <span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Jonas&quot;</span>, </span>
-<span id="cb56-2"><a href="tutorial-working-with-data-files.html#cb56-2" tabindex="-1"></a>                     <span class="st">&quot;Tanja&quot;</span>, <span class="st">&quot;David&quot;</span>, <span class="st">&quot;Ferdinand&quot;</span>, <span class="st">&quot;Caroline&quot;</span>, <span class="st">&quot;Charline&quot;</span>, <span class="st">&quot;Sev&quot;</span>, <span class="st">&quot;Theodor&quot;</span>,</span>
-<span id="cb56-3"><a href="tutorial-working-with-data-files.html#cb56-3" tabindex="-1"></a>                     <span class="st">&quot;Helke&quot;</span>, <span class="st">&quot;Joshua&quot;</span>, <span class="st">&quot;Jona&quot;</span>, <span class="st">&quot;Konrad&quot;</span>, <span class="st">&quot;Lennart&quot;</span>, <span class="st">&quot;Luise&quot;</span>, <span class="st">&quot;Wiebke&quot;</span>, <span class="st">&quot;Marie&quot;</span>, <span class="st">&quot;Rosa&quot;</span>,</span>
-<span id="cb56-4"><a href="tutorial-working-with-data-files.html#cb56-4" tabindex="-1"></a>                     <span class="st">&quot;Alma&quot;</span>, <span class="st">&quot;Ida&quot;</span>, <span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Leonie&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Maximilian&quot;</span>, <span class="st">&quot;Viktor&quot;</span>, <span class="st">&quot;Marianne&quot;</span>, <span class="st">&quot;Velma&quot;</span>, <span class="st">&quot;Carl&quot;</span>,</span>
-<span id="cb56-5"><a href="tutorial-working-with-data-files.html#cb56-5" tabindex="-1"></a>                     <span class="st">&quot;Wolf&quot;</span>, <span class="st">&quot;Merten&quot;</span>, <span class="st">&quot;Tong-Tong&quot;</span>, <span class="st">&quot;Sal&quot;</span>, <span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Alex&quot;</span>, <span class="st">&quot;Robin&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="tutorial-working-with-data-files.html#cb56-1" tabindex="-1"></a>survey<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb56-2"><a href="tutorial-working-with-data-files.html#cb56-2" tabindex="-1"></a>  <span class="st">&quot;Rosalie&quot;</span>, <span class="st">&quot;Laurens&quot;</span>, <span class="st">&quot;Florian&quot;</span>, <span class="st">&quot;Chantal&quot;</span>, <span class="st">&quot;Cynthia&quot;</span>, <span class="st">&quot;Paul&quot;</span>, <span class="st">&quot;Jonas&quot;</span>,</span>
+<span id="cb56-3"><a href="tutorial-working-with-data-files.html#cb56-3" tabindex="-1"></a>  <span class="st">&quot;Tanja&quot;</span>, <span class="st">&quot;David&quot;</span>, <span class="st">&quot;Ferdinand&quot;</span>, <span class="st">&quot;Caroline&quot;</span>, <span class="st">&quot;Charline&quot;</span>, <span class="st">&quot;Sev&quot;</span>, <span class="st">&quot;Theodor&quot;</span>,</span>
+<span id="cb56-4"><a href="tutorial-working-with-data-files.html#cb56-4" tabindex="-1"></a>  <span class="st">&quot;Helke&quot;</span>, <span class="st">&quot;Joshua&quot;</span>, <span class="st">&quot;Jona&quot;</span>, <span class="st">&quot;Konrad&quot;</span>, <span class="st">&quot;Lennart&quot;</span>, <span class="st">&quot;Luise&quot;</span>, <span class="st">&quot;Wiebke&quot;</span>, <span class="st">&quot;Marie&quot;</span>, <span class="st">&quot;Rosa&quot;</span>,</span>
+<span id="cb56-5"><a href="tutorial-working-with-data-files.html#cb56-5" tabindex="-1"></a>  <span class="st">&quot;Alma&quot;</span>, <span class="st">&quot;Ida&quot;</span>, <span class="st">&quot;Jean&quot;</span>, <span class="st">&quot;Leonie&quot;</span>, <span class="st">&quot;Tom&quot;</span>, <span class="st">&quot;Maximilian&quot;</span>, <span class="st">&quot;Viktor&quot;</span>, <span class="st">&quot;Marianne&quot;</span>, <span class="st">&quot;Velma&quot;</span>, <span class="st">&quot;Carl&quot;</span>,</span>
+<span id="cb56-6"><a href="tutorial-working-with-data-files.html#cb56-6" tabindex="-1"></a>  <span class="st">&quot;Wolf&quot;</span>, <span class="st">&quot;Merten&quot;</span>, <span class="st">&quot;Tong-Tong&quot;</span>, <span class="st">&quot;Sal&quot;</span>, <span class="st">&quot;Joe&quot;</span>, <span class="st">&quot;Alex&quot;</span>, <span class="st">&quot;Robin&quot;</span></span>
+<span id="cb56-7"><a href="tutorial-working-with-data-files.html#cb56-7" tabindex="-1"></a>)</span></code></pre></div>
 </div>
 <div id="subsetting-variables-columns-in-data-frames" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Subsetting variables / columns in data frames<a href="tutorial-working-with-data-files.html#subsetting-variables-columns-in-data-frames" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -694,7 +696,7 @@ These containers for variables are called <em>data frames</em> in R.</p>
 <p>Variables that are part of a data frame can be accessed by their name,
 but we need to specify the data frame <em>AND</em> the variable name and
 combine them with the access operator: <em>$</em>. This takes the form of:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="tutorial-working-with-data-files.html#cb57-1" tabindex="-1"></a>dataframe<span class="sc">$</span>variablename </span>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="tutorial-working-with-data-files.html#cb57-1" tabindex="-1"></a>dataframe<span class="sc">$</span>variablename</span>
 <span id="cb57-2"><a href="tutorial-working-with-data-files.html#cb57-2" tabindex="-1"></a><span class="co"># the first part is the container name, i.e. data frame</span></span>
 <span id="cb57-3"><a href="tutorial-working-with-data-files.html#cb57-3" tabindex="-1"></a><span class="co"># this is followed by the access operator $</span></span>
 <span id="cb57-4"><a href="tutorial-working-with-data-files.html#cb57-4" tabindex="-1"></a><span class="co"># finally, you call the variable by name</span></span></code></pre></div>
@@ -765,7 +767,7 @@ want to retrieve a vector using the <em>column index</em>, you need to provide
 two indices: one for the row that you want to select, followed by a
 comma, and one for the column. Since we want to select <em>all</em> rows, but
 only column No. 9, we need leave the row No. blank:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="tutorial-working-with-data-files.html#cb62-1" tabindex="-1"></a>survey[,<span class="dv">9</span>] <span class="co"># column index = 9</span></span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="tutorial-working-with-data-files.html#cb62-1" tabindex="-1"></a>survey[, <span class="dv">9</span>] <span class="co"># column index = 9</span></span></code></pre></div>
 <pre><code>##  [1] &quot;Rosalie&quot;    &quot;Laurens&quot;    &quot;Florian&quot;    &quot;Chantal&quot;    &quot;Cynthia&quot;   
 ##  [6] &quot;Paul&quot;       &quot;Jonas&quot;      &quot;Tanja&quot;      &quot;David&quot;      &quot;Ferdinand&quot; 
 ## [11] &quot;Caroline&quot;   &quot;Charline&quot;   &quot;Sev&quot;        &quot;Theodor&quot;    &quot;Helke&quot;     
@@ -780,7 +782,7 @@ only column No. 9, we need leave the row No. blank:</p>
 <p>Using the same indexing technique, you can also select an entire row
 (i.e., journalist) by providing a <em>row index</em> and leaving the column
 index blank:</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="tutorial-working-with-data-files.html#cb64-1" tabindex="-1"></a>survey[<span class="dv">1</span>,] <span class="co"># row index = 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="tutorial-working-with-data-files.html#cb64-1" tabindex="-1"></a>survey[<span class="dv">1</span>, ] <span class="co"># row index = 1</span></span></code></pre></div>
 <pre><code>##   country    reach employment temp_contract autonomy_selection work_experience
 ## 1 Germany National  Full-time     Permanent                  5              10
 ##   trust_parliament trust_government    name
@@ -798,12 +800,12 @@ data, which is <em>Rosalie</em>, you can use the following code:</p>
 index instead of the column name?</p>
 <p>You can enter the row index first, followed by a comma, and then finish
 with the column index, like this:</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="tutorial-working-with-data-files.html#cb68-1" tabindex="-1"></a>survey[<span class="dv">1</span>,<span class="dv">9</span>] <span class="co"># row index = 1, column index = 9</span></span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="tutorial-working-with-data-files.html#cb68-1" tabindex="-1"></a>survey[<span class="dv">1</span>, <span class="dv">9</span>] <span class="co"># row index = 1, column index = 9</span></span></code></pre></div>
 <pre><code>## [1] &quot;Rosalie&quot;</code></pre>
 <p>Of course, you can use complex indexing on data frames. Let’s look at
 the first ten rows of the eighth (<em>trust_government</em>) and ninth (<em>name</em>)
 column:</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="tutorial-working-with-data-files.html#cb70-1" tabindex="-1"></a>survey[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">8</span><span class="sc">:</span><span class="dv">9</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="tutorial-working-with-data-files.html#cb70-1" tabindex="-1"></a>survey[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">8</span><span class="sc">:</span><span class="dv">9</span>]</span></code></pre></div>
 <pre><code>##    trust_government      name
 ## 1                 3   Rosalie
 ## 2                 4   Laurens
@@ -817,7 +819,7 @@ column:</p>
 ## 10                3 Ferdinand</code></pre>
 <p>Or select the second ten rows of the sixth (<em>work_experience</em>) and ninth
 (<em>name</em>) column:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="tutorial-working-with-data-files.html#cb72-1" tabindex="-1"></a>survey[<span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>,<span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">9</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="tutorial-working-with-data-files.html#cb72-1" tabindex="-1"></a>survey[<span class="dv">10</span><span class="sc">:</span><span class="dv">20</span>, <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">9</span>)]</span></code></pre></div>
 <pre><code>##    work_experience      name
 ## 10               4 Ferdinand
 ## 11               8  Caroline
@@ -836,7 +838,7 @@ column:</p>
 <p>Let’s say we want to select all names of journalists who have a work
 experience of at least 25 years. This time, we’ll need to use a
 <em>condition</em> to select our rows:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="tutorial-working-with-data-files.html#cb74-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span>,<span class="dv">9</span>] </span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="tutorial-working-with-data-files.html#cb74-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span>, <span class="dv">9</span>]</span></code></pre></div>
 <pre><code>##  [1] &quot;Paul&quot;       &quot;David&quot;      &quot;Charline&quot;   &quot;Joshua&quot;     &quot;Lennart&quot;   
 ##  [6] &quot;Alma&quot;       &quot;Ida&quot;        &quot;Maximilian&quot; &quot;Viktor&quot;     &quot;Marianne&quot;  
 ## [11] &quot;Merten&quot;</code></pre>
@@ -845,7 +847,7 @@ experience of at least 25 years. This time, we’ll need to use a
 <p>Alternatively, if you want to show <em>all</em> columns that belong to
 journalists who have a work experience of at least 25 years, you would
 do it like that:</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="tutorial-working-with-data-files.html#cb77-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="tutorial-working-with-data-files.html#cb77-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span>, ]</span></code></pre></div>
 <pre><code>##        country         reach employment temp_contract autonomy_selection
 ## 6  Switzerland         Local Freelancer          &lt;NA&gt;                  4
 ## 9  Switzerland         Local  Full-time     Permanent                  5
@@ -871,7 +873,7 @@ do it like that:</p>
 ## 31              25                3                3   Marianne
 ## 35              29                3                3     Merten</code></pre>
 <p>Of course, you can index more than one column:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="tutorial-working-with-data-files.html#cb79-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span>,<span class="dv">8</span><span class="sc">:</span><span class="dv">9</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="tutorial-working-with-data-files.html#cb79-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span>, <span class="dv">8</span><span class="sc">:</span><span class="dv">9</span>]</span></code></pre></div>
 <pre><code>##    trust_government       name
 ## 6                 4       Paul
 ## 9                 1      David
@@ -885,7 +887,7 @@ do it like that:</p>
 ## 31                3   Marianne
 ## 35                3     Merten</code></pre>
 <p>Finally, you can use multiple conditions:</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="tutorial-working-with-data-files.html#cb81-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> survey<span class="sc">$</span>trust_government <span class="sc">&lt;</span> <span class="dv">2</span>,]</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="tutorial-working-with-data-files.html#cb81-1" tabindex="-1"></a>survey[survey<span class="sc">$</span>work_experience <span class="sc">&gt;=</span> <span class="dv">25</span> <span class="sc">&amp;</span> survey<span class="sc">$</span>trust_government <span class="sc">&lt;</span> <span class="dv">2</span>, ]</span></code></pre></div>
 <pre><code>##       country reach employment temp_contract autonomy_selection work_experience
 ## 9 Switzerland Local  Full-time     Permanent                  5              25
 ##   trust_parliament trust_government  name
@@ -963,17 +965,19 @@ kind of labels in R, you can use the <code>labelled</code> package:</p>
 <span id="cb90-2"><a href="tutorial-working-with-data-files.html#cb90-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;labelled&quot;</span>)</span>
 <span id="cb90-3"><a href="tutorial-working-with-data-files.html#cb90-3" tabindex="-1"></a><span class="fu">library</span>(labelled)</span></code></pre></div>
 <p>To add a label to a variable, use the <code>var_label()</code> function:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="tutorial-working-with-data-files.html#cb91-1" tabindex="-1"></a>var_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">country =</span> <span class="st">&quot;The journalist&#39;s country of origin&quot;</span>,</span>
-<span id="cb91-2"><a href="tutorial-working-with-data-files.html#cb91-2" tabindex="-1"></a>                <span class="at">reach =</span> <span class="st">&quot;The reach of the journalist&#39;s outlet&quot;</span>,</span>
-<span id="cb91-3"><a href="tutorial-working-with-data-files.html#cb91-3" tabindex="-1"></a>                <span class="at">employment =</span> <span class="st">&quot;The journalist&#39;s employment status&quot;</span>,</span>
-<span id="cb91-4"><a href="tutorial-working-with-data-files.html#cb91-4" tabindex="-1"></a>                <span class="at">temp_contract =</span> <span class="st">&quot;The journalist&#39;s type of contract&quot;</span>,</span>
-<span id="cb91-5"><a href="tutorial-working-with-data-files.html#cb91-5" tabindex="-1"></a>                <span class="at">autonomy_selection =</span> <span class="st">&quot;The journalist&#39;s perceived autonomy&quot;</span>,</span>
-<span id="cb91-6"><a href="tutorial-working-with-data-files.html#cb91-6" tabindex="-1"></a>                <span class="at">work_experience =</span> <span class="st">&quot;The journalist&#39;s work experience in years&quot;</span>,</span>
-<span id="cb91-7"><a href="tutorial-working-with-data-files.html#cb91-7" tabindex="-1"></a>                <span class="at">trust_parliament =</span> <span class="st">&quot;The journalist&#39;s trust in the current parliament&quot;</span>,</span>
-<span id="cb91-8"><a href="tutorial-working-with-data-files.html#cb91-8" tabindex="-1"></a>                <span class="at">trust_government =</span> <span class="st">&quot;The journalist&#39;s trust in the current government&quot;</span>) <span class="co"># Creates a vector with your variable labels</span></span>
-<span id="cb91-9"><a href="tutorial-working-with-data-files.html#cb91-9" tabindex="-1"></a><span class="fu">var_label</span>(data) <span class="ot">&lt;-</span> var_labels <span class="co"># Applies the labels to your column variables</span></span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="tutorial-working-with-data-files.html#cb91-1" tabindex="-1"></a>var_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb91-2"><a href="tutorial-working-with-data-files.html#cb91-2" tabindex="-1"></a>  <span class="at">country =</span> <span class="st">&quot;The journalist&#39;s country of origin&quot;</span>,</span>
+<span id="cb91-3"><a href="tutorial-working-with-data-files.html#cb91-3" tabindex="-1"></a>  <span class="at">reach =</span> <span class="st">&quot;The reach of the journalist&#39;s outlet&quot;</span>,</span>
+<span id="cb91-4"><a href="tutorial-working-with-data-files.html#cb91-4" tabindex="-1"></a>  <span class="at">employment =</span> <span class="st">&quot;The journalist&#39;s employment status&quot;</span>,</span>
+<span id="cb91-5"><a href="tutorial-working-with-data-files.html#cb91-5" tabindex="-1"></a>  <span class="at">temp_contract =</span> <span class="st">&quot;The journalist&#39;s type of contract&quot;</span>,</span>
+<span id="cb91-6"><a href="tutorial-working-with-data-files.html#cb91-6" tabindex="-1"></a>  <span class="at">autonomy_selection =</span> <span class="st">&quot;The journalist&#39;s perceived autonomy&quot;</span>,</span>
+<span id="cb91-7"><a href="tutorial-working-with-data-files.html#cb91-7" tabindex="-1"></a>  <span class="at">work_experience =</span> <span class="st">&quot;The journalist&#39;s work experience in years&quot;</span>,</span>
+<span id="cb91-8"><a href="tutorial-working-with-data-files.html#cb91-8" tabindex="-1"></a>  <span class="at">trust_parliament =</span> <span class="st">&quot;The journalist&#39;s trust in the current parliament&quot;</span>,</span>
+<span id="cb91-9"><a href="tutorial-working-with-data-files.html#cb91-9" tabindex="-1"></a>  <span class="at">trust_government =</span> <span class="st">&quot;The journalist&#39;s trust in the current government&quot;</span></span>
+<span id="cb91-10"><a href="tutorial-working-with-data-files.html#cb91-10" tabindex="-1"></a>) <span class="co"># Creates a vector with your variable labels</span></span>
+<span id="cb91-11"><a href="tutorial-working-with-data-files.html#cb91-11" tabindex="-1"></a><span class="fu">var_label</span>(data) <span class="ot">&lt;-</span> var_labels <span class="co"># Applies the labels to your column variables</span></span></code></pre></div>
 <p>To add value labels to a variable, use the <code>set_value_labels</code> function:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="tutorial-working-with-data-files.html#cb92-1" tabindex="-1"></a>trust_labels <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;none at all&quot;</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">&quot;a little&quot;</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">&quot;partly&quot;</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">&quot;a lot&quot;</span> <span class="ot">=</span> <span class="dv">4</span>, <span class="st">&quot;very much&quot;</span> <span class="ot">=</span> <span class="dv">5</span>)</span>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="tutorial-working-with-data-files.html#cb92-1" tabindex="-1"></a>trust_labels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;none at all&quot;</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">&quot;a little&quot;</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">&quot;partly&quot;</span> <span class="ot">=</span> <span class="dv">3</span>, <span class="st">&quot;a lot&quot;</span> <span class="ot">=</span> <span class="dv">4</span>, <span class="st">&quot;very much&quot;</span> <span class="ot">=</span> <span class="dv">5</span>)</span>
 <span id="cb92-2"><a href="tutorial-working-with-data-files.html#cb92-2" tabindex="-1"></a>data<span class="sc">$</span>trust_parliament <span class="ot">&lt;-</span> <span class="fu">set_value_labels</span>(data<span class="sc">$</span>trust_parliament, <span class="at">.labels =</span> trust_labels)</span>
 <span id="cb92-3"><a href="tutorial-working-with-data-files.html#cb92-3" tabindex="-1"></a>data<span class="sc">$</span>trust_government <span class="ot">&lt;-</span> <span class="fu">set_value_labels</span>(data<span class="sc">$</span>trust_government, <span class="at">.labels =</span> trust_labels)</span></code></pre></div>
 <p>To remove a variable label from a variable, use the <code>remove_var_label</code>
